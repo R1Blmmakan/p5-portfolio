@@ -111,7 +111,7 @@ p5-portfolio/
 │   └── Fikri_Resume_2026.pdf     # Downloadable resume PDF
 │
 ├── src/
-│   ├── data/                     # 📦 Easy-to-edit portfolio data files
+│   ├── data/                     # 📦 Typed content models & datasets
 │   │   ├── about.ts              # Bio, titles, and skill highlights
 │   │   ├── projects.ts           # Project items, arcana, links, and tags
 │   │   ├── resume.ts             # Education, skills, and certificate credentials
@@ -184,54 +184,39 @@ In the project directory, you can run:
 
 ---
 
-## ✏️ Customization Guide
+## 🧱 Architecture & Design Patterns
 
-You can easily customize this portfolio with your own details without touching the UI code! All content is cleanly separated into the `src/data/` folder:
+This application is built with modular frontend engineering principles:
 
-### 1. Update Projects
-Open [`src/data/projects.ts`](src/data/projects.ts). You can change titles, descriptions, demo links, GitHub links, arcana names, and tech badges:
-```typescript
-{
-  id: "p1",
-  arcana: "THE FOOL",
-  arcanaNum: "0",
-  title: "MY NEW PROJECT",
-  category: "FULL-STACK APP",
-  status: "ACTIVE",
-  demoUrl: "https://your-demo.vercel.app",
-  githubUrl: "https://github.com/your-username/repo",
-  image: "/mainm.webp",
-  desc: "A brief summary of what your project does.",
-  highlights: ["Feature one", "Feature two"],
-  techs: [
-    { name: "REACT", color: "#00e1ff", bg: "rgba(0,225,255,0.15)" },
-  ],
-}
-```
+### 1. 📦 Data-View Decoupling
+All application content is strictly isolated from presentation components:
+- Content resides in typed TypeScript modules within `src/data/` ([`projects.ts`](src/data/projects.ts), [`about.ts`](src/data/about.ts), [`resume.ts`](src/data/resume.ts), [`socials.ts`](src/data/socials.ts)).
+- Strict interface contracts in [`src/types/portfolio.ts`](src/types/portfolio.ts) ensure compile-time type safety across all components.
 
-### 2. Update About & Bio
-Open [`src/data/about.ts`](src/data/about.ts) to edit your bio text, role title, and skills summary.
+### 2. ⚡ GPU-Accelerated Visuals & Motion
+- **Dynamic Skews & Polygons**: High-energy menu angles are rendered with hardware-accelerated CSS `clip-path: polygon(...)` and `transform: skewX(...)` rather than static image assets.
+- **Motion Orchestration**: Complex route transitions in [`PageTransition.tsx`](src/PageTransition.tsx) leverage **Framer Motion** for staggered multi-layer entrance and exit states.
+- **Performance Layering**: Looping video backgrounds are contained in isolated stacking contexts via [`VideoOverlay.tsx`](src/VideoOverlay.tsx) to preserve a smooth 60 FPS navigation experience.
 
-### 3. Update Resume & Certificates
-Open [`src/data/resume.ts`](src/data/resume.ts) to adjust your education history, skill levels, and verifiable certificate awards. Put your updated PDF file in `/public/Fikri_Resume_2026.pdf` (or rename the reference in [`src/ResumePage.tsx`](src/ResumePage.tsx)).
-
-### 4. Update Socials & Email
-Open [`src/data/socials.ts`](src/data/socials.ts) to update your email address, GitHub handle, and social links.
+### 3. 🎮 Multi-Modal Navigation
+The interface responds dynamically to multiple input modalities:
+- Full **keyboard navigation** (Arrow keys, Enter, Escape, Q/E, Backspace).
+- Touch swipe gestures for mobile viewports.
+- Standard mouse hover and click interactions.
 
 ---
 
-## 🚢 Deployment
+## 🚢 Production Build & Deployment
 
-This project is configured to deploy effortlessly on any static hosting platform:
+To generate an optimized production bundle:
 
-### Deploy to Vercel (Recommended)
-1. Push your code to GitHub.
-2. Go to [Vercel](https://vercel.com/) and click **"Add New Project"**.
-3. Import your `p5-portfolio` repository.
-4. Keep default settings (Framework Preset: **Vite**, Build Command: `npm run build`, Output Directory: `dist`).
-5. Click **Deploy**.
+```bash
+npm run build
+```
 
-> **Note for Client-Side Routing:** If you are deploying on Vercel, ensure a `vercel.json` or rewrite rule redirects all routes `/*` to `/index.html` so direct navigation to `/about` or `/projects` works smoothly.
+The output will be placed in the `/dist` directory, ready for deployment to any modern static hosting platform (Vercel, Netlify, Cloudflare Pages, etc.).
+
+> **Client-Side Routing:** Ensure your hosting provider has a rewrite rule redirecting all requests (`/*`) to `/index.html` so direct navigation to sub-routes works without 404s.
 
 ---
 
