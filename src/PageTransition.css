@@ -1,0 +1,29 @@
+.p5-transition-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.p5-transition-overlay-item {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.p5-transition-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 9998;
+  pointer-events: none;
+  animation: p5-flash-fade 0.2s ease-out forwards;
+}
+
+@keyframes p5-flash-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

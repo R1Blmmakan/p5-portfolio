@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'Persona5';
+  src: url('/Persona5main.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --p3-dark-blue: #041026;
+  --p3-navy: #092042;
+  --p3-cyan: #00e1ff;
+  --p3-blue: #1c75ff;
+  --p3-red: #ff1c44;
+  --p3-white: #f5f9ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scope non-selectable behavior to HUD, buttons, controls and overlays */
+button,
+nav,
+.p3-skew-wrap,
+.p5-transition-overlay-item,
+.p3-glow,
+.sc-nav-btn,
+.sc-nav-arrow,
+.resume-badge,
+.resume-footer,
+.pj-footer,
+.sc-footer,
+.socials-footer,
+video {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Authentic Persona 5 Crimson Text Selection */
+::selection {
+  background: #c4001a;
+  color: #ffffff;
+}
+
+html,
+body,
+#root,
+main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--p3-dark-blue);
+  color: var(--p3-white);
+  font-family: 'Persona5', 'Space Grotesk', sans-serif;
+}
