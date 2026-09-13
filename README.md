@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-13.2-FF007F?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square)](#-license--usage)
 
 ---
 
@@ -240,6 +240,19 @@ This project is configured to deploy effortlessly on any static hosting platform
 - **Aesthetic Inspiration**: UI/UX design inspired by the iconic art styles of **Persona 5** and **Persona 3 Reload** by **ATLUS / SEGA**.
 - **Font**: *Persona 5 Menu Font* and *Space Grotesk* from Google Fonts.
 - **Media**: Character cutouts and background sequences are properties of ATLUS, used for personal, non-commercial portfolio presentation.
+
+---
+
+## 📜 License & Usage
+
+**Copyright © 2026 Fikri. All Rights Reserved.**
+
+This repository and its contents are published for code review, inspection, and educational reference:
+
+- ❌ **No Direct Cloning as Your Own**: You may **not** fork, clone, or redistribute this repository to publish it as your own portfolio or commercial product.
+- 🎨 **Design & Assets**: Custom visual layouts, clip-paths, motion sequences, and personal written content are proprietary.
+- 🎭 **IP Tribute**: Character art, themes, and font styling inspired by *Persona 5* and *Persona 3 Reload* are the intellectual property of **ATLUS / SEGA**, used respectfully for personal, non-commercial showcase.
+- 💡 **Learning**: You are welcome to inspect the code to learn how the animations and layout techniques were implemented to create your own original works!
 
 ---
 
