@@ -104,7 +104,7 @@ Here is a simple breakdown of how the repository is organized:
 p5-portfolio/
 ├── public/                       # Static public assets
 │   ├── bg.mp4                    # Looping background video for main menu
-│   ├── stats.mp4                 # Background video for resume & about screens
+│   ├── newBg.mp4                 # Background video for resume & about screens
 │   ├── main3.webm                # Background video for socials
 │   ├── char1.webp - char3.webp   # Character portraits and artwork
 │   ├── Persona5main.ttf          # Persona 5 game font

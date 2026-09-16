@@ -54,10 +54,46 @@ export interface RoleInfo {
   accent: string;
 }
 
+export interface TacticalSpec {
+  label: string;
+  value: string;
+  badge?: string;
+  accent?: string;
+}
+
+export interface DialogueItem {
+  id: string;
+  topic: string;
+  question: string;
+  answer: string;
+  moodTag: string;
+  quote: string;
+}
+
+export interface ChronicleChapter {
+  numeral: string;
+  tag: string;
+  title: string;
+  subtitle: string;
+  affinity: string;
+  accent: string;
+  content: string[];
+  specs: { label: string; value: string }[];
+  tags: string[];
+}
+
+export interface RadarStat {
+  label: string;
+  value: number;
+  grade: string;
+}
+
 export interface RevealInfo {
   title: string;
   desc: string;
   sub: string;
+  specs?: TacticalSpec[];
+  radarStats?: RadarStat[];
 }
 
 export interface AboutItem {

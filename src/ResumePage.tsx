@@ -10,7 +10,7 @@ interface ResumePageProps {
   src?: string;
 }
 
-export default function ResumePage({ onBack, src = "/stats.mp4" }: ResumePageProps) {
+export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePageProps) {
   const [active, setActive] = useState<number>(0);
   const [mounted, setMounted] = useState<boolean>(false);
   const [selectedCert, setSelectedCert] = useState<DetailRow | null>(null);

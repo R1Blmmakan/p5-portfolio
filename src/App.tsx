@@ -80,7 +80,7 @@ export default function App() {
             path="/resume"
             element={
               <PageTransition key="resume" variant="resume">
-                <ResumePage onBack={() => navigate("/")} src="/stats.mp4" />
+                <ResumePage onBack={() => navigate("/")} src="/newBg.mp4" />
               </PageTransition>
             }
           />
