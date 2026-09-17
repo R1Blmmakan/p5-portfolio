@@ -7,7 +7,7 @@ export const CHRONICLES: ChronicleChapter[] = [
     title: "THE AWAKENING",
     subtitle: "Vocational Software Engineering at Metland School",
     affinity: "LEADER // CREATIVE",
-    accent: "#ffea00",
+    accent: "#e2b357",
     content: [
       "I began programming at age 14, driven by a deep fascination with how digital interfaces can evoke raw emotion. Rather than viewing code as cold technical instructions, I treat it as digital architecture and kinetic art.",
       "Currently pursuing Software Engineering (Rekayasa Perangkat Lunak) at Metland Vocational School. Balancing academic coursework with aggressive self-taught exploration into modern web engines, design systems, and resilient asynchronous architectures."
@@ -25,7 +25,7 @@ export const CHRONICLES: ChronicleChapter[] = [
     title: "FRONTEND ALCHEMY",
     subtitle: "High-Frequency Reactive Systems & Mathematical CSS",
     affinity: "MASTERY // 60FPS",
-    accent: "#00e1ff",
+    accent: "#38bdf8",
     content: [
       "Mastery over React 19, TypeScript, and modern component lifecycle orchestration. Specialized in pushing web rendering boundaries using custom CSS polygon matrices, Framer Motion springs, and GPU compositing.",
       "I prioritize sub-millisecond responsiveness: every transition, slant cut, and modal is engineered with will-change GPU layers, lazy-loaded chunk splitting, and zero-latency route prefetching."
@@ -43,7 +43,7 @@ export const CHRONICLES: ChronicleChapter[] = [
     title: "BACKEND ARCHITECTURE",
     subtitle: "Resilient APIs, Data Relational Modeling & Security",
     affinity: "ENGINEERING // RESILIENCE",
-    accent: "#ff1c44",
+    accent: "#f43f5e",
     content: [
       "A great visual experience is only as powerful as the infrastructure behind it. I architect robust backend services with Node.js and Express, following clean layered design (Controllers, Services, Repositories).",
       "Proficient in PostgreSQL database modeling, secure JWT authentication with refresh token rotation, rate-limiting, and error-handling traps that keep production endpoints stable."
@@ -61,7 +61,7 @@ export const CHRONICLES: ChronicleChapter[] = [
     title: "BATTLE RECORD",
     subtitle: "National Competition Victory & Verified Badges",
     affinity: "CHAMPION // ACCREDITED",
-    accent: "#e8c100",
+    accent: "#eab308",
     content: [
       "Earned 1st Place Champion in the National Vocational Web Craft & UI/UX Championship, recognized by the Vocational Skills Council for outstanding interface design, accessible markup, and rapid prototyping under pressure.",
       "Backed by industry credentials including BNSP Certified Junior Software Engineer (Web) and advanced certifications in modern web architecture."
@@ -79,7 +79,7 @@ export const CHRONICLES: ChronicleChapter[] = [
     title: "MISSION & WORK ETHIC",
     subtitle: "Philosophy, Apprenticeship Ambition & Target Guilds",
     affinity: "DEDICATION // FUTURE",
-    accent: "#3ce2ff",
+    accent: "#22d3ee",
     content: [
       "My objective is straightforward: join a forward-thinking engineering team, design-driven tech startup, or creative agency where I can build impactful products and level up alongside senior engineers.",
       "I bring uncompromising work ethic, quick adaptability to unfamiliar stacks, and a genuine obsession with crafting software that people remember."

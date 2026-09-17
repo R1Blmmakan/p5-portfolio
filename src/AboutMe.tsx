@@ -10,11 +10,13 @@ interface AboutMeProps {
 export default function AboutMe({ onBack }: AboutMeProps) {
   const [mounted, setMounted] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<"interview" | "chronicles">("interview");
+  const [themeMode, setThemeMode] = useState<"phantom" | "dossier">("phantom");
+  const [colorMode, setColorMode] = useState<"dark" | "light">(() => {
+    return (localStorage.getItem("p5_color_mode") as "dark" | "light") || "dark";
+  });
   const [activeDialogueId, setActiveDialogueId] = useState<string>(DIALOGUES[0].id);
   const [activeChronicleIdx, setActiveChronicleIdx] = useState<number>(0);
   const [cardTilt, setCardTilt] = useState({ x: 0, y: 0, glareX: 50, glareY: 50 });
-
-  // Mobile fallback state
   const [mobileActive, setMobileActive] = useState<number>(0);
 
   useEffect(() => {
@@ -22,10 +24,28 @@ export default function AboutMe({ onBack }: AboutMeProps) {
     return () => clearTimeout(t);
   }, []);
 
+  const handleToggleColorMode = () => {
+    setColorMode((m) => {
+      const next = m === "dark" ? "light" : "dark";
+      localStorage.setItem("p5_color_mode", next);
+      return next;
+    });
+  };
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" || e.key === "Backspace") {
         onBack?.();
+        return;
+      }
+
+      if (e.key === "d" || e.key === "D") {
+        setThemeMode((m) => (m === "phantom" ? "dossier" : "phantom"));
+        return;
+      }
+
+      if (e.key === "l" || e.key === "L") {
+        handleToggleColorMode();
         return;
       }
 
@@ -55,7 +75,7 @@ export default function AboutMe({ onBack }: AboutMeProps) {
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [viewMode, activeDialogueId, activeChronicleIdx, onBack]);
+  }, [viewMode, themeMode, colorMode, activeDialogueId, activeChronicleIdx, onBack]);
 
   const activeDialogue = DIALOGUES.find((d) => d.id === activeDialogueId) ?? DIALOGUES[0];
   const activeChronicle = CHRONICLES[activeChronicleIdx] ?? CHRONICLES[0];
@@ -65,8 +85,8 @@ export default function AboutMe({ onBack }: AboutMeProps) {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
-    const tiltX = (y - 0.5) * -18;
-    const tiltY = (x - 0.5) * 18;
+    const tiltX = (y - 0.5) * -16;
+    const tiltY = (x - 0.5) * 16;
     setCardTilt({ x: tiltX, y: tiltY, glareX: x * 100, glareY: y * 100 });
   };
 
@@ -75,9 +95,9 @@ export default function AboutMe({ onBack }: AboutMeProps) {
   };
 
   return (
-    <div className="sc-container">
+    <div className={`sc-container ${colorMode === "light" ? "light-mode" : "dark-mode"}`}>
       <video
-        className="sc-video"
+        className={`sc-video ${themeMode === "dossier" ? "dossier-video" : ""} ${colorMode === "light" ? "light-video" : ""}`}
         src="/newBg.mp4"
         autoPlay
         loop
@@ -86,7 +106,16 @@ export default function AboutMe({ onBack }: AboutMeProps) {
         preload="metadata"
         disablePictureInPicture
       />
-      <VideoOverlay darkness={0.35} />
+      <VideoOverlay
+        darkness={colorMode === "light" ? 0.12 : themeMode === "phantom" ? 0.38 : 0.85}
+        gradient={
+          colorMode === "light"
+            ? "radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(248, 250, 252, 0.72) 70%, rgba(241, 245, 249, 0.9) 100%)"
+            : themeMode === "phantom"
+            ? "radial-gradient(ellipse at 50% 50%, rgba(5, 7, 14, 0.25) 0%, rgba(5, 7, 14, 0.45) 60%, rgba(2, 4, 8, 0.7) 100%)"
+            : "linear-gradient(180deg, rgba(8, 10, 18, 0.88) 0%, rgba(4, 6, 12, 0.94) 100%)"
+        }
+      />
 
       <button
         className="sc-back-btn"
@@ -96,54 +125,84 @@ export default function AboutMe({ onBack }: AboutMeProps) {
         ◄ BACK TO MENU
       </button>
 
-      {/* ========================================================= */}
-      {/* DESKTOP VIEW: CONFIDANT SOCIAL LINK // INTERACTIVE HUB     */}
-      {/* ========================================================= */}
-      <div className={`confidant-desktop-view ${mounted ? "mounted" : ""}`}>
-        {/* Top Header Strip */}
+      <div className={`confidant-desktop-view ${mounted ? "mounted" : ""} ${themeMode === "dossier" ? "dossier-mode" : "phantom-mode"}`}>
         <div className="confidant-top-header">
           <div className="confidant-header-left">
             <span className="confidant-tag-pulse">●</span>
             <span className="confidant-header-title">
-              CONFIDANT INTERFACE // ARCANA 0: THE ARCHITECT
+              {themeMode === "phantom"
+                ? "CONFIDANT INTERFACE // ARCANA 0: THE ARCHITECT"
+                : "ENGINEERING DOSSIER // CANDIDATE: FIKRI // PRODUCTION READY"}
             </span>
           </div>
 
           <div className="confidant-header-right">
+            <button
+              type="button"
+              className={`ios-theme-pill ${colorMode === "light" ? "is-light" : "is-dark"}`}
+              onClick={handleToggleColorMode}
+              title="Toggle Light / Dark Mode [Key: L]"
+              aria-label="Toggle Light or Dark Mode"
+            >
+              <span className="ios-pill-icon sun">☀️</span>
+              <span className="ios-pill-icon moon">🌙</span>
+              <span className="ios-pill-thumb">
+                <span className="ios-pill-thumb-icon">{colorMode === "light" ? "☀️" : "🌙"}</span>
+              </span>
+            </button>
+
+            <div
+              className="confidant-theme-toggle"
+              onClick={() => setThemeMode((m) => (m === "phantom" ? "dossier" : "phantom"))}
+              title="Toggle View Mode [Key: D]"
+            >
+              <span className="theme-toggle-label">VIEW:</span>
+              <button
+                type="button"
+                className={`theme-toggle-btn ${themeMode === "phantom" ? "active phantom" : ""}`}
+              >
+                ⚔️ PHANTOM
+              </button>
+              <button
+                type="button"
+                className={`theme-toggle-btn ${themeMode === "dossier" ? "active dossier" : ""}`}
+              >
+                📋 DOSSIER
+              </button>
+            </div>
+
             <span className="confidant-affinity-stamp">AFFINITY: MASTERED</span>
             <span className="confidant-status-stamp">STATUS: PRODUCTION READY</span>
           </div>
         </div>
 
-        {/* Main Grid: Tarot Card Left vs Confidant Hub Right */}
         <div className="confidant-main-grid">
-          {/* LEFT: 3D FLOATING TAROT ARCANA CARD */}
           <div className="confidant-card-column">
             <div
               className="tarot-card-wrapper"
-              onMouseMove={handleMouseMoveCard}
+              onMouseMove={themeMode === "phantom" ? handleMouseMoveCard : undefined}
               onMouseLeave={handleMouseLeaveCard}
               style={{
-                transform: `perspective(1000px) rotateX(${cardTilt.x}deg) rotateY(${cardTilt.y}deg)`,
+                transform:
+                  themeMode === "phantom"
+                    ? `perspective(1000px) rotateX(${cardTilt.x}deg) rotateY(${cardTilt.y}deg)`
+                    : "none",
               }}
             >
-              {/* Holographic Sheen Layer */}
               <div
                 className="tarot-card-glare"
                 style={{
-                  background: `radial-gradient(circle at ${cardTilt.glareX}% ${cardTilt.glareY}%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 215, 0, 0.15) 45%, transparent 75%)`,
+                  background: `radial-gradient(circle at ${cardTilt.glareX}% ${cardTilt.glareY}%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 215, 0, 0.18) 45%, transparent 75%)`,
                 }}
               />
 
               <div className="tarot-card-inner">
-                {/* Tarot Header */}
                 <div className="tarot-card-top">
                   <span className="tarot-numeral">0</span>
                   <span className="tarot-arcana-name">THE ARCHITECT</span>
                   <span className="tarot-numeral">0</span>
                 </div>
 
-                {/* Tarot Frame & Portrait */}
                 <div className="tarot-portrait-frame">
                   <img
                     src="/mainm.webp"
@@ -156,7 +215,20 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                   <div className="tarot-frame-corner br" />
                 </div>
 
-                {/* Tarot Card Details */}
+                <div className="tarot-gauge-row">
+                  <div className="tarot-gauge-item">
+                    <span className="tarot-gauge-label">LV.</span>
+                    <span className="tarot-gauge-val">99</span>
+                  </div>
+                  <div className="tarot-gauge-bar-wrap">
+                    <div className="tarot-gauge-bar-fill" />
+                  </div>
+                  <div className="tarot-gauge-item">
+                    <span className="tarot-gauge-label">RANK</span>
+                    <span className="tarot-gauge-val">MAX</span>
+                  </div>
+                </div>
+
                 <div className="tarot-card-bottom">
                   <div className="tarot-confidant-name">FIKRI</div>
                   <div className="tarot-role-caption">FULL-STACK CREATIVE ENGINEER</div>
@@ -169,9 +241,7 @@ export default function AboutMe({ onBack }: AboutMeProps) {
             </div>
           </div>
 
-          {/* RIGHT: CONFIDANT HUB (INTERVIEW VS CHRONICLES) */}
           <div className="confidant-content-column">
-            {/* Primary Mode Switcher Tabs */}
             <div className="confidant-mode-nav">
               <button
                 className={`confidant-mode-tab ${viewMode === "interview" ? "active" : ""}`}
@@ -189,10 +259,8 @@ export default function AboutMe({ onBack }: AboutMeProps) {
               </button>
             </div>
 
-            {/* MODE A: DIRECT INTERVIEW (JRPG DIALOGUE SYSTEM) */}
             {viewMode === "interview" && (
               <div className="confidant-interview-container">
-                {/* Prompt Selector Questions */}
                 <div className="interview-prompts-label">SELECT INQUIRY TOPIC:</div>
                 <div className="interview-prompts-list">
                   {DIALOGUES.map((d) => {
@@ -211,7 +279,6 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                   })}
                 </div>
 
-                {/* Persona 5 JRPG Dialogue Box */}
                 <div key={activeDialogue.id} className="p5-dialogue-box">
                   <div className="dialogue-nameplate">
                     <span className="nameplate-avatar-cut">P5</span>
@@ -228,17 +295,15 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                   </p>
 
                   <div className="dialogue-footer-hint">
-                    <span>TOPIC: {activeDialogue.topic}</span>
+                    <span className="dialogue-topic-tag">TOPIC: {activeDialogue.topic}</span>
                     <span className="dialogue-prompt-indicator">▼ PRESS ANY OPTION TO ASK MORE</span>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* MODE B: CONFIDANT CHRONICLES (DEEP TIMELINE PILLARS) */}
             {viewMode === "chronicles" && (
               <div className="confidant-chronicles-container">
-                {/* 5 Chapters Selector Strip */}
                 <div className="chronicle-chapters-strip">
                   {CHRONICLES.map((c, idx) => {
                     const isCurrent = idx === activeChronicleIdx;
@@ -260,7 +325,6 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                   })}
                 </div>
 
-                {/* Active Chapter Details Sheet */}
                 <div key={activeChronicle.numeral} className="chronicle-detail-sheet">
                   <div className="chronicle-sheet-header">
                     <div className="chronicle-header-left">
@@ -280,14 +344,14 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                     </span>
                   </div>
 
-                  <h2 className="chronicle-title" style={{ color: activeChronicle.accent }}>
-                    {activeChronicle.title}
+                  <h2 className="chronicle-title">
+                    <span className="chronicle-accent-bar" style={{ background: activeChronicle.accent }} />
+                    <span>{activeChronicle.title}</span>
                   </h2>
                   <div className="chronicle-subtitle">
                     {activeChronicle.subtitle}
                   </div>
 
-                  {/* Body Paragraphs */}
                   <div className="chronicle-paragraphs">
                     {activeChronicle.content.map((p, i) => (
                       <p key={i} className="chronicle-p">
@@ -296,7 +360,6 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                     ))}
                   </div>
 
-                  {/* Highlights / Specs */}
                   <div className="chronicle-specs-row">
                     {activeChronicle.specs.map((s, i) => (
                       <div key={i} className="chronicle-spec-card">
@@ -306,7 +369,6 @@ export default function AboutMe({ onBack }: AboutMeProps) {
                     ))}
                   </div>
 
-                  {/* Tags */}
                   <div className="chronicle-tags-row">
                     {activeChronicle.tags.map((t) => (
                       <span key={t} className="chronicle-tag-chip" style={{ borderColor: activeChronicle.accent }}>
@@ -321,11 +383,22 @@ export default function AboutMe({ onBack }: AboutMeProps) {
         </div>
       </div>
 
-      {/* ========================================================= */}
-      {/* MOBILE PRESERVED LAYOUT (Touch & Small Screens <= 900px)   */}
-      {/* ========================================================= */}
       <div className="dossier-mobile-view">
         <div key={`nav-${mobileActive}`} className="sc-right-nav">
+          <button
+            type="button"
+            className={`ios-theme-pill mobile ${colorMode === "light" ? "is-light" : "is-dark"}`}
+            onClick={handleToggleColorMode}
+            title="Toggle Light / Dark Mode"
+            aria-label="Toggle Light or Dark Mode"
+          >
+            <span className="ios-pill-icon sun">☀️</span>
+            <span className="ios-pill-icon moon">🌙</span>
+            <span className="ios-pill-thumb">
+              <span className="ios-pill-thumb-icon">{colorMode === "light" ? "☀️" : "🌙"}</span>
+            </span>
+          </button>
+
           <button
             className="sc-nav-arrow left"
             onClick={() => setMobileActive((i) => (i - 1 + ABOUT_ITEMS.length) % ABOUT_ITEMS.length)}
@@ -387,7 +460,6 @@ export default function AboutMe({ onBack }: AboutMeProps) {
         </div>
       </div>
 
-      {/* Footer Navigation Hints */}
       <div className={`sc-footer${mounted ? " mounted" : ""}`}>
         <div className="sc-footer-row">
           <span className="sc-footer-key">TAB</span>
@@ -396,6 +468,22 @@ export default function AboutMe({ onBack }: AboutMeProps) {
         <div className="sc-footer-row">
           <span className="sc-footer-key">↑ / ↓</span>
           <span>SELECT TOPIC</span>
+        </div>
+        <div
+          className="sc-footer-row sc-footer-clickable"
+          onClick={handleToggleColorMode}
+          title="Toggle Light / Dark Mode (L)"
+        >
+          <span className="sc-footer-key">L</span>
+          <span>{colorMode === "dark" ? "LIGHT MODE" : "DARK MODE"}</span>
+        </div>
+        <div
+          className="sc-footer-row sc-footer-clickable"
+          onClick={() => setThemeMode((m) => (m === "phantom" ? "dossier" : "phantom"))}
+          title="Toggle View Mode (D)"
+        >
+          <span className="sc-footer-key">D</span>
+          <span>TOGGLE {themeMode === "phantom" ? "DOSSIER" : "PHANTOM"}</span>
         </div>
         <div
           className="sc-footer-row sc-footer-clickable"
