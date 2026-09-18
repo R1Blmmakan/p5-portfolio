@@ -98,6 +98,7 @@ export default function AboutMe({ onBack }: AboutMeProps) {
     <div className={`sc-container ${colorMode === "light" ? "light-mode" : "dark-mode"}`}>
       <video
         className={`sc-video ${themeMode === "dossier" ? "dossier-video" : ""} ${colorMode === "light" ? "light-video" : ""}`}
+        poster="/newBg_poster.webp"
         src="/newBg.mp4"
         autoPlay
         loop

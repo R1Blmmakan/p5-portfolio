@@ -14,6 +14,8 @@
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .p3-overlay {

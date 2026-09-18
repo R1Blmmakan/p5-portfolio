@@ -98,7 +98,7 @@ export default function Menu({ onNavigate }: MenuProps) {
 
   return (
     <div className="p3-root-container">
-      <video className="p3-video" src="/bg.mp4" autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
+      <video className="p3-video" poster="/bg_poster.webp" src="/bg.mp4" autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
       <VideoOverlay gradient="linear-gradient(to right, transparent 0%, transparent 45%, rgba(4, 6, 15, 0.7) 100%)" />
 
       <div className="p3-overlay">

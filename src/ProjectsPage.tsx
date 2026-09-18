@@ -60,7 +60,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <video className="pj-video-bg" src="/bg.mp4" autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
+      <video className="pj-video-bg" poster="/bg_poster.webp" src="/bg.mp4" autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
       <VideoOverlay darkness={0.42} />
 
       <button

@@ -79,6 +79,7 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
     >
       <video
         className="resume-video-bg"
+        poster="/newBg_poster.webp"
         src={src}
         autoPlay
         loop

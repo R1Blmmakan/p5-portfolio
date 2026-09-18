@@ -6,7 +6,7 @@ import { SocialItem } from "./types/portfolio";
 const char1 = "/char1.webp";
 const char2 = "/char2.webp";
 const char3 = "/char3.webp";
-const bgVideo = "/main3.webm";
+const bgVideo = "/main3.mp4";
 const newsign = "/newsign.webp";
 
 const CHARS = [char1, char2, char3, char1];
@@ -82,7 +82,7 @@ export default function Socials({ onBack }: SocialsProps) {
 
   return (
     <div className="socials-screen">
-      <video className="socials-video" src={bgVideo} autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
+      <video className="socials-video" poster="/main3_poster.webp" src={bgVideo} autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
       <div className="socials-overlay" />
 
       {toast && (
