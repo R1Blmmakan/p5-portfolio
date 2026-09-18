@@ -22,10 +22,19 @@ export interface ProjectItem {
 export interface DetailRow {
   index: string;
   title: string;
-  status: string;
-  statusClass: string;
+  subtitle?: string;
+  organization?: string;
+  period?: string;
+  badge?: string;
+  badgeType?: "gold" | "red" | "dark" | "default";
+  description?: string;
+  bullets?: string[];
+  tags?: string[];
+  status?: string;
+  statusClass?: string;
   issuer?: string;
   year?: string;
+  credentialId?: string;
 }
 
 export interface CategoryDetails {
@@ -33,16 +42,17 @@ export interface CategoryDetails {
   topTitle: string;
   topProgress: string;
   rows: DetailRow[];
-  bottomTitle: string;
-  bullets: string[];
+  bottomTitle?: string;
+  bullets?: string[];
 }
 
 export interface ResumeItem {
   id: string;
   badge: string;
+  code?: string;
   title: string;
   subtitle: string;
-  rank: number;
+  rank?: number;
   charImg: string;
   details: CategoryDetails;
 }

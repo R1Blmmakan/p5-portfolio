@@ -112,7 +112,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           </button>
         </div>
 
-        {/* Categories Stack */}
         <div className="resume-stack">
           <div className={`resume-list-tag${mounted ? " mounted" : ""}`}>LIST</div>
 
@@ -136,10 +135,7 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
 
                   <div className="resume-card-inner">
                     <div className="resume-title">{item.title}</div>
-                    <div className="resume-rank">
-                      <div className="resume-rank-label">RANK</div>
-                      <div className="resume-rank-number">{item.rank}</div>
-                    </div>
+                    <div className="resume-code-badge">{item.code ?? `${item.badge} //`}</div>
                   </div>
 
                   <div className="resume-subtitle-bar">
@@ -153,7 +149,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           })}
         </div>
 
-        {/* Detail Panel */}
         {currentItem && (
           <div key={`panel-${currentItem.id}`} className="resume-detail-panel">
             {currentItem.charImg && (
@@ -174,43 +169,96 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
             <div className="resume-detail-list">
               {currentItem.details.rows.map((row) => (
                 <div
-                  className={`resume-detail-row ${currentItem.id === "iii" ? "clickable-cert" : ""}`}
+                  className={`resume-dossier-card ${currentItem.id === "iii" ? "clickable-cert" : ""}`}
                   key={row.index}
                   onClick={() => {
                     if (currentItem.id === "iii") {
                       setSelectedCert(row);
                     }
                   }}
-                  title={currentItem.id === "iii" ? "Click to view certificate" : undefined}
+                  title={currentItem.id === "iii" ? "Click to view certificate dossier" : undefined}
                 >
-                  <div className="resume-detail-row-index">{row.index}</div>
-                  <div className="resume-detail-row-title">
-                    {row.title}
-                    {currentItem.id === "iii" && (
-                      <span className="resume-cert-hint"> 🔍 VIEW</span>
-                    )}
+                  <div className="resume-dossier-head">
+                    <div className="resume-dossier-num">{row.index}</div>
+                    <div className="resume-dossier-titles">
+                      <div className="resume-dossier-title">
+                        {row.title}
+                        {currentItem.id === "iii" && (
+                          <span className="resume-cert-hint">🔍 VIEW DOSSIER</span>
+                        )}
+                      </div>
+                      {(row.subtitle || row.organization) && (
+                        <div className="resume-dossier-sub">
+                          {row.organization && (
+                            <span className="resume-dossier-org">{row.organization}</span>
+                          )}
+                          {row.organization && row.subtitle && (
+                            <span className="resume-dossier-sep">•</span>
+                          )}
+                          {row.subtitle && (
+                            <span>{row.subtitle}</span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="resume-dossier-meta">
+                      {row.period && (
+                        <span className="resume-dossier-period">{row.period}</span>
+                      )}
+                      {row.badge && (
+                        <span className={`resume-dossier-badge ${row.badgeType ?? "gold"}`}>
+                          {row.badge}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                  <div className={`resume-detail-status ${row.statusClass}`}>
-                    {row.status}
-                  </div>
+
+                  {row.description && (
+                    <p className="resume-dossier-desc">{row.description}</p>
+                  )}
+
+                  {row.bullets && row.bullets.length > 0 && (
+                    <ul className="resume-dossier-bullets">
+                      {row.bullets.map((bullet, idx) => (
+                        <li className="resume-dossier-bullet-item" key={idx}>
+                          <span className="resume-dossier-bullet-icon">▸</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {row.tags && row.tags.length > 0 && (
+                    <div className="resume-dossier-tags">
+                      {row.tags.map((tag, idx) => (
+                        <span className="resume-dossier-tag" key={idx}>
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
 
-            <div className="resume-detail-bottom">
-              <div className="resume-detail-bottom-title">{currentItem.details.bottomTitle}</div>
-              <div className="resume-detail-bullets">
-                {currentItem.details.bullets.map((bullet, idx) => (
-                  <div className="resume-detail-bullet" key={idx}>
-                    <span>{bullet}</span>
+            {currentItem.details.bottomTitle && (
+              <div className="resume-detail-bottom">
+                <div className="resume-detail-bottom-title">{currentItem.details.bottomTitle}</div>
+                {currentItem.details.bullets && (
+                  <div className="resume-detail-bullets">
+                    {currentItem.details.bullets.map((bullet, idx) => (
+                      <div className="resume-detail-bullet" key={idx}>
+                        <span>{bullet}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            </div>
+            )}
           </div>
         )}
 
-        {/* Footer */}
         <div className={`resume-footer${mounted ? " mounted" : ""}`}>
           <div className="resume-footer-row">
             <span className="resume-footer-key">↑↓</span>
@@ -226,7 +274,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
         </div>
       </div>
 
-      {/* Certificate Modal / Lightbox */}
       {selectedCert && (
         <div className="resume-cert-modal" onClick={() => setSelectedCert(null)}>
           <div className="resume-cert-box" onClick={(e) => e.stopPropagation()}>
@@ -244,13 +291,17 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
               <div className="resume-cert-stamp">VERIFIED</div>
               <h3 className="resume-cert-name">{selectedCert.title}</h3>
               <p className="resume-cert-issuer">
-                ISSUED BY: <strong>{selectedCert.issuer ?? "Accredited Technical Board"}</strong>
+                ISSUED BY: <strong>{selectedCert.issuer ?? selectedCert.organization ?? "Accredited Board"}</strong>
               </p>
               <div className="resume-cert-meta">
-                <span>YEAR: {selectedCert.year ?? "2024"}</span>
-                <span>STATUS: {selectedCert.status}</span>
+                <span>YEAR: {selectedCert.year ?? selectedCert.period ?? "2024"}</span>
+                <span>ID: {selectedCert.credentialId ?? "VERIFIED-CRED"}</span>
+                <span>STATUS: {selectedCert.badge ?? "VERIFIED"}</span>
                 <span>HOLDER: FIKRI</span>
               </div>
+              {selectedCert.description && (
+                <p className="resume-cert-desc">{selectedCert.description}</p>
+              )}
               <div className="resume-cert-barcode">
                 ||| | |||| | ||| || |||||| | |||| ||| |||| |
               </div>
