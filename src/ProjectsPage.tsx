@@ -1,202 +1,208 @@
 import { useState, useEffect } from "react";
 import "./ProjectsPage.css";
 import VideoOverlay from "./VideoOverlay";
-
 import { PROJECTS } from "./data/projects";
-
 
 interface ProjectsPageProps {
   onBack?: () => void;
 }
 
 export default function ProjectsPage({ onBack }: ProjectsPageProps) {
-  const [active, setActive] = useState<number>(0);
+  const [activeIdx, setActiveIdx] = useState<number>(0);
   const [mounted, setMounted] = useState<boolean>(false);
-
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [confirmedIdx, setConfirmedIdx] = useState<number | null>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 80);
+    const t = setTimeout(() => setMounted(true), 50);
     return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const key = e.key;
-      if (key === "ArrowDown" || key === "ArrowRight" || key.toLowerCase() === "e" || key.toLowerCase() === "d") {
-        setActive((i) => (i + 1) % PROJECTS.length);
-      } else if (key === "ArrowUp" || key.toLowerCase() === "q" || key.toLowerCase() === "a") {
-        setActive((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
-      } else if (key === "Enter") {
-        window.open(PROJECTS[active].demoUrl, "_blank");
-      } else if (key === "Escape" || key === "Backspace") {
+      const key = e.key.toLowerCase();
+      if (key === "arrowright" || key === "arrowdown" || key === "d" || key === "s") {
+        setActiveIdx((prev) => (prev + 1) % PROJECTS.length);
+      } else if (key === "arrowleft" || key === "arrowup" || key === "a" || key === "w") {
+        setActiveIdx((prev) => (prev - 1 + PROJECTS.length) % PROJECTS.length);
+      } else if (key === "enter" || key === " ") {
+        setConfirmedIdx(activeIdx);
+        setTimeout(() => {
+          setConfirmedIdx(null);
+          const current = PROJECTS[activeIdx];
+          if (current?.demoUrl) {
+            window.open(current.demoUrl, "_blank");
+          }
+        }, 220);
+      } else if (key === "g") {
+        const current = PROJECTS[activeIdx];
+        if (current?.githubUrl) {
+          window.open(current.githubUrl, "_blank");
+        }
+      } else if (key === "escape" || key === "backspace") {
         onBack?.();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [active, onBack]);
+  }, [activeIdx, onBack]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return;
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (diff > 45) {
-      setActive((i) => (i + 1) % PROJECTS.length);
-    } else if (diff < -45) {
-      setActive((i) => (i - 1 + PROJECTS.length) % PROJECTS.length);
-    }
-    setTouchStartX(null);
-  };
-
-  const current = PROJECTS[active];
+  const current = PROJECTS[activeIdx] || PROJECTS[0];
 
   return (
-    <div
-      className="pj-screen"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <video className="pj-video-bg" poster="/bg_poster.webp" src="/bg.mp4" autoPlay loop muted playsInline preload="metadata" disablePictureInPicture />
-      <VideoOverlay darkness={0.42} />
+    <div className={`p5-deck-stage ${mounted ? "mounted" : ""}`}>
+      <video
+        className="p5-deck-bg-video"
+        poster="/newBg_poster.webp"
+        src="/newBg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        disablePictureInPicture
+      />
+      <VideoOverlay
+        gradient="radial-gradient(ellipse at 75% 50%, rgba(230, 0, 18, 0.2) 0%, transparent 65%), linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.35) 100%)"
+      />
+
+      <div className="p5-deck-screentone" aria-hidden="true" />
 
       <button
-        className="pj-back-btn"
+        className="p5-deck-close-btn"
         onClick={() => onBack?.()}
-        title="Return to Menu (ESC / ←)"
+        title="Return to Menu (ESC / Backspace)"
       >
-        ◄ BACK TO MENU
+        <span className="p5-btn-circle">○</span>
+        <span>CLOSE [ESC]</span>
       </button>
 
-      {/* Header Watermark */}
-      <div className={`pj-header-tag${mounted ? " mounted" : ""}`}>
-        <span className="pj-header-title">PROJECTS</span>
-        <span className="pj-header-sub">// PERSONA COMPENDIUM & DEPLOYMENTS</span>
-      </div>
-
-      {/* Main Layout Container */}
-      <div className="pj-layout">
-        {/* Left Side: Arcana Project List */}
-        <div className="pj-list">
-          {PROJECTS.map((proj, idx) => {
-            const isActive = active === idx;
-            return (
-              <div
-                key={proj.id}
-                className={`pj-card-item${isActive ? " active" : ""}${mounted ? " mounted" : ""}`}
-                style={{ transitionDelay: `${idx * 60}ms` }}
-                onClick={() => setActive(idx)}
-                onMouseEnter={() => setActive(idx)}
-              >
-                <div className="pj-card-accent" />
-                <div className="pj-card-inner">
-                  <div className="pj-arcana-badge">
-                    <span className="pj-arcana-num">{proj.arcanaNum}</span>
-                    <span className="pj-arcana-name">{proj.arcana}</span>
-                  </div>
-                  <div className="pj-card-body">
-                    <div className="pj-card-title">{proj.title}</div>
-                    <div className="pj-card-cat">{proj.category}</div>
-                  </div>
-                  <div className="pj-card-status">{proj.status}</div>
-                </div>
+      <div className="p5-deck-arena">
+        <div className="p5-deck-hero-wrapper" key={`hero-card-${current.id}`}>
+          <div className="p5-deck-hero-card">
+            <div className="p5-deck-stamp-bar">
+              <div className="p5-deck-red-stamp">
+                <span className="p5-stamp-star">★</span>
+                <span>TAKE YOUR HEART // PHANTOM CALLING CARD</span>
               </div>
-            );
-          })}
+              <div className="p5-deck-arcana-tag">
+                <span>{current.arcana} // NO. {current.arcanaNum}</span>
+              </div>
+            </div>
+
+            <h1 className="p5-deck-card-title">{current.title}</h1>
+            <div className="p5-deck-card-category">{current.category}</div>
+
+            <div className="p5-deck-preview-box">
+              <img
+                src={current.image}
+                alt={current.title}
+                className="p5-deck-preview-img"
+              />
+              <div className="p5-deck-preview-scanlines" />
+              <div className="p5-deck-preview-badge">TARGET DOSSIER // {current.status}</div>
+            </div>
+
+            <p className="p5-deck-card-desc">{current.desc}</p>
+
+            <div className="p5-deck-tech-row">
+              {current.techs.map((tech) => (
+                <span
+                  key={tech.name}
+                  className="p5-deck-tech-stamp"
+                  style={{ "--tech-color": tech.color } as React.CSSProperties}
+                >
+                  {tech.name}
+                </span>
+              ))}
+            </div>
+
+            <div className="p5-deck-action-row">
+              <a
+                href={current.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p5-deck-btn p5-deck-btn-white"
+              >
+                <span>⚔ LAUNCH DEMO [ENTER]</span>
+              </a>
+              <a
+                href={current.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p5-deck-btn p5-deck-btn-black"
+              >
+                <span>⚡ SOURCE CODE [G]</span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* Right Side: Velvet Room Project Showcase Panel */}
-        <div key={`showcase-${current.id}`} className="pj-showcase-panel">
-          {current.image && (
-            <img className="pj-showcase-art" src={current.image} alt="" aria-hidden="true" />
-          )}
-          {/* Top Info Bar */}
-          <div className="pj-showcase-top">
-            <div className="pj-showcase-arcana">
-              <span className="pj-showcase-arcana-badge">{current.arcanaNum}</span>
-              <span>{current.arcana} ARCANA</span>
-            </div>
-            <div className="pj-showcase-status">{current.status}</div>
+        <div className="p5-deck-stack-column">
+          <div className="p5-deck-stack-header">
+            <span>INFILTRATION TARGETS ({activeIdx + 1} / {PROJECTS.length})</span>
           </div>
 
-          <h2 className="pj-showcase-title">{current.title}</h2>
-          <p className="pj-showcase-desc">{current.desc}</p>
+          <div className="p5-deck-card-stack" role="tablist" aria-label="Calling Cards Deck">
+            {PROJECTS.map((proj, idx) => {
+              const isActive = activeIdx === idx;
+              const isConfirmed = confirmedIdx === idx;
+              const cardTilt = [-3, 1, -2, 2][idx % 4];
 
-          {/* Tech Affinity Row */}
-          <div className="pj-tech-section">
-            <div className="pj-section-label">AFFINITY / TECH STACK</div>
-            <div className="pj-tech-grid">
-              {current.techs.map((tech) => (
+              return (
                 <div
-                  key={tech.name}
-                  className="pj-tech-pill"
+                  key={proj.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`p5-deck-mini-card${isActive ? " active" : ""}${
+                    isConfirmed ? " confirmed" : ""
+                  }`}
                   style={{
-                    borderColor: tech.color,
-                    color: tech.color,
-                    background: tech.bg,
+                    "--card-tilt": `${cardTilt}deg`,
+                  } as React.CSSProperties}
+                  onClick={() => {
+                    setActiveIdx(idx);
+                    setConfirmedIdx(idx);
+                    setTimeout(() => setConfirmedIdx(null), 220);
                   }}
+                  onMouseEnter={() => setActiveIdx(idx)}
                 >
-                  <span className="pj-tech-dot" style={{ background: tech.color }} />
-                  {tech.name}
+                  <div className="p5-mini-card-inner">
+                    <div className="p5-mini-header">
+                      <span className="p5-mini-arcana">ARCANA {proj.arcanaNum}</span>
+                      <span className="p5-mini-tag">★ TARGET 0{idx + 1}</span>
+                    </div>
+                    <div className="p5-mini-title">{proj.title}</div>
+                    <div className="p5-mini-footer">
+                      <span className="p5-mini-status">{proj.status}</span>
+                      {isActive && <span className="p5-mini-selected-badge">ACTIVE</span>}
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Key Architectural Highlights */}
-          <div className="pj-highlights-section">
-            <div className="pj-section-label">SPECIFICATIONS & HIGHLIGHTS</div>
-            <ul className="pj-highlights-list">
-              {current.highlights.map((item, i) => (
-                <li key={i} className="pj-highlight-item">
-                  <span className="pj-highlight-marker">►</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="pj-actions">
-            <a
-              href={current.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pj-btn pj-btn-glow"
-            >
-              <span>⚔️ SUMMON / LIVE DEMO</span>
-            </a>
-            <a
-              href={current.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pj-btn pj-btn-outline"
-            >
-              <span>📜 VIEW SOURCE (GITHUB)</span>
-            </a>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Footer Controls Guide */}
-      <div className={`pj-footer${mounted ? " mounted" : ""}`}>
-        <div className="pj-footer-row">
-          <span className="pj-footer-key">↑↓</span>
-          <span>SELECT PROJECT</span>
+      <div className="p5-deck-footer">
+        <div className="p5-footer-item">
+          <span className="p5-footer-key">↑↓ / ←→</span>
+          <span className="p5-footer-desc">FLIP CARD</span>
         </div>
-        <div className="pj-footer-row">
-          <span className="pj-footer-key">↵</span>
-          <span>LAUNCH DEMO</span>
+        <div className="p5-footer-item">
+          <span className="p5-footer-glyph">✕</span>
+          <span className="p5-footer-desc">LAUNCH [ENTER]</span>
+        </div>
+        <div className="p5-footer-item">
+          <span className="p5-footer-glyph">□</span>
+          <span className="p5-footer-desc">SOURCE [G]</span>
         </div>
         <div
-          className="pj-footer-row pj-footer-clickable"
+          className="p5-footer-item p5-footer-clickable"
           onClick={() => onBack?.()}
         >
-          <span className="pj-footer-key">ESC / ←</span>
-          <span>BACK TO MENU</span>
+          <span className="p5-footer-glyph">○</span>
+          <span className="p5-footer-desc">BACK [ESC]</span>
         </div>
       </div>
     </div>

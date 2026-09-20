@@ -1,12 +1,13 @@
-.p3-root-container {
+.p5-battle-container {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #04060f;
+  background: #06080e;
   overflow: hidden;
+  user-select: none;
 }
 
-.p3-video {
+.p5-battle-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -18,329 +19,285 @@
   will-change: transform;
 }
 
-.p3-overlay {
+.p5-battle-overlay {
   position: absolute;
   inset: 0;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
-.p3-stripe {
+.p5-battle-overlay.mounted {
+  opacity: 1;
+}
+
+.p5-header-dossier {
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background: #c4001a;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.p3-stripe2 {
-  position: absolute;
-  right: 9px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(245, 122, 139, 0.22);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.p3-menu {
-  position: relative;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(14px, 2.2vh, 24px);
+  top: clamp(24px, 4vh, 48px);
+  left: clamp(20px, 4.5vw, 64px);
+  z-index: 25;
   pointer-events: all;
-  transform-origin: center center;
-  transition: transform 0.2s ease;
 }
 
-@media (max-width: 1400px), (max-height: 850px) {
-  .p3-menu {
-    transform: scale(0.85);
-  }
-}
-
-@media (max-width: 1150px), (max-height: 700px) {
-  .p3-menu {
-    transform: scale(0.72);
-  }
-}
-
-@media (max-width: 950px), (max-height: 580px) {
-  .p3-menu {
-    transform: scale(0.62);
-    gap: 16px;
-  }
-}
-
-@media (max-height: 480px) {
-  .p3-menu {
-    transform: scale(0.54);
-    gap: 14px;
-    margin-top: 10px;
-  }
-  .p3-name-tag {
-    transform: rotate(12deg) scale(0.65) !important;
-    top: 10px !important;
-    left: 14px !important;
-  }
-  .p3-hint {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .p3-menu {
-    transform: scale(0.52);
-    margin-top: 45px;
-    gap: 18px;
-  }
-  .p3-name-tag {
-    transform: rotate(12deg) scale(0.62);
-    transform-origin: left top;
-    top: 14px;
-    left: 14px;
-  }
-}
-
-@media (max-width: 400px) {
-  .p3-menu {
-    transform: scale(0.46);
-    margin-top: 55px;
-    gap: 16px;
-  }
-  .p3-name-tag {
-    transform: rotate(10deg) scale(0.52);
-    transform-origin: left top;
-  }
-}
-
-
-.p3-row {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  text-decoration: none;
-  opacity: 0;
-  transform: translateX(36px);
-  padding: 6px 14px;
-  min-height: 48px;
-  will-change: transform, opacity;
-  transition:
-    opacity 0.38s ease,
-    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.p3-row.mounted {
-  opacity: 1 !important;
-  transform: translateX(0) !important;
-}
-
-.p3-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 200%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 100, 180, 0.35) 0%,
-    transparent 70%
-  );
-  filter: blur(18px);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.p3-row.active .p3-glow {
-  opacity: 1;
-}
-
-.p3-skew-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  isolation: isolate;
-  transform: translateZ(0);
-}
-
-@keyframes p3-shadow-pop {
-  0% {
-    transform: translateY(-40%) translateX(-12px) scaleX(0) scaleY(1);
-  }
-  55% {
-    transform: translateY(-46%) translateX(-15px) scaleX(1.22) scaleY(1.18);
-  }
-  75% {
-    transform: translateY(-39%) translateX(-11px) scaleX(0.96) scaleY(0.97);
-  }
-  100% {
-    transform: translateY(-40%) translateX(-12px) scaleX(1) scaleY(1);
-  }
-}
-
-.p3-shadow-tri {
-  position: absolute;
-  top: 50%;
-  transform-origin: left center;
-  background: rgba(235, 80, 120, 0.85);
-  z-index: 1;
-  pointer-events: none;
-  transform: translateY(-40%) translateX(-12px) scaleX(0);
-  transition: transform 0.18s ease;
-  will-change: transform;
-}
-
-.p3-shadow-tri.pop {
-  animation: p3-shadow-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.p3-highlight {
-  position: absolute;
-  top: 50%;
-  transform-origin: left center;
-  background: #ffffff;
-  z-index: 2;
-  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-  will-change: transform;
-}
-
-.p3-label-wrap {
-  position: relative;
-  z-index: 3;
-}
-
-.p3-label-base {
-  font-family: "Anton", sans-serif;
+.p5-header-name {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
   font-style: italic;
+  font-size: clamp(38px, 4.8vw, 64px);
+  line-height: 0.9;
   letter-spacing: 2px;
-  line-height: 0.85;
-  display: block;
-  white-space: nowrap;
-  user-select: none;
+  color: #ffffff;
+  text-shadow: 4px 4px 0px #000000, 7px 7px 0px #e60012;
 }
 
-.p3-label-dark {
-  color: #3ce2ff;
-  transition: color 0.12s ease;
-}
-
-.p3-row.active .p3-label-dark {
-  color: #6b0010;
-}
-
-.p3-row:hover:not(.active) .p3-label-dark {
-  color: #00d9ff;
-}
-
-.p3-label-bright {
-  color: #ff2a2a;
+.p5-manga-deck {
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.12s ease;
+  top: 54%;
+  left: clamp(20px, 4.5vw, 64px);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: clamp(380px, 48vw, 680px);
+  height: clamp(340px, 48vh, 460px);
+  z-index: 25;
+  pointer-events: all;
 }
 
-.p3-row.active .p3-label-bright {
-  opacity: 1;
-}
-
-.p3-hint {
-  position: absolute;
-  bottom: clamp(12px, 2.5vh, 24px);
-  right: clamp(14px, 2.5vw, 28px);
-  z-index: 20;
+.p5-manga-slice {
+  position: relative;
+  flex: 1;
+  min-width: 62px;
+  background: #000000;
+  border: 3px solid #ffffff;
+  border-radius: 0px;
+  transform: skewX(-10deg);
+  transform-origin: center center;
+  box-shadow: 6px 6px 0px #000000;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  font-family: "Anton", sans-serif;
-  opacity: 0;
-  transition: opacity 0.5s ease 0.9s;
+  justify-content: space-between;
+  transition: flex 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
 }
 
-.p3-hint.mounted {
+.p5-manga-slice:hover {
+  border-color: #ffea00;
+  transform: skewX(-10deg) translateY(-6px);
+  box-shadow: 8px 8px 0px #000000, 12px 12px 0px rgba(230, 0, 18, 0.4);
+}
+
+.p5-manga-slice.active {
+  flex: 4.2;
+  background: #e60012;
+  border-color: #ffffff;
+  transform: skewX(-10deg) translateY(-8px) scale(1.02);
+  box-shadow: 10px 10px 0px #000000, 16px 16px 0px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.p5-manga-halftone {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 7px 7px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p5-manga-slice.active .p5-manga-halftone {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.22) 1.5px, transparent 1.5px);
+}
+
+.p5-manga-speedline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    rgba(255, 255, 255, 0.04) 12px,
+    rgba(255, 255, 255, 0.04) 14px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p5-manga-slice.active .p5-manga-speedline {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.08) 10px,
+    rgba(0, 0, 0, 0.08) 12px
+  );
+}
+
+.p5-manga-collapsed-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 22px 8px;
+  transform: skewX(10deg);
+  z-index: 2;
   opacity: 1;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
-.p3-hint-row {
+.p5-manga-slice.active .p5-manga-collapsed-view {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.p5-manga-num-badge {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #ffea00;
+  text-shadow: 2px 2px 0px #000000;
+}
+
+.p5-manga-vertical-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 24px);
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #000000;
+}
+
+.p5-manga-expanded-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(20px, 3vh, 32px) clamp(24px, 3vw, 38px);
+  transform: skewX(10deg);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease 0.05s;
+}
+
+.p5-manga-slice.active .p5-manga-expanded-view {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.p5-manga-top-badge {
+  display: flex;
+  align-items: center;
+}
+
+.p5-manga-num-tag {
+  background: #000000;
+  color: #ffea00;
+  font-family: 'Anton', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  padding: 2px 10px;
+  box-shadow: 2.5px 2.5px 0px #000000;
+}
+
+.p5-manga-center-hero {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p5-manga-hero-title {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(38px, 4.4vw, 62px);
+  letter-spacing: 2px;
+  color: #ffffff;
+  line-height: 0.92;
+  text-shadow: 4px 4px 0px #000000;
+}
+
+.p5-manga-hero-sub {
+  font-family: 'Space Grotesk', monospace;
+  font-size: clamp(11.5px, 1.1vw, 13.5px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffea00;
+  text-shadow: 2px 2px 0px #000000;
+}
+
+.p5-manga-slash-accent {
+  position: absolute;
+  top: -20%;
+  right: -10px;
+  width: 6px;
+  height: 140%;
+  background: #ffffff;
+  transform: rotate(15deg);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.p5-footer-controls {
+  position: absolute;
+  bottom: clamp(20px, 3vh, 36px);
+  left: clamp(20px, 4.5vw, 64px);
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  pointer-events: all;
+}
+
+.p5-control-pill {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.28);
+  background: #000000;
+  border: 1.5px solid #ffffff;
+  padding: 4px 12px;
+  box-shadow: 3px 3px 0px #000000;
 }
 
-.p3-hint-key {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-  padding: 1px 6px;
-  font-size: 11px;
-}
-
-.p3-name-tag {
-  position: absolute;
-  top: clamp(12px, 2.2vh, 22px);
-  left: clamp(14px, 2.2vw, 28px);
-  z-index: 20;
-  font-family: "Anton", sans-serif;
-  font-style: italic;
-  font-size: clamp(48px, 6vw, 108px);
-  line-height: 0.88;
-  letter-spacing: 2px;
-  color: rgba(10, 10, 14, 0.64);
-  transform: rotate(18deg);
-  transform-origin: left top;
-  user-select: none;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.p3-name-tag span:first-child {
-  color: rgba(0, 0, 0, 0.86);
-}
-
-.p3-info-badge {
-  margin-top: clamp(8px, 1.5vh, 16px);
-  margin-left: clamp(16px, 2.5vw, 27px);
-  background: linear-gradient(
-    to right,
-    rgba(10, 10, 15, 0.8) 75%,
-    transparent 100%
-  );
-  padding: clamp(4px, 1vh, 8px) clamp(16px, 2.5vw, 36px) clamp(4px, 1vh, 8px)
-    clamp(10px, 1.5vw, 16px);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.p3-info-badge p {
-  font-family: "Anton", sans-serif;
-  font-style: italic;
-  font-size: clamp(11px, 1.1vw, 15px);
-  line-height: 1.2;
+.p5-key-badge {
+  background: #e60012;
+  color: #ffffff;
+  font-family: 'Anton', sans-serif;
+  font-size: 11.5px;
   letter-spacing: 1px;
-  color: #ffea00;
-  white-space: nowrap;
+  padding: 1px 6px;
+}
+
+.p5-key-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .p5-manga-deck {
+    width: 94vw;
+    left: 3vw;
+    height: clamp(320px, 46vh, 420px);
+  }
+  .p5-manga-hero-title {
+    font-size: 30px;
+  }
 }
