@@ -1,253 +1,217 @@
-# 🎭 Persona 5 Portfolio (P5 Portfolio)
+# 🎭 Persona 5 Manga Dossier // Portfolio Web
 
-> An immersive, JRPG-inspired developer portfolio inspired by the bold visual aesthetics of **Persona 5** and **Persona 3 Reload**. Built with **React 19**, **TypeScript**, **Framer Motion**, and pure modern **CSS**.
+> A high-voltage, JRPG-inspired developer portfolio engineered with **React 19**, **TypeScript**, **Framer Motion**, and pure mathematical **CSS**. Built in the authentic visual style of **Persona 5** and **Persona 3 Reload**, structured as a classified manga dossier.
 
 [![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-13.2-FF007F?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square)](#-license--usage)
+[![Oxlint](https://img.shields.io/badge/Linter-Oxlint-blue?style=flat-square)](https://oxc.rs/)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square)](#-license--proprietary-terms)
 
 ---
 
-## 🌟 Overview
+## 🌟 Concept & Design Philosophy
 
-Most portfolio websites follow the same standard layout: a top navigation bar, a hero banner, and a grid of cards. 
+Generic developer portfolios rely on the same predictable blueprint: a neutral top navbar, centered hero text, and a quiet grid of cards.
 
-**This portfolio is designed to feel like a video game.**
+**This portfolio is engineered like an interactive console game.**
 
-Inspired by the stylish menus, snappy transitions, and high-contrast typography of ATLUS's *Persona* franchise, this website transforms a typical developer resume into an interactive experience. Visitors can navigate using their **keyboard**, **mouse**, or **touch gestures**, just like browsing an in-game status menu.
+Inspired by ATLUS's signature JRPG menus, high-contrast typography, and dynamic comic panel transitions, this application transforms technical credentials, competition records, and production projects into an interactive **Classified Manga Dossier**.
+
+### Three Design Dials (from `DESIGN.md`)
+- **ENERGY 3 (Bold)**: High-voltage rebellion, sharp comic frame angles, classified archive tape strips, and high-contrast color collisions. No washed-out neutrals.
+- **RHYTHM 3 (Asymmetric)**: Varied manga panels, diagonal cut-outs, telemetry metadata tags, and narrative chapters.
+- **MOTION 2 (Kinetic with Restraint)**: Hardware-accelerated entrance transitions and 60 FPS GPU hover states. Motion serves user interaction rather than endless idle loops.
+
+### Color Tokens
+- **Base Neutral**: `#000000` (Pitch Black), `#040508` (Dark Stage)
+- **Primary Signal**: `#e60012` (Persona Crimson Red)
+- **Structural White**: `#ffffff` (High-contrast manga borders and display headers)
+- **Disciplined Accents**: `#ffea00` (Hazard Gold for credentials/honors), `#00e1ff` (Persona 3 Cyan for system telemetry)
 
 ---
 
-## ✨ Key Features
+## 🎮 Core Dossiers & Features
 
-### 1. 🎮 Gamepad & Keyboard Navigation
-You don't need a mouse to explore. The entire application responds to intuitive keyboard keys (Arrow keys, Enter, Escape, Q/E, and Backspace) and mobile swipe gestures.
+### 1. ⚡ The Phantom Menu (`/`)
+- Dynamic skew angles rendered through custom CSS `clip-path` polygon mathematics.
+- Looping video reel with radial darkening overlay masks to maintain 60 FPS performance.
+- Sub-route prefetching ensuring zero-latency transitions when entering dossiers.
+- Full keyboard and mobile touch support.
 
-### 2. ⚡ The Phantom Menu (Home Screen)
-- Skewed, dynamic angle layout replicated with pure CSS clip-paths.
-- Smooth mouse hover animations and reactive sound/motion cues.
-- Background looping game reel with high-performance overlay masks.
-- Route pre-fetching so every sub-page loads instantly without delay.
+### 2. 📂 Classified Dossier // About Me (`/about`)
+- **Chronicle Chapters**: Multi-act narrative covering Origin & Awakening, Frontend Alchemy, Systems Architecture, Battle Record, and Career Objective.
+- **Dialogue Archive**: Developer interview transcripts detailing philosophy, technical choices, and competitive edge.
+- **Manga Stage Layout**: Angled panels, halftone screentones, and caution hazard tape headers with rapid keyboard shortcuts (`ESC` / `Backspace`).
 
-### 3. 👤 Character Profile & Bio (`/about`)
-- JRPG party-member style cards highlighting bio, roles, and specialties.
-- Interactive tab switching with smooth character portraits (`.webp` optimized).
-- Responsive swipe gestures for touch devices.
-
-### 4. 📜 Persona Status & Resume (`/resume`)
-- Divided into categories: **Education**, **Skills**, **Certificates**, and **Experiences**.
-- **Interactive Certificate Dossier**: Click on any listed certificate to open an in-game inspection modal complete with issuer, year, and verification badge.
-- **One-Click CV Download**: Direct button to download the latest PDF resume (`/Fikri_Resume_2026.pdf`).
-
-### 5. 🃏 Arcana Projects Showcase (`/projects`)
-- Projects categorized by **Tarot Arcana** (The Fool, The Magician, The Emperor, The Chariot).
+### 3. 🃏 Tarot Arcana Projects Vault (`/projects` & `/sideproj`)
+- Projects categorized under Tarot Arcana (The Fool, The Magician, The Emperor, The Chariot).
 - Tech stack affinity chips with customized glowing color schemes.
-- Direct links to **Live Demos** and **GitHub source code**.
-- Keyboard and touch swipe support to switch projects fluidly.
+- Direct links to Live Production Demos and GitHub repositories.
+- Fluid keyboard cycling (<kbd>←</kbd> / <kbd>→</kbd> or <kbd>A</kbd> / <kbd>D</kbd>) and touch swipe support.
 
-### 6. 🌐 Socials & Guild Network (`/socials`)
-- Persona-style contact hub (Email, GitHub, Instagram, TikTok).
-- **One-Click Email Copy**: Clicking the email automatically copies `fikripricahyadi10@gmail.com` to the clipboard and displays a game-styled toast notification.
-- Dual-column keyboard navigation (switch between social profiles and external links).
+### 4. 📜 Persona Status & Credentials (`/resume`)
+- Categorized into **Education** (SMK Metland RPL), **Tech Arsenal**, **Certificates**, and **Battle Record**.
+- **Interactive Certificate Modal**: Click on any listed credential to open an in-game dossier inspector complete with issuer verification, date, and badge.
+- **Direct CV Download**: One-click download button for the latest verified PDF resume (`/Fikri_Resume_2026.pdf`).
 
-### 7. 🎬 Dynamic Persona Page Transitions
-- Custom multi-layered color wipe transitions (Persona Blue `#040a1f`, Crimson `#c4001a`, Cyan `#00e1ff`, and White).
-- Dynamic skew angles and panel animations powered by **Framer Motion**.
+### 5. 🌐 Guild Communications Network (`/socials`)
+- Persona-style communications hub linking GitHub, Instagram, TikTok, and direct email.
+- **One-Click Email Copy**: Clicking the email copies `fikripricahyadi10@gmail.com` to the clipboard with an in-game toast notification.
 
-### 8. 📱 Mobile & Landscape Adaptation
-- Responsive layout adapting to small screens.
-- **Landscape Advisory Banner**: Automatically detects mobile portrait orientation and gently advises users to rotate for the full widescreen JRPG console experience.
+### 6. 🎬 Staggered Color Wipe Transitions
+- Multi-layer color wipe sequence (Persona Blue `#040a1f`, Crimson `#c4001a`, Cyan `#00e1ff`, White) driven by **Framer Motion**.
+- Skewed polygons and stage unmount/mount coordination without layout shift.
+
+### 7. 📱 Mobile Adaptation & Landscape Advisory
+- Reflowing responsive layout for phone and tablet viewports.
+- **Landscape Advisory Banner**: Automatically detects mobile portrait orientation and advises rotating for the widescreen console experience.
 
 ---
 
-## 🕹️ Controls Cheat Sheet
+## 🕹️ Input Controls
 
-The portfolio can be fully controlled with either keyboard or mouse/touch:
+The entire portfolio can be operated via keyboard, mouse, or touch gestures:
 
-| Section | Keys | Action |
-| :--- | :--- | :--- |
-| **Global / Any Screen** | <kbd>Esc</kbd> / <kbd>Backspace</kbd> | Return to Main Menu |
-| **Main Menu** | <kbd>↑</kbd> / <kbd>↓</kbd> | Select Menu Item |
-| **Main Menu** | <kbd>Enter</kbd> | Confirm / Open Page |
-| **About Me** | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Q</kbd> / <kbd>E</kbd> | Switch Character Tabs |
-| **Projects** | <kbd>←</kbd> / <kbd>→</kbd> or <kbd>A</kbd> / <kbd>D</kbd> | Previous / Next Project |
-| **Projects** | <kbd>Enter</kbd> | Open Live Project Demo |
-| **Resume Screen** | <kbd>↑</kbd> / <kbd>↓</kbd> | Switch Categories (Education, Skills, etc.) |
-| **Resume Screen** | <kbd>Enter</kbd> | Inspect Certificate / Close Dossier |
-| **Socials Screen** | <kbd>↑</kbd> / <kbd>↓</kbd> | Navigate Social Platforms |
-| **Socials Screen** | <kbd>→</kbd> / <kbd>←</kbd> | Switch Focus (Platforms ↔ Action Links) |
-| **Mobile (Touch)** | **Swipe Left / Right** | Cycle Projects / Tabs / Categories |
+| Context | Keys | Touch Gesture | Action |
+| :--- | :--- | :--- | :--- |
+| **Global** | <kbd>Esc</kbd> / <kbd>Backspace</kbd> | Tap Back Button | Return to Main Menu |
+| **Main Menu** | <kbd>↑</kbd> / <kbd>↓</kbd> | Tap Menu Row | Navigate Menu Options |
+| **Main Menu** | <kbd>Enter</kbd> | Tap Selected | Open Dossier Route |
+| **About Dossier** | <kbd>Q</kbd> / <kbd>E</kbd> or <kbd>←</kbd> / <kbd>→</kbd> | Horizontal Swipe | Switch Dossier Sections |
+| **Projects** | <kbd>A</kbd> / <kbd>D</kbd> or <kbd>←</kbd> / <kbd>→</kbd> | Horizontal Swipe | Cycle Projects |
+| **Projects** | <kbd>Enter</kbd> | Tap Action Button | Launch Live Demo URL |
+| **Resume Screen** | <kbd>↑</kbd> / <kbd>↓</kbd> | Tap Category | Change Resume Tab |
+| **Resume Screen** | <kbd>Enter</kbd> | Tap Card | Inspect Certificate Modal |
+| **Socials Screen** | <kbd>↑</kbd> / <kbd>↓</kbd> | Tap Platform | Select Channel |
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Technology | Purpose | Why It Was Chosen |
+| Technology | Role | Implementation Rationale |
 | :--- | :--- | :--- |
-| **React 19** | Core UI Framework | Modern React component architecture with Suspense and concurrent rendering. |
-| **TypeScript** | Type Safety | Strict typing across project data, navigation props, and component state. |
-| **Vite** | Build Tool & Dev Server | Lightning fast Hot Module Replacement (HMR) and optimized build bundles. |
-| **Framer Motion** | UI Animations | Fluid, GPU-accelerated page transitions and staggered entry animations. |
-| **React Router v7** | Single-Page Routing | Declarative routing with smooth path transitions and navigation handlers. |
-| **Vanilla CSS** | Styling System | Custom skew matrices, dynamic polygon `clip-path`, and responsive flex/grid layouts without Tailwind bloat. |
-| **Oxlint** | Linter | Ultra-fast JavaScript & TypeScript linting for clean code consistency. |
+| **React 19** | Core UI Engine | Component architecture utilizing concurrent rendering and route-level suspense boundaries. |
+| **TypeScript 5.7** | Type System | Strict compile-time contracts across project datasets, navigation models, and props. |
+| **Vite 8.2** | Build & Dev Tooling | Fast Hot Module Replacement (HMR) and optimized rollup production bundling. |
+| **Framer Motion 13.2** | Animation Layer | Hardware-accelerated page transition coordination and spring kinematics. |
+| **React Router v7** | Route Management | Single-page route handling with layout transitions. |
+| **Vanilla CSS** | Design Tokens & Layout | Custom CSS `clip-path` polygons, matrix skews, and responsive grids without framework bloat. |
+| **Oxlint** | Code Quality | High-speed JavaScript and TypeScript linting enforcing clean code consistency. |
 
 ---
 
-## 📂 Project Structure
-
-Here is a simple breakdown of how the repository is organized:
+## 📂 Repository Architecture
 
 ```text
 p5-portfolio/
 ├── public/                       # Static public assets
-│   ├── bg.mp4                    # Looping background video for main menu
-│   ├── newBg.mp4                 # Background video for resume & about screens
-│   ├── main3.webm                # Background video for socials
-│   ├── char1.webp - char3.webp   # Character portraits and artwork
-│   ├── Persona5main.ttf          # Persona 5 game font
-│   └── Fikri_Resume_2026.pdf     # Downloadable resume PDF
+│   ├── bg.mp4                    # Looping video reel for main menu
+│   ├── newBg.mp4                 # Video background for dossier & resume
+│   ├── main3.webm                # Background video for socials hub
+│   ├── char1.webp - char3.webp   # Optimized character artwork
+│   ├── Persona5main.ttf          # Persona 5 game display typeface
+│   └── Fikri_Resume_2026.pdf     # Downloadable verified resume PDF
 │
 ├── src/
-│   ├── data/                     # 📦 Typed content models & datasets
-│   │   ├── about.ts              # Bio, titles, and skill highlights
-│   │   ├── projects.ts           # Project items, arcana, links, and tags
-│   │   ├── resume.ts             # Education, skills, and certificate credentials
-│   │   └── socials.ts            # Contact channels, handles, and URLs
+│   ├── data/                     # Typed data models and content stores
+│   │   ├── about.ts              # Chronicles, dialogue archive, and biography
+│   │   ├── projects.ts           # Tarot Arcana project entries and links
+│   │   ├── resume.ts             # Education, skills, and credential dossier
+│   │   └── socials.ts            # Network channels and contact handles
 │   │
-│   ├── types/                    # 🏷️ TypeScript definitions
-│   │   └── portfolio.ts          # Interfaces for projects, resume, and data models
+│   ├── types/                    # TypeScript interfaces
+│   │   └── portfolio.ts          # Contracts for projects, resume, and data models
 │   │
-│   ├── AboutMe.tsx & .css        # Character profile & bio screen
-│   ├── LandscapeHint.tsx & .css  # Mobile portrait rotation advisory
-│   ├── Menu.tsx & .css           # Skewed interactive home menu
-│   ├── PageTransition.tsx & .css # Framer Motion multi-layer page transitions
-│   ├── ProjectsPage.tsx & .css   # Tarot-themed projects showcase
-│   ├── ResumePage.tsx & .css     # Persona stats screen with dossier inspector
-│   ├── Socials.tsx & .css        # Contact screen with click-to-copy email
-│   ├── VideoOverlay.tsx & .css   # Reusable video darkening/gradient filter
-│   ├── App.tsx                   # Main router and route definitions
-│   └── main.tsx                  # React DOM entrypoint
+│   ├── AboutMe.tsx & .css        # Classified dossier and dialogue interface
+│   ├── LandscapeHint.tsx & .css  # Orientation advisory for mobile screens
+│   ├── Menu.tsx & .css           # Skewed interactive home navigation
+│   ├── PageTransition.tsx & .css # Framer Motion multi-tier color wipe transitions
+│   ├── ProjectsPage.tsx & .css   # Tarot Arcana project showcase
+│   ├── ResumePage.tsx & .css     # Persona status screen with certificate inspector
+│   ├── Socials.tsx & .css        # Contact communications hub
+│   ├── VideoOverlay.tsx & .css   # Reusable video darkening gradient layer
+│   ├── App.tsx                   # Route definitions and suspense loader
+│   └── main.tsx                  # React application entrypoint
 │
-├── index.html                    # HTML entry point, SEO meta tags, and font preloads
-├── package.json                  # Dependencies and execution scripts
+├── index.html                    # HTML shell, typography preloads, and SEO tags
+├── package.json                  # Scripts and dependencies
 ├── tsconfig.json                 # TypeScript compiler configuration
-└── vite.config.js                # Vite build and plugin configurations
+└── vite.config.js                # Vite build configuration
 ```
 
 ---
 
-## 🚀 Getting Started
-
-Follow these simple steps to run the portfolio on your local machine:
+## 🚀 Local Development
 
 ### 1. Prerequisites
-Make sure you have installed:
-- [Node.js](https://nodejs.org/) (Version 18 or higher recommended)
-- [npm](https://www.npmjs.com/) (bundled with Node) or [pnpm](https://pnpm.io/) / [yarn](https://yarnpkg.com/)
+- **Node.js** (v18.0.0 or higher recommended)
+- **npm** (comes with Node.js) or **pnpm** / **yarn**
 
-### 2. Clone the Repository
+### 2. Setup
 ```bash
+# Clone the repository
 git clone https://github.com/R1Blmmakan/p5-portfolio.git
-cd p5-portfolio
-```
 
-### 3. Install Dependencies
-```bash
+# Enter the project directory
+cd p5-portfolio
+
+# Install dependencies
 npm install
 ```
 
-### 4. Run the Development Server
+### 3. Start Development Server
 ```bash
 npm run dev
 ```
 
-After running the command, open your browser and visit:
-```text
-http://localhost:5173
-```
+Open your browser at `http://localhost:5173` to explore the portfolio.
 
 ---
 
 ## 💻 Available Scripts
 
-In the project directory, you can run:
-
-| Command | Action |
+| Script | Purpose |
 | :--- | :--- |
-| `npm run dev` | Starts the local development server at `localhost:5173` with instant hot-reload. |
+| `npm run dev` | Starts the Vite development server with hot module replacement. |
 | `npm run build` | Compiles TypeScript and creates an optimized production bundle in `/dist`. |
-| `npm run preview` | Locally serves the production build from `/dist` to test before deploying. |
-| `npm run lint` | Runs **Oxlint** to quickly check for any syntax or styling mistakes. |
+| `npm run preview` | Locally serves the `/dist` production build for pre-deployment verification. |
+| `npm run lint` | Runs **Oxlint** across all source files for fast syntax and hygiene checks. |
 
 ---
 
-## 🧱 Architecture & Design Patterns
+## 🚢 Production Deployment
 
-This application is built with modular frontend engineering principles:
-
-### 1. 📦 Data-View Decoupling
-All application content is strictly isolated from presentation components:
-- Content resides in typed TypeScript modules within `src/data/` ([`projects.ts`](src/data/projects.ts), [`about.ts`](src/data/about.ts), [`resume.ts`](src/data/resume.ts), [`socials.ts`](src/data/socials.ts)).
-- Strict interface contracts in [`src/types/portfolio.ts`](src/types/portfolio.ts) ensure compile-time type safety across all components.
-
-### 2. ⚡ GPU-Accelerated Visuals & Motion
-- **Dynamic Skews & Polygons**: High-energy menu angles are rendered with hardware-accelerated CSS `clip-path: polygon(...)` and `transform: skewX(...)` rather than static image assets.
-- **Motion Orchestration**: Complex route transitions in [`PageTransition.tsx`](src/PageTransition.tsx) leverage **Framer Motion** for staggered multi-layer entrance and exit states.
-- **Performance Layering**: Looping video backgrounds are contained in isolated stacking contexts via [`VideoOverlay.tsx`](src/VideoOverlay.tsx) to preserve a smooth 60 FPS navigation experience.
-
-### 3. 🎮 Multi-Modal Navigation
-The interface responds dynamically to multiple input modalities:
-- Full **keyboard navigation** (Arrow keys, Enter, Escape, Q/E, Backspace).
-- Touch swipe gestures for mobile viewports.
-- Standard mouse hover and click interactions.
-
----
-
-## 🚢 Production Build & Deployment
-
-To generate an optimized production bundle:
+To build the static distribution bundle:
 
 ```bash
 npm run build
 ```
 
-The output will be placed in the `/dist` directory, ready for deployment to any modern static hosting platform (Vercel, Netlify, Cloudflare Pages, etc.).
+The resulting assets in `/dist` are ready for deployment to static hosting platforms such as Vercel, Netlify, or Cloudflare Pages.
 
-> **Client-Side Routing:** Ensure your hosting provider has a rewrite rule redirecting all requests (`/*`) to `/index.html` so direct navigation to sub-routes works without 404s.
-
----
-
-## 🎨 Design & Attribution
-
-- **Aesthetic Inspiration**: UI/UX design inspired by the iconic art styles of **Persona 5** and **Persona 3 Reload** by **ATLUS / SEGA**.
-- **Font**: *Persona 5 Menu Font* and *Space Grotesk* from Google Fonts.
-- **Media**: Character cutouts and background sequences are properties of ATLUS, used for personal, non-commercial portfolio presentation.
+> **Single-Page Application Routing**: Ensure your hosting provider is configured with a wildcard rewrite directing all traffic (`/*`) to `/index.html` to prevent 404 errors on direct URL access.
 
 ---
 
-## 📜 License & Usage
+## 📜 License & Proprietary Terms
 
 **Copyright © 2026 Fikri. All Rights Reserved.**
 
-This repository and its contents are published for code review, inspection, and educational reference:
+This repository and its codebase are published for portfolio demonstration, code inspection, and technical review purposes:
 
-- ❌ **No Direct Cloning as Your Own**: You may **not** fork, clone, or redistribute this repository to publish it as your own portfolio or commercial product.
-- 🎨 **Design & Assets**: Custom visual layouts, clip-paths, motion sequences, and personal written content are proprietary.
-- 🎭 **IP Tribute**: Character art, themes, and font styling inspired by *Persona 5* and *Persona 3 Reload* are the intellectual property of **ATLUS / SEGA**, used respectfully for personal, non-commercial showcase.
-- 💡 **Learning**: You are welcome to inspect the code to learn how the animations and layout techniques were implemented to create your own original works!
+- **No Unauthorized Distribution**: You may not fork, clone, republish, or sell this repository as your own portfolio, template, or commercial product.
+- **Original Code & Assets**: Custom visual layouts, CSS polygon matrices, Framer Motion choreography, and personal biography content are proprietary.
+- **Fair Use Tribute**: Character artwork, logo emblems, and font references derived from *Persona 5* and *Persona 3 Reload* are the intellectual property of **ATLUS / SEGA**. They are utilized strictly for non-commercial, personal creative portfolio tribute.
 
 ---
 
 ## 📬 Contact & Author
 
-- **Author**: Fikri
+- **Developer**: Fikri
+- **Status**: Software Engineering Student at SMK Metland (Class of 2026)
+- **Accreditation**: 1st Winner, National Vocational Web Craft & UI/UX Championship (2024) | BNSP Certified Junior Software Engineer
 - **GitHub**: [@R1Blmmakan](https://github.com/R1Blmmakan)
-- **Email**: fikripricahyadi10@gmail.com
+- **Email**: [fikripricahyadi10@gmail.com](mailto:fikripricahyadi10@gmail.com)
 - **Live Portfolio**: [fikri-portfolio.vercel.app](https://fikri-portfolio.vercel.app)
-
----
-
-⭐ *If you enjoyed this project or found it inspiring, feel free to give it a star on GitHub!*
