@@ -94,173 +94,230 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
       <VideoOverlay zIndex={6} darkness={0.4} />
 
       <div className="resume-overlay">
-        {/* Top Actions: Back & Download CV */}
-        <div className="resume-top-bar">
+        {/* Top Header Bar */}
+        <header className="resume-top-bar">
           <button
+            type="button"
             className="resume-back-btn"
             onClick={() => onBack?.()}
             title="Return to Menu (ESC / ←)"
           >
-            ◄ BACK TO MENU
+            ◄ RETURN [ESC]
           </button>
 
+          <div className="resume-top-hud">
+            <span className="resume-hud-pill">CLASSIFIED ARCHIVE</span>
+            <span className="resume-hud-title">CANDIDATE DOSSIER // 2026</span>
+          </div>
+
           <button
+            type="button"
             className="resume-cv-btn"
             onClick={handleDownloadCV}
             title="Download Official CV (PDF)"
           >
-            ⚡ DOWNLOAD CV (PDF)
+            <span className="resume-cv-hazard" aria-hidden="true" />
+            <span>DOWNLOAD CV (PDF)</span>
           </button>
-        </div>
+        </header>
 
-        <div className="resume-stack">
-          <div className={`resume-list-tag${mounted ? " mounted" : ""}`}>LIST</div>
-
-          {ITEMS.map((item, index) => {
-            const isActive = active === index;
-            return (
-              <div
-                key={item.id}
-                className={`resume-card-wrap${isActive ? " active" : ""}${mounted ? " mounted" : ""}`}
-                style={{ transitionDelay: `${index * 60}ms` }}
-                onMouseEnter={() => setActive(index)}
-                onClick={() => setActive(index)}
-                role="button"
-                tabIndex={0}
-                aria-pressed={isActive}
-              >
-                <div className="resume-card">
-                  <div className="resume-badge">
-                    <div className="resume-badge-text">{item.badge}</div>
-                  </div>
-
-                  <div className="resume-card-inner">
-                    <div className="resume-title">{item.title}</div>
-                    <div className="resume-code-badge">{item.code ?? `${item.badge} //`}</div>
-                  </div>
-
-                  <div className="resume-subtitle-bar">
-                    <div className="resume-subtitle" title={item.subtitle}>
-                      {item.subtitle}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {currentItem && (
-          <div key={`panel-${currentItem.id}`} className="resume-detail-panel">
-            {currentItem.charImg && (
-              <img
-                className="resume-detail-char-accent"
-                src={currentItem.charImg}
-                alt=""
-                aria-hidden="true"
-              />
-            )}
-
-            <div className="resume-detail-top">
-              <div className="resume-detail-top-index">{currentItem.details.topIndex}</div>
-              <div className="resume-detail-top-title">{currentItem.details.topTitle}</div>
-              <div className="resume-detail-top-progress">{currentItem.details.topProgress}</div>
+        {/* Main 30/70 Spread */}
+        <div className="resume-spread">
+          {/* Left Navigation Dock (30%) */}
+          <aside className="resume-nav-dock">
+            <div className={`resume-list-tag${mounted ? " mounted" : ""}`}>
+              <span>LIST</span>
             </div>
 
-            <div className="resume-detail-list">
-              {currentItem.details.rows.map((row) => (
-                <div
-                  className={`resume-dossier-card ${currentItem.id === "iii" ? "clickable-cert" : ""}`}
-                  key={row.index}
-                  onClick={() => {
-                    if (currentItem.id === "iii") {
-                      setSelectedCert(row);
-                    }
-                  }}
-                  title={currentItem.id === "iii" ? "Click to view certificate dossier" : undefined}
-                >
-                  <div className="resume-dossier-head">
-                    <div className="resume-dossier-num">{row.index}</div>
-                    <div className="resume-dossier-titles">
-                      <div className="resume-dossier-title">
-                        {row.title}
-                        {currentItem.id === "iii" && (
-                          <span className="resume-cert-hint">🔍 VIEW DOSSIER</span>
-                        )}
+            <nav className="resume-stack" aria-label="Resume categories">
+              {ITEMS.map((item, index) => {
+                const isActive = active === index;
+                return (
+                  <div
+                    key={item.id}
+                    className={`resume-card-wrap${isActive ? " active" : ""}${mounted ? " mounted" : ""}`}
+                    style={{ transitionDelay: `${index * 50}ms` }}
+                    onMouseEnter={() => setActive(index)}
+                    onClick={() => setActive(index)}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={isActive}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        setActive(index);
+                      }
+                    }}
+                  >
+                    <div className="resume-card">
+                      <div className="resume-badge">
+                        <span className="resume-badge-text">{item.badge}</span>
                       </div>
-                      {(row.subtitle || row.organization) && (
-                        <div className="resume-dossier-sub">
-                          {row.organization && (
-                            <span className="resume-dossier-org">{row.organization}</span>
+
+                      <div className="resume-card-inner">
+                        <span className="resume-title">{item.title}</span>
+                        <span className="resume-code-badge">{item.code ?? `${item.badge} //`}</span>
+                      </div>
+
+                      <div className="resume-subtitle-bar">
+                        <span className="resume-subtitle" title={item.subtitle}>
+                          {item.subtitle}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </nav>
+
+            {/* Candidate Quick Telemetry Card */}
+            <div className="resume-dock-telemetry">
+              <div className="resume-telemetry-tag">
+                <span className="resume-telemetry-key">[RECORD: AGENT]</span>
+                <span className="resume-telemetry-val">FIKRI // FULL-STACK</span>
+              </div>
+              <div className="resume-telemetry-tag highlight-gold">
+                <span className="resume-telemetry-key">[RECORD: HONORS]</span>
+                <span className="resume-telemetry-val">BNSP • 1ST NAT CHAMPION</span>
+              </div>
+              <div className="resume-telemetry-tag highlight-red">
+                <span className="resume-telemetry-key">[RECORD: PIPELINE]</span>
+                <span className="resume-telemetry-val">OPEN FOR 2026 APPRENTICESHIP</span>
+              </div>
+            </div>
+          </aside>
+
+          {/* Right Expansive Dossier Canvas (70%) */}
+          {currentItem && (
+            <main key={`panel-${currentItem.id}`} className="resume-dossier-canvas">
+              {currentItem.charImg && (
+                <img
+                  className="resume-detail-char-accent"
+                  src={currentItem.charImg}
+                  alt=""
+                  aria-hidden="true"
+                />
+              )}
+
+              {/* Dossier Header Slash */}
+              <div className="resume-dossier-top-banner">
+                <div className="resume-banner-slash-accent" />
+                <div className="resume-banner-index">{currentItem.details.topIndex}</div>
+                <div className="resume-banner-title-group">
+                  <h1 className="resume-banner-title">{currentItem.details.topTitle}</h1>
+                  <span className="resume-banner-subtitle">{currentItem.subtitle}</span>
+                </div>
+                <div className="resume-banner-progress">{currentItem.details.topProgress}</div>
+              </div>
+
+              {/* Scrollable Dossier Body with Bottom Mask */}
+              <div className="resume-dossier-scroll-area">
+                <div className="resume-dossier-list">
+                  {currentItem.details.rows.map((row) => (
+                    <article
+                      className={`resume-dossier-card ${currentItem.id === "iii" ? "clickable-cert" : ""}`}
+                      key={row.index}
+                      onClick={() => {
+                        if (currentItem.id === "iii") {
+                          setSelectedCert(row);
+                        }
+                      }}
+                      title={currentItem.id === "iii" ? "Click to inspect certificate dossier" : undefined}
+                      tabIndex={currentItem.id === "iii" ? 0 : undefined}
+                      onKeyDown={(e) => {
+                        if (currentItem.id === "iii" && (e.key === "Enter" || e.key === " ")) {
+                          setSelectedCert(row);
+                        }
+                      }}
+                    >
+                      <div className="resume-dossier-head">
+                        <div className="resume-dossier-head-left">
+                          <span className="resume-dossier-num">{row.index}</span>
+                          <div className="resume-dossier-title-stack">
+                            <h2 className="resume-dossier-title">{row.title}</h2>
+                            {(row.subtitle || row.organization) && (
+                              <div className="resume-dossier-sub">
+                                {row.organization && (
+                                  <span className="resume-dossier-org">{row.organization}</span>
+                                )}
+                                {row.organization && row.subtitle && (
+                                  <span className="resume-dossier-sep">•</span>
+                                )}
+                                {row.subtitle && <span>{row.subtitle}</span>}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="resume-dossier-meta">
+                          {row.period && (
+                            <span className="resume-dossier-period">{row.period}</span>
                           )}
-                          {row.organization && row.subtitle && (
-                            <span className="resume-dossier-sep">•</span>
+                          {row.badge && (
+                            <span className={`resume-dossier-badge ${row.badgeType ?? "gold"}`}>
+                              {row.badge}
+                            </span>
                           )}
-                          {row.subtitle && (
-                            <span>{row.subtitle}</span>
+                          {currentItem.id === "iii" && (
+                            <span className="resume-cert-hint">🔍 INSPECT DOSSIER</span>
                           )}
                         </div>
-                      )}
-                    </div>
-
-                    <div className="resume-dossier-meta">
-                      {row.period && (
-                        <span className="resume-dossier-period">{row.period}</span>
-                      )}
-                      {row.badge && (
-                        <span className={`resume-dossier-badge ${row.badgeType ?? "gold"}`}>
-                          {row.badge}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {row.description && (
-                    <p className="resume-dossier-desc">{row.description}</p>
-                  )}
-
-                  {row.bullets && row.bullets.length > 0 && (
-                    <ul className="resume-dossier-bullets">
-                      {row.bullets.map((bullet, idx) => (
-                        <li className="resume-dossier-bullet-item" key={idx}>
-                          <span className="resume-dossier-bullet-icon">▸</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {row.tags && row.tags.length > 0 && (
-                    <div className="resume-dossier-tags">
-                      {row.tags.map((tag, idx) => (
-                        <span className="resume-dossier-tag" key={idx}>
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {currentItem.details.bottomTitle && (
-              <div className="resume-detail-bottom">
-                <div className="resume-detail-bottom-title">{currentItem.details.bottomTitle}</div>
-                {currentItem.details.bullets && (
-                  <div className="resume-detail-bullets">
-                    {currentItem.details.bullets.map((bullet, idx) => (
-                      <div className="resume-detail-bullet" key={idx}>
-                        <span>{bullet}</span>
                       </div>
-                    ))}
+
+                      {row.description && (
+                        <p className="resume-dossier-desc">{row.description}</p>
+                      )}
+
+                      {row.bullets && row.bullets.length > 0 && (
+                        <ul className="resume-dossier-bullets">
+                          {row.bullets.map((bullet, idx) => (
+                            <li className="resume-dossier-bullet-item" key={idx}>
+                              <span className="resume-dossier-bullet-icon" aria-hidden="true">▸</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Tactical Skill Chips (Replacing Hashtags) */}
+                      {row.tags && row.tags.length > 0 && (
+                        <div className="resume-dossier-chips" aria-label="Technical modules and tags">
+                          {row.tags.map((tag, idx) => (
+                            <span className="p5-tactical-chip" key={idx}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </article>
+                  ))}
+                </div>
+
+                {currentItem.details.bottomTitle && (
+                  <div className="resume-detail-bottom">
+                    <h3 className="resume-detail-bottom-title">{currentItem.details.bottomTitle}</h3>
+                    {currentItem.details.bullets && (
+                      <div className="resume-detail-bullets">
+                        {currentItem.details.bullets.map((bullet, idx) => (
+                          <div className="resume-detail-bullet" key={idx}>
+                            <span className="resume-detail-bullet-icon" aria-hidden="true">★</span>
+                            <span>{bullet}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
-              </div>
-            )}
-          </div>
-        )}
 
-        <div className={`resume-footer${mounted ? " mounted" : ""}`}>
+                <div className="resume-scroll-cue" aria-hidden="true">
+                  <span>▼ DOSSIER LOGS EXTENSION</span>
+                </div>
+              </div>
+            </main>
+          )}
+        </div>
+
+        {/* Bottom HUD Bar */}
+        <footer className={`resume-footer${mounted ? " mounted" : ""}`}>
           <div className="resume-footer-row">
             <span className="resume-footer-key">↑↓</span>
             <span>SELECT CATEGORY</span>
@@ -268,11 +325,13 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           <div
             className="resume-footer-row resume-footer-clickable"
             onClick={() => onBack?.()}
+            role="button"
+            tabIndex={0}
           >
             <span className="resume-footer-key">ESC / ←</span>
-            <span>BACK TO MENU</span>
+            <span>RETURN TO HOME</span>
           </div>
-        </div>
+        </footer>
       </div>
 
       {selectedCert && (

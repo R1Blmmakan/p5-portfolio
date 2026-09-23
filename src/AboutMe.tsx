@@ -139,7 +139,7 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
             <p className="p5-koma-body">
               Started programming at age 14, driven by the kinetic thrill of interactive interfaces.
               Balancing vocational Software Engineering at Metland with aggressive self-taught
-              exploration. I engineer interfaces that reject cookie-cutter templates—combining
+              exploration. I engineer interfaces that reject cookie-cutter templates, combining
               sub-millisecond responsiveness, custom mathematical CSS polygon matrices, and
               60FPS hardware-accelerated GPU pipelines.
             </p>

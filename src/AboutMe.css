@@ -102,6 +102,11 @@
   box-shadow: 6px 6px 0px #000000, 9px 9px 0px rgba(230, 0, 18, 0.5);
 }
 
+.p5-manga-close-btn:focus-visible {
+  outline: 2px solid #ffea00;
+  outline-offset: 3px;
+}
+
 .p5-manga-spread {
   position: relative;
   z-index: 20;
@@ -313,14 +318,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #e60012;
-  box-shadow: 0 0 6px #e60012;
-  animation: p5-dot-pulse 1.8s infinite;
-}
-
-@keyframes p5-dot-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  background: #22c55e;
 }
 
 .p5-telemetry-status {
@@ -333,7 +331,7 @@
   font-family: 'Space Grotesk', monospace;
   font-size: 8px;
   letter-spacing: 1px;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .p5-telemetry-highlight {
@@ -376,6 +374,11 @@
   background: #e60012;
   color: #ffffff;
   border-color: #ffffff;
+}
+
+.p5-telemetry-action-btn:focus-visible {
+  outline: 2px solid #ffea00;
+  outline-offset: 2px;
 }
 
 .p5-manga-storyboard {
@@ -621,26 +624,173 @@
   .p5-manga-stage {
     height: auto;
     min-height: 100vh;
-    overflow-y: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p5-manga-video,
+  .p5-manga-screentone-bg {
+    position: fixed;
+  }
+
+  .p5-manga-topbar {
+    position: relative;
+    padding: 10px 16px;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .p5-manga-tape-strip {
+    padding: 3px 10px;
+  }
+
+  .p5-tape-text {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .p5-manga-close-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 12px;
   }
 
   .p5-manga-spread {
     flex-direction: column;
     overflow: visible;
+    padding: 0 16px 24px 16px;
+    gap: 14px;
   }
 
+  /* Compact Agent ID Passport Grid */
   .p5-panel-identity {
     width: 100%;
     transform: none;
     overflow: visible;
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px 12px;
+    align-items: stretch;
+    padding: 12px 14px;
+    box-shadow: 4px 4px 0px #000000, 7px 7px 0px #e60012;
   }
 
+  .p5-panel-tape-pin {
+    display: none;
+  }
+
+  .p5-comic-frame {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: 100%;
+    min-height: 120px;
+    aspect-ratio: auto;
+  }
+
+  .p5-comic-status-banner {
+    font-size: 8.5px;
+    padding: 2px 6px;
+  }
+
+  .p5-comic-nameplate {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 4px 8px;
+  }
+
+  .p5-comic-name {
+    font-size: 26px;
+    text-shadow: 2px 2px 0px #000000, 4px 4px 0px #e60012;
+  }
+
+  .p5-comic-role {
+    font-size: 8.5px;
+    margin-top: 2px;
+  }
+
+  .p5-comic-evidence-deck {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .p5-evidence-tag {
+    padding: 3px 5px;
+    gap: 1px;
+  }
+
+  .p5-evidence-label {
+    font-size: 7.5px;
+  }
+
+  .p5-evidence-val {
+    font-size: 9px;
+  }
+
+  .p5-identity-telemetry {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    margin-top: 2px;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+
+  .p5-telemetry-header {
+    font-size: 8px;
+  }
+
+  .p5-telemetry-highlight {
+    font-size: 10px;
+  }
+
+  .p5-telemetry-action-btn {
+    min-height: 38px;
+    min-width: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  /* Storyboard Acts Reflow */
   .p5-manga-storyboard {
+    height: auto;
     overflow: visible;
+    padding-right: 0;
+    gap: 12px;
+  }
+
+  .p5-panel-origin,
+  .p5-panel-arsenal,
+  .p5-panel-records {
+    transform: none !important;
+    padding: 12px 14px;
+    box-shadow: 4px 4px 0px #000000, 7px 7px 0px rgba(0, 0, 0, 0.6);
   }
 
   .p5-comic-grid-split,
   .p5-comic-record-grid {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .p5-manga-footer {
+    position: relative;
+    padding: 12px 16px 44px 16px;
+    margin-top: 16px;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
   }
 }

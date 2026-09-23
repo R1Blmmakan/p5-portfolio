@@ -46,14 +46,43 @@ video {
 }
 
 html,
-body,
-#root,
-main {
+body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+#root,
+main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  html {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  #root,
+  main {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
 }
 
 body {

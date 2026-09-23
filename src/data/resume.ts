@@ -18,7 +18,7 @@ export const RESUME_ITEMS: ResumeItem[] = [
           title: "SMK Metland (Rekayasa Perangkat Lunak)",
           subtitle: "Vocational Software Engineering Major",
           organization: "SMK Metland Cibitung",
-          period: "2023 — Sekarang (Kelulusan 2026)",
+          period: "2023 - Sekarang (Kelulusan 2026)",
           badge: "AKREDITASI A",
           badgeType: "gold",
           description: "Pendidikan vokasi kejuruan berfokus pada rekayasa perangkat lunak modern, algoritma struktur data, perancangan database relasional, dan arsitektur web enterprise.",
@@ -36,7 +36,7 @@ export const RESUME_ITEMS: ResumeItem[] = [
           title: "Vocational Capstone & Production Track",
           subtitle: "Full-Cycle Application Delivery & Quality Assurance",
           organization: "SMK Metland Software Lab",
-          period: "2024 — 2025",
+          period: "2024 - 2025",
           badge: "PRODUCTION READY",
           badgeType: "red",
           description: "Implementasi siklus pengembangan perangkat lunak terintegrasi dari tahap UI/UX prototyping hingga integrasi REST API dan deployment.",
@@ -145,7 +145,7 @@ export const RESUME_ITEMS: ResumeItem[] = [
       rows: [
         {
           index: "01",
-          title: "Juara 1 — National Web Craft & UI/UX Championship",
+          title: "Juara 1: National Web Craft & UI/UX Championship",
           subtitle: "Kejuaraan Tingkat Nasional SMK/Kejuruan",
           organization: "Vocational Skills Council",
           period: "2024",
@@ -244,10 +244,10 @@ export const RESUME_ITEMS: ResumeItem[] = [
       rows: [
         {
           index: "01",
-          title: "Lead Architect — Persona 5 Portfolio Platform",
+          title: "Lead Architect: Persona 5 Portfolio Platform",
           subtitle: "Interactive Gaming-Inspired Web Engine",
           organization: "Independent Project",
-          period: "2024 — Sekarang",
+          period: "2024 - Sekarang",
           badge: "FEATURED",
           badgeType: "red",
           description: "Merancang dan membangun web portfolio interaktif berskala produksi bertema Persona 5 dengan visual kinetik.",
@@ -262,7 +262,7 @@ export const RESUME_ITEMS: ResumeItem[] = [
         },
         {
           index: "02",
-          title: "Lead Programmer — Vocational Capstone Project",
+          title: "Lead Programmer: Vocational Capstone Project",
           subtitle: "School Management & Administrative Platform",
           organization: "SMK Metland Team Project",
           period: "2024",
@@ -282,7 +282,7 @@ export const RESUME_ITEMS: ResumeItem[] = [
           title: "Industrial Apprenticeship Candidate (2026)",
           subtitle: "Target: Software Engineering / Full-Stack Web Track",
           organization: "Industry Deployment Ready",
-          period: "2026 — Siap Bergabung",
+          period: "2026: Siap Bergabung",
           badge: "OPEN TO HIRE",
           badgeType: "gold",
           description: "Siap bergabung dalam program magang industri untuk berkontribusi langsung pada codebase produksi nyata.",

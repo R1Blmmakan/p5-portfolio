@@ -56,7 +56,7 @@ export default function App() {
             path="/about"
             element={
               <PageTransition key="about" variant="about">
-                <AboutMe onBack={() => navigate("/")} />
+                <AboutMe onBack={() => navigate("/")} onNavigate={(page) => navigate(`/${page}`)} />
               </PageTransition>
             }
           />

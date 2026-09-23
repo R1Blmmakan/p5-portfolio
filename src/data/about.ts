@@ -67,7 +67,7 @@ export const CHRONICLES: ChronicleChapter[] = [
       "Backed by industry credentials including BNSP Certified Junior Software Engineer (Web) and advanced certifications in modern web architecture."
     ],
     specs: [
-      { label: "NATIONAL TITLE", value: "1st Winner — National Web Craft & UI/UX Championship (2024)" },
+      { label: "NATIONAL TITLE", value: "1st Winner: National Web Craft & UI/UX Championship (2024)" },
       { label: "CERTIFICATION", value: "BNSP Junior Software Engineer (Web Competency)" },
       { label: "LIVE SHOWCASE", value: "Multiple full-stack and creative projects active in production" }
     ],
@@ -100,7 +100,7 @@ export const DIALOGUES: DialogueItem[] = [
     question: "Who are you and what fuels your engineering drive?",
     quote: "\"I don't just build websites; I build digital worlds you want to explore.\"",
     moodTag: "PHILOSOPHY",
-    answer: "I'm Fikri, a 16-year-old software engineer and creative frontend architect from Metland Vocational School. What drives me is the intersection of high-octane visual storytelling and hardcore software engineering. I hate boring, cookie-cutter websites—I want every interface I build to feel tactile, razor-sharp, and unmistakably alive."
+    answer: "I'm Fikri, a 16-year-old software engineer and creative frontend architect from Metland Vocational School. What drives me is the intersection of high-octane visual storytelling and hardcore software engineering. I hate boring, cookie-cutter websites; I want every interface I build to feel tactile, razor-sharp, and unmistakably alive."
   },
   {
     id: "frontend-choice",
@@ -108,7 +108,7 @@ export const DIALOGUES: DialogueItem[] = [
     question: "Why specialize in JRPG & game-inspired web architectures?",
     quote: "\"Gaming UI is the ultimate benchmark for zero-latency user feedback.\"",
     moodTag: "TECH ARSENAL",
-    answer: "Games like Persona 5 and Persona 3 Reload mastered emotional design—every menu transition, audio cue, and button click triggers a dopamine hit. Bringing that arcade-grade kinetic feel to the web using modern web technologies (React 19, custom CSS polygon mathematics, and 60fps GPU compositing) proves that frontend engineering can be as thrilling as any console title."
+    answer: "Games like Persona 5 and Persona 3 Reload mastered emotional design: every menu transition, audio cue, and button click triggers a dopamine hit. Bringing that arcade-grade kinetic feel to the web using modern web technologies (React 19, custom CSS polygon mathematics, and 60fps GPU compositing) proves that frontend engineering can be as thrilling as any console title."
   },
   {
     id: "differentiation",
@@ -116,7 +116,7 @@ export const DIALOGUES: DialogueItem[] = [
     question: "What differentiates you from other junior developers?",
     quote: "\"Most developers only write code. I engineer the entire sensory experience.\"",
     moodTag: "COMPETITIVE EDGE",
-    answer: "Three things: 1) True Full-Stack capability—I build the backend APIs and SQL databases just as solidly as the frontend. 2) Obsession with performance—no multi-megabyte bundle bloat, everything is pre-fetched and hardware accelerated. 3) Design taste—I write vanilla CSS polygons and shaders by hand rather than relying on generic UI kits."
+    answer: "Three things: 1) True Full-Stack capability: I build the backend APIs and SQL databases just as solidly as the frontend. 2) Obsession with performance: no multi-megabyte bundle bloat, everything is pre-fetched and hardware accelerated. 3) Design taste: I write vanilla CSS polygons and shaders by hand rather than relying on generic UI kits."
   },
   {
     id: "goals",
@@ -124,7 +124,7 @@ export const DIALOGUES: DialogueItem[] = [
     question: "What are you seeking next in your developer journey?",
     quote: "\"Ready to contribute production-ready code to a high-caliber team.\"",
     moodTag: "CAREER OBJECTIVE",
-    answer: "I'm actively seeking an industrial apprenticeship or junior frontend/full-stack position for 2026. I want to collaborate with engineers who hold high standards for code quality, architectural scalability, and product polish. If you need a hungry, disciplined developer who learns at 300% speed, let's talk!"
+    answer: "I'm actively seeking an industrial apprenticeship or junior frontend/full-stack position for 2026. I want to collaborate with engineers who hold high standards for code quality, architectural scalability, and product polish. If you need a hungry, disciplined developer who learns rapidly and relentlessly, let's talk!"
   }
 ];
 
