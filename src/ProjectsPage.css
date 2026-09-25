@@ -650,6 +650,13 @@
   }
 
   .p5-deck-footer {
-    display: none;
+    display: none !important;
   }
 }
+
+@media (pointer: coarse) {
+  .p5-deck-footer {
+    display: none !important;
+  }
+}
+

@@ -460,18 +460,14 @@
   }
 
   .p5-footer-controls {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    justify-content: space-between;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .p5-control-pill {
-    padding: 4px 10px;
-    flex: 1;
-    justify-content: center;
+    display: none !important;
   }
 }
+
+@media (pointer: coarse) {
+  .p5-footer-controls {
+    display: none !important;
+  }
+}
+
+

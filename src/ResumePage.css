@@ -1143,6 +1143,13 @@
   }
 
   .resume-footer {
-    display: none;
+    display: none !important;
   }
 }
+
+@media (pointer: coarse) {
+  .resume-footer {
+    display: none !important;
+  }
+}
+

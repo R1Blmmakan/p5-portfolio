@@ -3,7 +3,6 @@ import { Routes, Route, useLocation, useNavigate, Navigate } from "react-router-
 import { AnimatePresence } from "framer-motion";
 import Menu from "./Menu";
 import PageTransition from "./PageTransition";
-import LandscapeHint from "./LandscapeHint";
 import "./App.css";
 
 const AboutMe = lazy(() => import("./AboutMe"));
@@ -40,7 +39,6 @@ export default function App() {
 
   return (
     <main>
-      <LandscapeHint />
       <Suspense fallback={<PersonaLoader />}>
         <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

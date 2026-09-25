@@ -25,6 +25,15 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onBack]);
 
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/Fikri_Resume_2026.pdf";
+    link.download = "Fikri_Resume_2026.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className={`p5-manga-stage ${mounted ? "mounted" : ""}`}>
       <video
@@ -110,15 +119,25 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
             </div>
             <div className="p5-telemetry-footer">
               <span className="p5-telemetry-coords">JAKARTA, ID • HYBRID / REMOTE</span>
-              {onNavigate && (
+              <div className="p5-telemetry-actions">
                 <button
                   type="button"
-                  className="p5-telemetry-action-btn"
-                  onClick={() => onNavigate("socials")}
+                  className="p5-telemetry-action-btn p5-btn-cv"
+                  onClick={handleDownloadCV}
+                  title="Download Official CV (PDF)"
                 >
-                  CONTACT ME ►
+                  CV (PDF) ⤓
                 </button>
-              )}
+                {onNavigate && (
+                  <button
+                    type="button"
+                    className="p5-telemetry-action-btn"
+                    onClick={() => onNavigate("socials")}
+                  >
+                    CONTACT ►
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </aside>
@@ -200,6 +219,21 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
                 </p>
               </div>
             </div>
+
+            {onNavigate && (
+              <div className="p5-record-action-row">
+                <button
+                  type="button"
+                  className="p5-verify-resume-btn"
+                  onClick={() => onNavigate("resume")}
+                  title="Verify all credentials and licenses in Resume"
+                >
+                  <span className="p5-verify-icon">🔍</span>
+                  <span>VERIFY CREDENTIALS & LICENSES IN RESUME</span>
+                  <span className="p5-verify-arrow">►</span>
+                </button>
+              </div>
+            )}
           </article>
 
           <article className="p5-manga-panel p5-panel-contract">

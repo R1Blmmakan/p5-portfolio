@@ -371,6 +371,12 @@
   letter-spacing: 1px;
 }
 
+.p5-telemetry-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .p5-telemetry-action-btn {
   background: #000000;
   color: #ffea00;
@@ -390,6 +396,18 @@
 .p5-telemetry-action-btn:hover {
   background: #e60012;
   color: #ffffff;
+  border-color: #ffffff;
+}
+
+.p5-btn-cv {
+  background: #0e111a;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.p5-btn-cv:hover {
+  background: #ffea00;
+  color: #000000;
   border-color: #ffffff;
 }
 
@@ -605,6 +623,51 @@
   font-size: clamp(9.5px, 0.8vw, 10.8px);
   line-height: 1.45;
   color: #94a3b8;
+}
+
+.p5-record-action-row {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.p5-verify-resume-btn {
+  background: #000000;
+  color: #ffea00;
+  border: 1.5px solid #ffea00;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(10px, 0.9vw, 12px);
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 2px 2px 0px #000000;
+  transition: all 0.15s ease;
+}
+
+.p5-verify-resume-btn:hover {
+  background: #e60012;
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.p5-verify-icon {
+  font-size: 11px;
+}
+
+.p5-verify-arrow {
+  font-size: 10px;
+  color: #ffea00;
+  transition: transform 0.15s ease;
+}
+
+.p5-verify-resume-btn:hover .p5-verify-arrow {
+  color: #ffffff;
+  transform: translateX(2px);
 }
 
 .p5-panel-contract {

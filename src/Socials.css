@@ -892,6 +892,7 @@
     font-size: 10.5px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -967,7 +968,7 @@
   }
 
   .p5-areamap-arena {
-    padding: 0 10px 24px;
+    padding: 0 10px max(28px, env(safe-area-inset-bottom, 28px));
   }
 
   .p5-areamap-frame {
@@ -1060,17 +1061,14 @@
     font-size: 10.5px;
   }
 
-  .p5-hud-controls {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .p5-hud-item {
-    font-size: 9.5px;
-  }
-
   .p5-socials-footer {
-    padding: 10px 12px 36px;
+    display: none !important;
   }
 }
+
+@media (max-width: 900px), (pointer: coarse) {
+  .p5-socials-footer {
+    display: none !important;
+  }
+}
+
