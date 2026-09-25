@@ -151,13 +151,6 @@ export const ABOUT_DATA: AboutData = {
           "Ranked #5 regencywide by Vocational Skills Council for robust desktop programming app using .NET with Windows Form and SQL Server as backend.",
         type: "gold",
       },
-      {
-        badge: "✦ GOV CERTIFIED",
-        headline: "BNSP Certified Junior Software Engineer",
-        description:
-          "Official national certification validating industry competence in software architecture, database relational design, and production web deployment.",
-        type: "red",
-      },
     ],
     verifyResumeLabel: "VERIFY CREDENTIALS & LICENSES IN RESUME",
   },
@@ -165,7 +158,7 @@ export const ABOUT_DATA: AboutData = {
     komaNum: "ACT 04",
     title: "CAREER OBJECTIVE & AVAILABILITY",
     narrative:
-      "Actively seeking an industrial apprenticeship or junior software engineer role. Ready to contribute production-grade code to engineering teams with solid TypeScript and React foundations, reliable backend knowledge, eager adaptability, and high professional work ethic.",
+      "Actively seeking an industrial apprenticeship or junior software engineer role for 2027. Ready to ship production-grade code, maintain clean multi-tier architectures, and integrate reliable full-stack services within fast-paced engineering teams.",
     specs: [
       { label: "STATUS", value: "OPEN FOR 2027 OJT", highlight: "gold" },
       { label: "LOCATION", value: "JONGGOL, ID • HYBRID / REMOTE" },
