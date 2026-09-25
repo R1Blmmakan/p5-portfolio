@@ -235,11 +235,12 @@
   margin: 0;
   font-family: 'Anton', sans-serif;
   font-style: italic;
-  font-size: clamp(28px, 2.8vw, 38px);
-  letter-spacing: 2px;
+  font-size: clamp(24px, 2.2vw, 32px);
+  letter-spacing: 1.5px;
   color: #ffffff;
-  line-height: 0.9;
+  line-height: 0.95;
   text-shadow: 3px 3px 0px #000000, 5px 5px 0px #e60012;
+  word-break: break-word;
 }
 
 .p5-comic-role {
@@ -476,29 +477,30 @@
 
 .p5-comic-speech-spike {
   position: relative;
-  background: #e60012;
+  background: #0d0f17;
   border: 1.5px solid #ffffff;
-  padding: 6px 12px;
-  margin: 3px 0 6px;
-  clip-path: polygon(0% 0%, 98% 0%, 100% 70%, 96% 100%, 6% 100%, 0% 70%);
+  border-left: 5px solid #e60012;
+  padding: 8px 14px;
+  margin: 6px 0 10px;
   box-shadow: 3px 3px 0px #000000;
 }
 
 .p5-speech-text {
-  font-family: 'Anton', sans-serif;
-  font-style: italic;
-  font-size: clamp(11.5px, 1.05vw, 13.5px);
-  letter-spacing: 1.2px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(12.5px, 1.05vw, 14px);
+  letter-spacing: 0.5px;
   color: #ffffff;
-  text-shadow: 2px 2px 0px #000000;
+  line-height: 1.45;
 }
 
 .p5-koma-body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(11px, 0.9vw, 12.5px);
-  line-height: 1.55;
-  color: #cbd5e1;
+  font-size: clamp(13px, 1vw, 14.5px);
+  line-height: 1.68;
+  color: #f1f5f9;
+  letter-spacing: 0.15px;
 }
 
 .p5-panel-arsenal {
@@ -611,18 +613,18 @@
 .p5-clipping-headline {
   margin: 0;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(11.5px, 1vw, 13px);
+  font-size: clamp(12.5px, 1.1vw, 14.5px);
   letter-spacing: 0.8px;
   color: #ffffff;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .p5-clipping-desc {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(9.5px, 0.8vw, 10.8px);
-  line-height: 1.45;
-  color: #94a3b8;
+  font-size: clamp(11.5px, 0.9vw, 13px);
+  line-height: 1.6;
+  color: #e2e8f0;
 }
 
 .p5-record-action-row {
@@ -709,7 +711,7 @@
 
 .p5-spec-label {
   font-family: 'Space Grotesk', monospace;
-  font-size: 8px;
+  font-size: 9.5px;
   font-weight: 800;
   letter-spacing: 1px;
   color: #94a3b8;
@@ -717,7 +719,7 @@
 
 .p5-spec-val {
   font-family: 'Anton', sans-serif;
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.8px;
   color: #ffffff;
 }
@@ -727,7 +729,7 @@
 }
 
 .p5-spec-val.highlight-cyan {
-  color: #00e1ff;
+  color: #ffffff;
 }
 
 .p5-manga-footer {
@@ -1472,12 +1474,13 @@
   }
 
   .p5-speech-text {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .p5-koma-body {
-    font-size: 11px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.62;
+    color: #f1f5f9;
   }
 
   .p5-comic-grid-split,
@@ -1488,9 +1491,13 @@
   }
 
   .p5-manga-footer {
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
-    padding: 10px 12px 36px;
+    display: none !important;
   }
 }
+
+@media (pointer: coarse) {
+  .p5-manga-footer {
+    display: none !important;
+  }
+}
+

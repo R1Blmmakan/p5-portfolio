@@ -163,3 +163,14 @@ export const SOCIAL_ITEMS: SocialItem[] = [
     ],
   },
 ];
+
+export const SOCIALS_CONFIG = {
+  location: "JONGGOL, ID",
+  statusBadge: "STATUS: ONLINE & RESPONSIVE",
+  targetTag: "[TARGET]",
+  targetValue: "OPEN FOR OJT 2027",
+  speechRibbon: "How would you like to connect today?",
+  footerMeta: "PORTFOLIO CONTACT // FIKRI • JONGGOL, ID",
+  footerStatus: "AVAILABLE 2026 / 2027"
+};
+

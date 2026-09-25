@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./AboutMe.css";
 import VideoOverlay from "./VideoOverlay";
+import { ABOUT_DATA } from "./data/about";
 
 interface AboutMeProps {
   onBack?: () => void;
@@ -27,8 +28,8 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/Fikri_Resume_2026.pdf";
-    link.download = "Fikri_Resume_2026.pdf";
+    link.href = ABOUT_DATA.identity.resumePdfUrl;
+    link.download = ABOUT_DATA.identity.resumePdfUrl.replace(/^\//, "");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -57,7 +58,7 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
       <header className="p5-manga-topbar">
         <div className="p5-manga-tape-strip">
           <span className="p5-tape-hazard" />
-          <span className="p5-tape-text">CANDIDATE DOSSIER // FIKRI • SOFTWARE ENGINEER</span>
+          <span className="p5-tape-text">{ABOUT_DATA.topbarText}</span>
         </div>
         <button
           type="button"
@@ -75,50 +76,45 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
 
           <div className="p5-comic-frame">
             <img
-              src="/mainm.webp"
-              alt="Fikri Portrait"
+              src={ABOUT_DATA.identity.portraitImg}
+              alt={ABOUT_DATA.identity.portraitAlt}
               className="p5-comic-img"
             />
             <div className="p5-comic-halftone-overlay" />
-            <div className="p5-comic-status-banner">VERIFIED CANDIDATE</div>
+            <div className="p5-comic-status-banner">{ABOUT_DATA.identity.verifiedStatus}</div>
           </div>
 
           <div className="p5-comic-nameplate">
             <div className="p5-nameplate-slash" />
-            <h1 className="p5-comic-name">FIKRI</h1>
-            <div className="p5-comic-role">FULL-STACK SOFTWARE ENGINEER</div>
+            <h1 className="p5-comic-name">{ABOUT_DATA.identity.fullName}</h1>
+            <div className="p5-comic-role">{ABOUT_DATA.identity.roleTitle}</div>
           </div>
 
           <div className="p5-comic-evidence-deck">
-            <div className="p5-evidence-tag">
-              <span className="p5-evidence-label">[EXPERIENCE]</span>
-              <span className="p5-evidence-val">2+ YEARS CODING EXP</span>
-            </div>
-            <div className="p5-evidence-tag">
-              <span className="p5-evidence-label">[EDUCATION]</span>
-              <span className="p5-evidence-val">SMK METLAND (RPL)</span>
-            </div>
-            <div className="p5-evidence-tag accent-gold">
-              <span className="p5-evidence-label">[CERTIFICATION]</span>
-              <span className="p5-evidence-val">BNSP JUNIOR SE</span>
-            </div>
-            <div className="p5-evidence-tag accent-red">
-              <span className="p5-evidence-label">[ACHIEVEMENT]</span>
-              <span className="p5-evidence-val">1ST NATIONAL WEB CRAFT</span>
-            </div>
+            {ABOUT_DATA.identity.evidenceTags.map((tag) => (
+              <div
+                key={tag.label}
+                className={`p5-evidence-tag ${tag.accent === "gold" ? "accent-gold" : tag.accent === "red" ? "accent-red" : ""}`}
+              >
+                <span className="p5-evidence-label">{tag.label}</span>
+                <span className="p5-evidence-val">{tag.value}</span>
+              </div>
+            ))}
           </div>
 
           <div className="p5-identity-telemetry">
             <div className="p5-telemetry-header">
               <span className="p5-telemetry-dot" />
-              <span>STATUS & RECRUITMENT AVAILABILITY</span>
+              <span>{ABOUT_DATA.identity.recruitmentStatus.header}</span>
             </div>
             <div className="p5-telemetry-status">
-              <span className="p5-telemetry-label">RECRUITMENT STATUS:</span>
-              <span className="p5-telemetry-highlight">OPEN FOR 2026 APPRENTICESHIP</span>
+              <span className="p5-telemetry-label">{ABOUT_DATA.identity.recruitmentStatus.label}</span>
+              <span className="p5-telemetry-highlight">
+                {ABOUT_DATA.identity.recruitmentStatus.highlight}
+              </span>
             </div>
             <div className="p5-telemetry-footer">
-              <span className="p5-telemetry-coords">JAKARTA, ID • HYBRID / REMOTE</span>
+              <span className="p5-telemetry-coords">{ABOUT_DATA.identity.locationCoords}</span>
               <div className="p5-telemetry-actions">
                 <button
                   type="button"
@@ -145,79 +141,58 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
         <section className="p5-manga-storyboard">
           <article className="p5-manga-panel p5-panel-origin">
             <div className="p5-panel-comic-header">
-              <span className="p5-koma-num">ACT 01</span>
-              <h2 className="p5-koma-title">PROFESSIONAL BACKGROUND & PHILOSOPHY</h2>
+              <span className="p5-koma-num">{ABOUT_DATA.act01.komaNum}</span>
+              <h2 className="p5-koma-title">{ABOUT_DATA.act01.title}</h2>
             </div>
 
             <div className="p5-comic-speech-spike">
               <div className="p5-speech-text">
-                "ENGINEERING CLEAN ARCHITECTURES, INTUITIVE EXPERIENCES, AND SCALABLE WEB SYSTEMS."
+                "{ABOUT_DATA.act01.philosophyQuote}"
               </div>
             </div>
 
-            <p className="p5-koma-body">
-              Vocational Software Engineering student at SMK Metland with over 2 years of hands-on experience
-              building modern, responsive web applications. I focus on creating high-performance frontend interfaces
-              with React, TypeScript, and modern CSS, paired with robust backend services in Node.js and PostgreSQL.
-              Committed to clean code, accessibility standards, and intuitive design.
-            </p>
+            <p className="p5-koma-body">{ABOUT_DATA.act01.narrative}</p>
           </article>
 
           <article className="p5-manga-panel p5-panel-arsenal">
             <div className="p5-panel-comic-header">
-              <span className="p5-koma-num">ACT 02</span>
-              <h2 className="p5-koma-title">TECHNICAL SKILLS & CORE STACK</h2>
+              <span className="p5-koma-num">{ABOUT_DATA.act02.komaNum}</span>
+              <h2 className="p5-koma-title">{ABOUT_DATA.act02.title}</h2>
             </div>
 
             <div className="p5-comic-grid-split">
-              <div className="p5-comic-stack-col">
-                <span className="p5-stack-heading">⚔ FRONTEND & UI DEVELOPMENT</span>
-                <div className="p5-comic-stamp-cloud">
-                  <span className="p5-comic-stamp">React 19</span>
-                  <span className="p5-comic-stamp">TypeScript</span>
-                  <span className="p5-comic-stamp">Next.js</span>
-                  <span className="p5-comic-stamp">Vite</span>
-                  <span className="p5-comic-stamp highlight">Modern CSS</span>
-                  <span className="p5-comic-stamp">Framer Motion</span>
+              {ABOUT_DATA.act02.columns.map((col) => (
+                <div key={col.heading} className="p5-comic-stack-col">
+                  <span className="p5-stack-heading">{col.heading}</span>
+                  <div className="p5-comic-stamp-cloud">
+                    {col.skills.map((sk) => (
+                      <span
+                        key={sk.name}
+                        className={`p5-comic-stamp ${sk.highlight ? "highlight" : ""}`}
+                      >
+                        {sk.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              <div className="p5-comic-stack-col">
-                <span className="p5-stack-heading">⚡ BACKEND & DATABASE</span>
-                <div className="p5-comic-stamp-cloud">
-                  <span className="p5-comic-stamp">Node.js</span>
-                  <span className="p5-comic-stamp">Express REST</span>
-                  <span className="p5-comic-stamp highlight">PostgreSQL</span>
-                  <span className="p5-comic-stamp">Clean Arch</span>
-                  <span className="p5-comic-stamp">JWT Auth</span>
-                  <span className="p5-comic-stamp">Docker</span>
-                </div>
-              </div>
+              ))}
             </div>
           </article>
 
           <article className="p5-manga-panel p5-panel-records">
             <div className="p5-panel-comic-header">
-              <span className="p5-koma-num">ACT 03</span>
-              <h2 className="p5-koma-title">CERTIFICATIONS & ACHIEVEMENTS</h2>
+              <span className="p5-koma-num">{ABOUT_DATA.act03.komaNum}</span>
+              <h2 className="p5-koma-title">{ABOUT_DATA.act03.title}</h2>
             </div>
 
             <div className="p5-comic-record-grid">
-              <div className="p5-comic-clipping gold">
-                <div className="p5-clipping-badge">★ 1ST PLACE CHAMPION</div>
-                <h3 className="p5-clipping-headline">National Web Craft & UI/UX Championship (2024)</h3>
-                <p className="p5-clipping-desc">
-                  Ranked #1 nationwide by Vocational Skills Council for high-pressure rapid interface prototyping, accessible markup, and elite aesthetic execution.
-                </p>
-              </div>
-
-              <div className="p5-comic-clipping red">
-                <div className="p5-clipping-badge">✦ GOV CERTIFIED</div>
-                <h3 className="p5-clipping-headline">BNSP Certified Junior Software Engineer</h3>
-                <p className="p5-clipping-desc">
-                  Official national certification validating industry competence in software architecture, database relational design, and production web deployment.
-                </p>
-              </div>
+              {ABOUT_DATA.act03.clippings.map((clip) => (
+                <div key={clip.headline} className={`p5-comic-clipping ${clip.type}`}>
+                  <div className="p5-clipping-badge">{clip.badge}</div>
+                  <h3 className="p5-clipping-headline">{clip.headline}</h3>
+                  <p className="p5-clipping-desc">{clip.description}</p>
+                </div>
+              ))}
             </div>
 
             {onNavigate && (
@@ -229,7 +204,7 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
                   title="Verify all credentials and licenses in Resume"
                 >
                   <span className="p5-verify-icon">🔍</span>
-                  <span>VERIFY CREDENTIALS & LICENSES IN RESUME</span>
+                  <span>{ABOUT_DATA.act03.verifyResumeLabel}</span>
                   <span className="p5-verify-arrow">►</span>
                 </button>
               </div>
@@ -238,32 +213,26 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
 
           <article className="p5-manga-panel p5-panel-contract">
             <div className="p5-panel-comic-header">
-              <span className="p5-koma-num">ACT 04</span>
-              <h2 className="p5-koma-title">CAREER OBJECTIVE & 2026 AVAILABILITY</h2>
+              <span className="p5-koma-num">{ABOUT_DATA.act04.komaNum}</span>
+              <h2 className="p5-koma-title">{ABOUT_DATA.act04.title}</h2>
             </div>
 
             <div className="p5-comic-contract-grid">
               <div className="p5-comic-contract-body">
-                <p className="p5-koma-body">
-                  Actively seeking an industrial apprenticeship or junior software engineer role for 2026.
-                  Ready to contribute production-grade code to engineering teams with solid TypeScript and React foundations,
-                  reliable backend knowledge, eager adaptability, and high professional work ethic.
-                </p>
+                <p className="p5-koma-body">{ABOUT_DATA.act04.narrative}</p>
               </div>
 
               <div className="p5-comic-contract-specs">
-                <div className="p5-spec-pill">
-                  <span className="p5-spec-label">STATUS</span>
-                  <span className="p5-spec-val highlight-gold">OPEN FOR 2026 APPRENTICESHIP</span>
-                </div>
-                <div className="p5-spec-pill">
-                  <span className="p5-spec-label">LOCATION</span>
-                  <span className="p5-spec-val">JAKARTA, ID • HYBRID / REMOTE</span>
-                </div>
-                <div className="p5-spec-pill">
-                  <span className="p5-spec-label">ROLE FOCUS</span>
-                  <span className="p5-spec-val highlight-cyan">FULL-STACK / FRONTEND ENGINEER</span>
-                </div>
+                {ABOUT_DATA.act04.specs.map((spec) => (
+                  <div key={spec.label} className="p5-spec-pill">
+                    <span className="p5-spec-label">{spec.label}</span>
+                    <span
+                      className={`p5-spec-val ${spec.highlight === "gold" ? "highlight-gold" : ""}`}
+                    >
+                      {spec.value}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </article>
@@ -276,9 +245,9 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
           <span>RETURN TO HOME</span>
         </div>
         <div className="p5-manga-footer-coords">
-          <span>PORTFOLIO PROFILE // FIKRI • JAKARTA, ID</span>
+          <span>{ABOUT_DATA.footerCoords.text}</span>
           <span className="p5-dot">•</span>
-          <span>AVAILABLE 2026</span>
+          <span>{ABOUT_DATA.footerCoords.status}</span>
         </div>
       </footer>
     </div>

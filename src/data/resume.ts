@@ -304,3 +304,10 @@ export const RESUME_ITEMS: ResumeItem[] = [
     }
   }
 ];
+
+export const RESUME_TELEMETRY = [
+  { key: "[CANDIDATE]", val: "R. WAN FIKRI P // FULL-STACK", accent: "" },
+  { key: "[ACCREDITATION]", val: "BNSP JUNIOR SE • 5TH LKS", accent: "gold" },
+  { key: "[AVAILABILITY]", val: "OPEN FOR OJT AS OF 2027", accent: "red" }
+];
+

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import "./Socials.css";
-import { SOCIAL_ITEMS as ITEMS } from "./data/socials";
+import { SOCIAL_ITEMS as ITEMS, SOCIALS_CONFIG } from "./data/socials";
 import { SocialActionItem } from "./types/portfolio";
 import VideoOverlay from "./VideoOverlay";
 
@@ -152,9 +152,9 @@ export default function Socials({ onBack }: SocialsProps) {
             <div className="p5-dossier-topbar">
               <div className="p5-dossier-pulse-badge">
                 <span className="p5-live-beacon" />
-                <span>STATUS: ONLINE & RESPONSIVE</span>
+                <span>{SOCIALS_CONFIG.statusBadge}</span>
               </div>
-              <span className="p5-dossier-freq">LOCATION: JAKARTA, ID</span>
+              <span className="p5-dossier-freq">LOCATION: {SOCIALS_CONFIG.location}</span>
             </div>
 
             <div className="p5-dossier-category">
@@ -217,8 +217,8 @@ export default function Socials({ onBack }: SocialsProps) {
                 </div>
               ))}
               <div className="p5-metric-pill accent-gold">
-                <span className="p5-metric-tag">[TARGET]</span>
-                <span className="p5-metric-val">2026 APPRENTICESHIP</span>
+                <span className="p5-metric-tag">{SOCIALS_CONFIG.targetTag}</span>
+                <span className="p5-metric-val">{SOCIALS_CONFIG.targetValue}</span>
               </div>
             </div>
           </section>
@@ -276,7 +276,7 @@ export default function Socials({ onBack }: SocialsProps) {
             <div className="p5-comic-speech-ribbon">
               <div className="p5-speech-ribbon-tail" />
               <p className="p5-speech-ribbon-text">
-                How would you like to connect today?
+                {SOCIALS_CONFIG.speechRibbon}
               </p>
             </div>
           </aside>
@@ -308,9 +308,9 @@ export default function Socials({ onBack }: SocialsProps) {
         </div>
 
         <div className="p5-hud-meta">
-          <span>PORTFOLIO CONTACT // FIKRI • JAKARTA, ID</span>
+          <span>{SOCIALS_CONFIG.footerMeta}</span>
           <span className="p5-hud-dot">•</span>
-          <span>AVAILABLE 2026</span>
+          <span>{SOCIALS_CONFIG.footerStatus}</span>
         </div>
       </footer>
     </div>

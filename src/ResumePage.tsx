@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./ResumePage.css";
 import VideoOverlay from "./VideoOverlay";
 import { DetailRow } from "./types/portfolio";
-import { RESUME_ITEMS as ITEMS } from "./data/resume";
+import { RESUME_ITEMS as ITEMS, RESUME_TELEMETRY } from "./data/resume";
 
 interface ResumePageProps {
   onBack?: () => void;
@@ -164,18 +164,15 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
             </nav>
 
             <div className="resume-dock-telemetry">
-              <div className="resume-telemetry-tag">
-                <span className="resume-telemetry-key">[CANDIDATE]</span>
-                <span className="resume-telemetry-val">FIKRI // FULL-STACK</span>
-              </div>
-              <div className="resume-telemetry-tag highlight-gold">
-                <span className="resume-telemetry-key">[ACCREDITATION]</span>
-                <span className="resume-telemetry-val">BNSP • 1ST NAT CHAMPION</span>
-              </div>
-              <div className="resume-telemetry-tag highlight-red">
-                <span className="resume-telemetry-key">[AVAILABILITY]</span>
-                <span className="resume-telemetry-val">OPEN FOR 2026 APPRENTICESHIP</span>
-              </div>
+              {RESUME_TELEMETRY.map((item) => (
+                <div
+                  key={item.key}
+                  className={`resume-telemetry-tag ${item.accent ? `highlight-${item.accent}` : ""}`}
+                >
+                  <span className="resume-telemetry-key">{item.key}</span>
+                  <span className="resume-telemetry-val">{item.val}</span>
+                </div>
+              ))}
             </div>
           </aside>
 
