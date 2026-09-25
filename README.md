@@ -209,9 +209,9 @@ This repository and its codebase are published for portfolio demonstration, code
 
 ## 📬 Contact & Author
 
-- **Developer**: Fikri
+- **Developer**: R. Wan Fikri Pricahyadi
 - **Status**: Software Engineering Student at SMK Metland (Class of 2026)
 - **Accreditation**: 1st Winner, National Vocational Web Craft & UI/UX Championship (2024) | BNSP Certified Junior Software Engineer
 - **GitHub**: [@R1Blmmakan](https://github.com/R1Blmmakan)
 - **Email**: [fikripricahyadi10@gmail.com](mailto:fikripricahyadi10@gmail.com)
-- **Live Portfolio**: [fikri-portfolio.vercel.app](https://fikri-portfolio.vercel.app)
+- **Live Portfolio**: [fikri-portfolio.vercel.app](https://r1fikri.dev/)

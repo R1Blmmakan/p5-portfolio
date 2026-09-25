@@ -1,8 +1,17 @@
+/* ==========================================================================
+   Persona 5 Manga Dossier // About Me
+   Aesthetic: JRPG Classified Archives (ENERGY 3 / RHYTHM 3 / MOTION 2)
+   Tokens: #e60012 (Crimson), #000000 (Black), #ffffff (White), #ffea00 (Gold)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Stage & Backgrounds
+   -------------------------------------------------------------------------- */
 .p5-manga-stage {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: #040508;
   user-select: none;
   display: flex;
@@ -10,6 +19,8 @@
   opacity: 0;
   transform: scale(0.99);
   transition: opacity 0.3s ease-out, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .p5-manga-stage.mounted {
@@ -18,7 +29,7 @@
 }
 
 .p5-manga-video {
-  position: absolute;
+  position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -29,7 +40,7 @@
 }
 
 .p5-manga-screentone-bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   background-size: 8px 8px;
@@ -37,13 +48,17 @@
   z-index: 1;
 }
 
+/* --------------------------------------------------------------------------
+   Top Bar
+   -------------------------------------------------------------------------- */
 .p5-manga-topbar {
   position: relative;
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(12px, 2vh, 20px) clamp(20px, 3.5vw, 48px);
+  padding: clamp(10px, 1.8vh, 18px) clamp(16px, 3vw, 40px);
+  flex-shrink: 0;
 }
 
 .p5-manga-tape-strip {
@@ -69,6 +84,7 @@
     #000000 8px
   );
   border: 1px solid #ffffff;
+  flex-shrink: 0;
 }
 
 .p5-tape-text {
@@ -77,6 +93,7 @@
   font-weight: 700;
   letter-spacing: 1.5px;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .p5-manga-close-btn {
@@ -89,10 +106,15 @@
   font-size: clamp(12.5px, 1vw, 14px);
   letter-spacing: 1.5px;
   padding: 5px 16px;
+  min-height: 40px;
   cursor: pointer;
   box-shadow: 4px 4px 0px #000000;
   transform: rotate(0.8deg);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .p5-manga-close-btn:hover {
@@ -107,15 +129,20 @@
   outline-offset: 3px;
 }
 
+/* --------------------------------------------------------------------------
+   Manga Spread (Core Container)
+   -------------------------------------------------------------------------- */
 .p5-manga-spread {
   position: relative;
   z-index: 20;
   flex: 1;
   display: flex;
-  gap: clamp(18px, 2.5vw, 32px);
-  padding: 0 clamp(20px, 3.5vw, 48px) clamp(12px, 1.8vh, 18px);
-  overflow: hidden;
+  gap: clamp(16px, 2.2vw, 32px);
+  padding: 0 clamp(16px, 3vw, 40px) clamp(10px, 1.5vh, 16px);
   align-items: stretch;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .p5-manga-panel {
@@ -126,16 +153,20 @@
   position: relative;
 }
 
+/* --------------------------------------------------------------------------
+   Left Column: Classified Identity Panel
+   -------------------------------------------------------------------------- */
 .p5-panel-identity {
-  width: clamp(280px, 25vw, 350px);
+  width: clamp(280px, 25vw, 340px);
   box-shadow: 7px 7px 0px #000000, 11px 11px 0px #e60012;
-  padding: clamp(14px, 2vh, 18px);
+  padding: clamp(12px, 1.8vh, 18px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: clamp(10px, 1.4vh, 14px);
+  gap: clamp(8px, 1.2vh, 12px);
   transform: rotate(-0.6deg);
   overflow-y: auto;
+  flex-shrink: 0;
 }
 
 .p5-panel-tape-pin {
@@ -165,6 +196,7 @@
   border: 2px solid #ffffff;
   overflow: hidden;
   box-shadow: 3px 3px 0px #000000;
+  flex-shrink: 0;
 }
 
 .p5-comic-img {
@@ -221,7 +253,7 @@
   margin: 0;
   font-family: 'Anton', sans-serif;
   font-style: italic;
-  font-size: clamp(30px, 3vw, 40px);
+  font-size: clamp(28px, 2.8vw, 38px);
   letter-spacing: 2px;
   color: #ffffff;
   line-height: 0.9;
@@ -230,7 +262,7 @@
 
 .p5-comic-role {
   font-family: 'Space Grotesk', monospace;
-  font-size: 9.5px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.2px;
   color: #cbd5e1;
@@ -240,14 +272,14 @@
 .p5-comic-evidence-deck {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .p5-evidence-tag {
   background: #080a12;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 3.5px solid #ffffff;
-  padding: 5px 8px;
+  padding: 4px 7px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -270,7 +302,7 @@
 
 .p5-evidence-label {
   font-family: 'Space Grotesk', monospace;
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 1.2px;
   color: #94a3b8;
@@ -278,7 +310,7 @@
 
 .p5-evidence-val {
   font-family: 'Anton', 'Space Grotesk', sans-serif;
-  font-size: 11px;
+  font-size: 10.5px;
   letter-spacing: 0.8px;
   color: #ffffff;
 }
@@ -295,12 +327,12 @@
   background: #06070e;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-left: 4px solid #e60012;
-  padding: 8px 10px;
+  padding: 7px 9px;
   box-shadow: 3px 3px 0px #000000;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 4px;
+  gap: 4px;
+  margin-top: 2px;
 }
 
 .p5-telemetry-header {
@@ -308,7 +340,7 @@
   align-items: center;
   gap: 6px;
   font-family: 'Space Grotesk', monospace;
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: 1.2px;
   color: #94a3b8;
@@ -329,14 +361,14 @@
 
 .p5-telemetry-label {
   font-family: 'Space Grotesk', monospace;
-  font-size: 8px;
+  font-size: 7.5px;
   letter-spacing: 1px;
   color: #94a3b8;
 }
 
 .p5-telemetry-highlight {
   font-family: 'Anton', sans-serif;
-  font-size: 11px;
+  font-size: 10.5px;
   letter-spacing: 1px;
   color: #ffffff;
 }
@@ -346,13 +378,13 @@
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 5px;
+  padding-top: 4px;
   margin-top: 2px;
 }
 
 .p5-telemetry-coords {
   font-family: 'Space Grotesk', monospace;
-  font-size: 8.5px;
+  font-size: 8px;
   color: #94a3b8;
   letter-spacing: 1px;
 }
@@ -363,11 +395,14 @@
   border: 1px solid #ffea00;
   border-radius: 0px;
   font-family: 'Anton', sans-serif;
-  font-size: 9.5px;
+  font-size: 9px;
   letter-spacing: 1px;
-  padding: 1px 7px;
+  padding: 2px 7px;
   cursor: pointer;
   transition: all 0.15s ease;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .p5-telemetry-action-btn:hover {
@@ -381,13 +416,31 @@
   outline-offset: 2px;
 }
 
+/* --------------------------------------------------------------------------
+   Right Column: Storyboard Acts
+   -------------------------------------------------------------------------- */
 .p5-manga-storyboard {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 1.5vh, 15px);
+  gap: clamp(10px, 1.4vh, 14px);
   overflow-y: auto;
   padding-right: 6px;
+}
+
+.p5-manga-storyboard::-webkit-scrollbar,
+.p5-panel-identity::-webkit-scrollbar {
+  width: 5px;
+}
+
+.p5-manga-storyboard::-webkit-scrollbar-track,
+.p5-panel-identity::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.p5-manga-storyboard::-webkit-scrollbar-thumb,
+.p5-panel-identity::-webkit-scrollbar-thumb {
+  background: #e60012;
 }
 
 .p5-panel-origin {
@@ -402,7 +455,7 @@
   gap: 8px;
   border-bottom: 1.5px solid #ffffff;
   padding-bottom: 4px;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
 .p5-koma-num {
@@ -419,7 +472,7 @@
   margin: 0;
   font-family: 'Anton', sans-serif;
   font-style: italic;
-  font-size: clamp(14px, 1.2vw, 18px);
+  font-size: clamp(14px, 1.2vw, 17px);
   letter-spacing: 1.5px;
   color: #ffffff;
 }
@@ -428,8 +481,8 @@
   position: relative;
   background: #e60012;
   border: 1.5px solid #ffffff;
-  padding: 7px 14px;
-  margin: 3px 0 7px;
+  padding: 6px 12px;
+  margin: 3px 0 6px;
   clip-path: polygon(0% 0%, 98% 0%, 100% 70%, 96% 100%, 6% 100%, 0% 70%);
   box-shadow: 3px 3px 0px #000000;
 }
@@ -437,7 +490,7 @@
 .p5-speech-text {
   font-family: 'Anton', sans-serif;
   font-style: italic;
-  font-size: clamp(11.5px, 1.05vw, 14px);
+  font-size: clamp(11.5px, 1.05vw, 13.5px);
   letter-spacing: 1.2px;
   color: #ffffff;
   text-shadow: 2px 2px 0px #000000;
@@ -446,8 +499,8 @@
 .p5-koma-body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(11.5px, 0.9vw, 12.8px);
-  line-height: 1.6;
+  font-size: clamp(11px, 0.9vw, 12.5px);
+  line-height: 1.55;
   color: #cbd5e1;
 }
 
@@ -524,7 +577,7 @@
   flex: 1;
   background: #080a12;
   border: 1.5px solid #ffffff;
-  padding: 9px 11px;
+  padding: 8px 11px;
   box-shadow: 3px 3px 0px #000000;
   display: flex;
   flex-direction: column;
@@ -561,7 +614,7 @@
 .p5-clipping-headline {
   margin: 0;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(11.5px, 1vw, 13.5px);
+  font-size: clamp(11.5px, 1vw, 13px);
   letter-spacing: 0.8px;
   color: #ffffff;
   line-height: 1.2;
@@ -570,20 +623,85 @@
 .p5-clipping-desc {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(9.5px, 0.8vw, 11px);
+  font-size: clamp(9.5px, 0.8vw, 10.8px);
   line-height: 1.45;
   color: #94a3b8;
 }
 
+/* Act 04: The Contract */
+.p5-panel-contract {
+  padding: clamp(12px, 1.6vh, 16px) clamp(16px, 1.8vw, 20px);
+  transform: rotate(-0.25deg);
+  box-shadow: 6px 6px 0px #000000, 9px 9px 0px rgba(230, 0, 18, 0.3);
+}
+
+.p5-comic-contract-grid {
+  display: flex;
+  gap: 14px;
+}
+
+.p5-comic-contract-body {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.p5-comic-contract-specs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+.p5-spec-pill {
+  background: #080a12;
+  border: 1.5px solid #ffffff;
+  padding: 5px 9px;
+  box-shadow: 2px 2px 0px #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.p5-spec-label {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #94a3b8;
+}
+
+.p5-spec-val {
+  font-family: 'Anton', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.p5-spec-val.highlight-gold {
+  color: #ffea00;
+}
+
+.p5-spec-val.highlight-cyan {
+  color: #00e1ff;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
 .p5-manga-footer {
   position: relative;
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(7px, 1.2vh, 10px) clamp(20px, 3.5vw, 48px);
+  padding: clamp(6px, 1.2vh, 10px) clamp(16px, 3vw, 40px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(0, 0, 0, 0.88);
+  flex-shrink: 0;
 }
 
 .p5-manga-footer-tag {
@@ -620,66 +738,629 @@
   color: #e60012;
 }
 
-@media (max-width: 900px) {
+/* ==========================================================================
+   Widescreen Desktop Monitors (Fixed Viewport)
+   Only spacious displays with ample width AND height keep fixed 100vh stage
+   ========================================================================== */
+@media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
+  .p5-manga-stage {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .p5-manga-spread {
+    overflow: hidden;
+    flex: 1;
+  }
+}
+
+/* ==========================================================================
+   TABLET PORTRAIT REFLOW
+   Targets: iPad Pro 13 (1032x1376), Surface Pro 10 (960-1000x1440),
+            iPad Air (820x1180), iPad Mini (768x1024), and portrait foldables
+   ========================================================================== */
+@media (max-width: 1180px) and (orientation: portrait), (orientation: portrait) and (max-aspect-ratio: 1.05) {
   .p5-manga-stage {
     height: auto;
     min-height: 100vh;
     min-height: 100dvh;
     overflow-x: hidden;
     overflow-y: visible;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .p5-manga-video,
-  .p5-manga-screentone-bg {
-    position: fixed;
-  }
-
-  .p5-manga-topbar {
-    position: relative;
-    padding: 10px 16px;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .p5-manga-tape-strip {
-    padding: 3px 10px;
-  }
-
-  .p5-tape-text {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-
-  .p5-manga-close-btn {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 16px;
-    font-size: 12px;
   }
 
   .p5-manga-spread {
     flex-direction: column;
     overflow: visible;
-    padding: 0 16px 24px 16px;
-    gap: 14px;
+    padding: 0 clamp(16px, 3.5vw, 36px) 24px;
+    gap: 18px;
+    height: auto;
   }
 
-  /* Compact Agent ID Passport Grid */
+  /* Wide Tablet Passport Dossier Card */
   .p5-panel-identity {
     width: 100%;
-    transform: none;
+    transform: none !important;
     overflow: visible;
     display: grid;
-    grid-template-columns: 105px 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 8px 12px;
+    grid-template-columns: 180px 1fr 280px;
+    grid-template-rows: auto auto;
+    gap: 14px 20px;
     align-items: stretch;
-    padding: 12px 14px;
+    padding: 18px 22px;
+    box-shadow: 6px 6px 0px #000000, 10px 10px 0px #e60012;
+    height: auto;
+  }
+
+  .p5-panel-tape-pin {
+    top: -9px;
+    left: 40px;
+    transform: rotate(-1.5deg);
+  }
+
+  /* Column 1: Avatar spans full height */
+  .p5-comic-frame {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: 100%;
+    min-height: 175px;
+    aspect-ratio: auto;
+  }
+
+  /* Column 2: Nameplate on Row 1 */
+  .p5-comic-nameplate {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 8px 14px;
+    align-self: start;
+    margin-bottom: 2px;
+  }
+
+  .p5-comic-name {
+    font-size: clamp(32px, 3.8vw, 42px);
+  }
+
+  .p5-comic-role {
+    font-size: 10px;
+  }
+
+  /* Column 2: Evidence Deck on Row 2 directly under Nameplate - NO GAP */
+  .p5-comic-evidence-deck {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    align-self: stretch;
+  }
+
+  .p5-evidence-tag {
+    padding: 6px 10px;
+  }
+
+  .p5-evidence-label {
+    font-size: 8.5px;
+  }
+
+  .p5-evidence-val {
+    font-size: 11px;
+  }
+
+  /* Column 3: Telemetry spans full height */
+  .p5-identity-telemetry {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+    height: 100%;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .p5-telemetry-header {
+    font-size: 9px;
+  }
+
+  .p5-telemetry-highlight {
+    font-size: 11.5px;
+  }
+
+  .p5-telemetry-action-btn {
+    min-height: 38px;
+    padding: 6px 14px;
+    font-size: 10.5px;
+  }
+
+  /* Storyboard full width expansion */
+  .p5-manga-storyboard {
+    width: 100%;
+    overflow: visible;
+    height: auto;
+    padding-right: 0;
+    gap: 18px;
+  }
+
+  .p5-panel-origin,
+  .p5-panel-arsenal,
+  .p5-panel-records,
+  .p5-panel-contract {
+    transform: none !important;
+    padding: 20px 26px;
+    box-shadow: 6px 6px 0px #000000, 9px 9px 0px rgba(0, 0, 0, 0.6);
+  }
+
+  .p5-panel-comic-header {
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+  }
+
+  .p5-koma-num {
+    font-size: 11px;
+    padding: 2px 7px;
+  }
+
+  .p5-koma-title {
+    font-size: 17px;
+    letter-spacing: 1.5px;
+  }
+
+  .p5-comic-speech-spike {
+    padding: 10px 18px;
+    margin: 6px 0 10px;
+  }
+
+  .p5-speech-text {
+    font-size: 14.5px;
+  }
+
+  .p5-koma-body {
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .p5-comic-grid-split,
+  .p5-comic-record-grid,
+  .p5-comic-contract-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .p5-stack-heading {
+    font-size: 11px;
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+  }
+
+  .p5-comic-stamp {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+
+  .p5-comic-clipping {
+    padding: 12px 16px;
+    gap: 6px;
+  }
+
+  .p5-clipping-badge {
+    font-size: 9.5px;
+    padding: 2px 7px;
+  }
+
+  .p5-clipping-headline {
+    font-size: 14px;
+  }
+
+  .p5-clipping-desc {
+    font-size: 11.5px;
+    line-height: 1.55;
+  }
+
+  .p5-spec-pill {
+    padding: 7px 12px;
+  }
+
+  .p5-spec-label {
+    font-size: 8.5px;
+  }
+
+  .p5-spec-val {
+    font-size: 12px;
+  }
+
+  .p5-manga-footer {
+    padding: 14px 28px;
+    margin-top: 20px;
+  }
+}
+
+/* Tall Tablet Portrait Screens (iPad Pro 13: 1032x1376, Surface Pro 10: 960-1000x1440) */
+@media (max-width: 1180px) and (orientation: portrait) and (min-height: 1150px) {
+  .p5-manga-spread {
+    gap: 22px;
+    padding: 0 clamp(20px, 4vw, 44px) 28px;
+  }
+
+  .p5-panel-identity {
+    padding: 22px 26px;
+    gap: 16px 24px;
+    box-shadow: 7px 7px 0px #000000, 11px 11px 0px #e60012;
+  }
+
+  .p5-comic-frame {
+    min-height: 195px;
+  }
+
+  .p5-manga-storyboard {
+    gap: 22px;
+  }
+
+  .p5-panel-origin,
+  .p5-panel-arsenal,
+  .p5-panel-records,
+  .p5-panel-contract {
+    padding: 24px 30px;
+    box-shadow: 7px 7px 0px #000000, 10px 10px 0px rgba(0, 0, 0, 0.6);
+  }
+
+  .p5-comic-speech-spike {
+    padding: 12px 20px;
+    margin: 8px 0 12px;
+  }
+
+  .p5-speech-text {
+    font-size: 15.5px;
+  }
+
+  .p5-koma-body {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .p5-comic-stamp {
+    font-size: 13px;
+    padding: 4px 12px;
+  }
+
+  .p5-comic-clipping {
+    padding: 14px 18px;
+    gap: 8px;
+  }
+
+  .p5-clipping-headline {
+    font-size: 15.5px;
+  }
+
+  .p5-clipping-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .p5-spec-pill {
+    padding: 9px 14px;
+  }
+
+  .p5-spec-val {
+    font-size: 13px;
+  }
+
+  .p5-manga-footer {
+    padding: 18px 40px;
+    margin-top: 24px;
+  }
+}
+
+/* Medium portrait adjustments (768px - 860px) */
+@media (max-width: 860px) and (orientation: portrait) {
+  .p5-panel-identity {
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px 14px;
+  }
+
+  .p5-comic-frame {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    min-height: 130px;
+  }
+
+  .p5-comic-nameplate {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .p5-comic-evidence-deck {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: stretch;
+  }
+
+  .p5-identity-telemetry {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+}
+
+/* ==========================================================================
+   SHORT LANDSCAPE & FOLDABLE IN LANDSCAPE
+   Targets: Pixel 9 Pro Fold Landscape (922x412), Galaxy Z Fold Landscape,
+            and any screen with vertical height <= 620px
+   ========================================================================== */
+@media (max-height: 620px) {
+  .p5-manga-stage {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .p5-manga-topbar {
+    padding: 6px 14px;
+    gap: 8px;
+  }
+
+  .p5-manga-tape-strip {
+    padding: 2px 10px;
+  }
+
+  .p5-tape-text {
+    font-size: 9.5px;
+    letter-spacing: 1px;
+  }
+
+  .p5-manga-close-btn {
+    padding: 3px 12px;
+    font-size: 11px;
+    min-height: 34px;
+  }
+
+  .p5-manga-spread {
+    padding: 0 14px 16px;
+    gap: 12px;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Keep side-by-side on wide-enough landscape screens, but compact vertical sizes */
+  .p5-panel-identity {
+    width: clamp(250px, 30vw, 290px);
+    transform: none !important;
+    padding: 8px 10px;
+    gap: 5px;
+    height: auto;
+    justify-content: flex-start;
     box-shadow: 4px 4px 0px #000000, 7px 7px 0px #e60012;
+  }
+
+  .p5-panel-tape-pin {
+    display: none;
+  }
+
+  /* Compact avatar prevents pushing content offscreen */
+  .p5-comic-frame {
+    width: 100%;
+    height: 80px;
+    min-height: 75px;
+    max-height: 85px;
+    aspect-ratio: auto;
+  }
+
+  .p5-comic-img {
+    object-position: 50% 12%;
+  }
+
+  .p5-comic-status-banner {
+    font-size: 8px;
+    padding: 1px 5px;
+  }
+
+  .p5-comic-nameplate {
+    padding: 3px 8px;
+  }
+
+  .p5-comic-name {
+    font-size: 20px;
+    text-shadow: 2px 2px 0px #000000, 3px 3px 0px #e60012;
+  }
+
+  .p5-comic-role {
+    font-size: 7.5px;
+    margin-top: 2px;
+  }
+
+  .p5-comic-evidence-deck {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .p5-evidence-tag {
+    padding: 2px 5px;
+  }
+
+  .p5-evidence-label {
+    font-size: 7px;
+  }
+
+  .p5-evidence-val {
+    font-size: 8.5px;
+  }
+
+  .p5-identity-telemetry {
+    padding: 4px 7px;
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  .p5-telemetry-header {
+    font-size: 7.5px;
+  }
+
+  .p5-telemetry-label {
+    font-size: 6.5px;
+  }
+
+  .p5-telemetry-highlight {
+    font-size: 9px;
+  }
+
+  .p5-telemetry-footer {
+    padding-top: 3px;
+    margin-top: 1px;
+  }
+
+  .p5-telemetry-coords {
+    font-size: 7px;
+  }
+
+  .p5-telemetry-action-btn {
+    font-size: 8px;
+    padding: 1px 6px;
+    min-height: 26px;
+  }
+
+  /* Storyboard flows and scrolls cleanly */
+  .p5-manga-storyboard {
+    height: auto;
+    overflow: visible;
+    padding-right: 0;
+    gap: 8px;
+  }
+
+  .p5-panel-origin,
+  .p5-panel-arsenal,
+  .p5-panel-records,
+  .p5-panel-contract {
+    transform: none !important;
+    padding: 8px 12px;
+    box-shadow: 3px 3px 0px #000000, 6px 6px 0px rgba(0, 0, 0, 0.6);
+  }
+
+  .p5-panel-comic-header {
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+  }
+
+  .p5-koma-num {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+
+  .p5-koma-title {
+    font-size: 13px;
+  }
+
+  .p5-comic-speech-spike {
+    padding: 4px 8px;
+    margin: 2px 0 4px;
+  }
+
+  .p5-speech-text {
+    font-size: 10px;
+  }
+
+  .p5-koma-body {
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .p5-comic-grid-split,
+  .p5-comic-record-grid,
+  .p5-comic-contract-grid {
+    gap: 8px;
+  }
+
+  .p5-stack-heading {
+    font-size: 8px;
+    padding-bottom: 2px;
+  }
+
+  .p5-comic-stamp {
+    font-size: 9px;
+    padding: 1px 6px;
+  }
+
+  .p5-comic-clipping {
+    padding: 6px 8px;
+  }
+
+  .p5-clipping-badge {
+    font-size: 7.5px;
+    padding: 1px 4px;
+  }
+
+  .p5-clipping-headline {
+    font-size: 10.5px;
+  }
+
+  .p5-clipping-desc {
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .p5-spec-pill {
+    padding: 3px 6px;
+  }
+
+  .p5-spec-label {
+    font-size: 7px;
+  }
+
+  .p5-spec-val {
+    font-size: 9px;
+  }
+
+  .p5-manga-footer {
+    padding: 6px 14px;
+    margin-top: 8px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE PORTRAIT (PHONES < 650px)
+   ========================================================================== */
+@media (max-width: 650px) and (orientation: portrait) {
+  .p5-manga-topbar {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .p5-manga-tape-strip {
+    padding: 3px 8px;
+  }
+
+  .p5-tape-text {
+    font-size: 9.5px;
+    letter-spacing: 0.8px;
+  }
+
+  .p5-manga-close-btn {
+    min-height: 44px;
+    padding: 6px 14px;
+    font-size: 11.5px;
+  }
+
+  .p5-manga-spread {
+    flex-direction: column;
+    overflow: visible;
+    padding: 0 12px 20px;
+    gap: 12px;
+  }
+
+  .p5-panel-identity {
+    width: 100%;
+    transform: none !important;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px 10px;
+    padding: 10px 12px;
+    box-shadow: 4px 4px 0px #000000, 6px 6px 0px #e60012;
   }
 
   .p5-panel-tape-pin {
@@ -691,13 +1372,13 @@
     grid-row: 1 / span 2;
     width: 100%;
     height: 100%;
-    min-height: 120px;
+    min-height: 105px;
     aspect-ratio: auto;
   }
 
   .p5-comic-status-banner {
-    font-size: 8.5px;
-    padding: 2px 6px;
+    font-size: 8px;
+    padding: 1px 5px;
   }
 
   .p5-comic-nameplate {
@@ -707,13 +1388,11 @@
   }
 
   .p5-comic-name {
-    font-size: 26px;
-    text-shadow: 2px 2px 0px #000000, 4px 4px 0px #e60012;
+    font-size: 24px;
   }
 
   .p5-comic-role {
-    font-size: 8.5px;
-    margin-top: 2px;
+    font-size: 8px;
   }
 
   .p5-comic-evidence-deck {
@@ -721,76 +1400,87 @@
     grid-row: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4px;
+    gap: 3px;
   }
 
   .p5-evidence-tag {
-    padding: 3px 5px;
-    gap: 1px;
+    padding: 2px 4px;
   }
 
   .p5-evidence-label {
-    font-size: 7.5px;
+    font-size: 7px;
   }
 
   .p5-evidence-val {
-    font-size: 9px;
+    font-size: 8.5px;
   }
 
   .p5-identity-telemetry {
     grid-column: 1 / span 2;
     grid-row: 3;
     margin-top: 2px;
-    padding: 6px 10px;
-    gap: 4px;
+    padding: 6px 8px;
   }
 
   .p5-telemetry-header {
-    font-size: 8px;
+    font-size: 7.5px;
   }
 
   .p5-telemetry-highlight {
-    font-size: 10px;
+    font-size: 9.5px;
   }
 
   .p5-telemetry-action-btn {
     min-height: 38px;
-    min-width: 64px;
+    min-width: 60px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 10px;
-    font-size: 10px;
+    padding: 3px 8px;
+    font-size: 9px;
   }
 
-  /* Storyboard Acts Reflow */
   .p5-manga-storyboard {
-    height: auto;
+    width: 100%;
     overflow: visible;
+    height: auto;
     padding-right: 0;
-    gap: 12px;
+    gap: 10px;
   }
 
   .p5-panel-origin,
   .p5-panel-arsenal,
-  .p5-panel-records {
+  .p5-panel-records,
+  .p5-panel-contract {
     transform: none !important;
-    padding: 12px 14px;
-    box-shadow: 4px 4px 0px #000000, 7px 7px 0px rgba(0, 0, 0, 0.6);
+    padding: 10px 12px;
+    box-shadow: 4px 4px 0px #000000, 6px 6px 0px rgba(0, 0, 0, 0.6);
+  }
+
+  .p5-comic-speech-spike {
+    padding: 6px 10px;
+  }
+
+  .p5-speech-text {
+    font-size: 11px;
+  }
+
+  .p5-koma-body {
+    font-size: 11px;
+    line-height: 1.5;
   }
 
   .p5-comic-grid-split,
-  .p5-comic-record-grid {
+  .p5-comic-record-grid,
+  .p5-comic-contract-grid {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .p5-manga-footer {
-    position: relative;
-    padding: 12px 16px 44px 16px;
-    margin-top: 16px;
     flex-direction: column;
     gap: 6px;
     align-items: center;
+    padding: 10px 12px 36px;
   }
 }

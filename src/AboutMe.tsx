@@ -202,6 +202,38 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
               </div>
             </div>
           </article>
+
+          <article className="p5-manga-panel p5-panel-contract">
+            <div className="p5-panel-comic-header">
+              <span className="p5-koma-num">ACT 04</span>
+              <h2 className="p5-koma-title">THE CONTRACT // MISSION & GUILD OBJECTIVE</h2>
+            </div>
+
+            <div className="p5-comic-contract-grid">
+              <div className="p5-comic-contract-body">
+                <p className="p5-koma-body">
+                  Targeting an industrial apprenticeship or junior full-stack engineering role for 2026.
+                  Prepared to contribute production-grade code to a high-caliber team with algebraic precision,
+                  resilient architecture, and uncompromising creative passion.
+                </p>
+              </div>
+
+              <div className="p5-comic-contract-specs">
+                <div className="p5-spec-pill">
+                  <span className="p5-spec-label">STATUS</span>
+                  <span className="p5-spec-val highlight-gold">OPEN FOR 2026 APPRENTICESHIP</span>
+                </div>
+                <div className="p5-spec-pill">
+                  <span className="p5-spec-label">LOCATION</span>
+                  <span className="p5-spec-val">JAKARTA, ID • HYBRID / REMOTE</span>
+                </div>
+                <div className="p5-spec-pill">
+                  <span className="p5-spec-label">GUILD FOCUS</span>
+                  <span className="p5-spec-val highlight-cyan">CREATIVE UI & FULL-STACK SYSTEMS</span>
+                </div>
+              </div>
+            </div>
+          </article>
         </section>
       </main>
 

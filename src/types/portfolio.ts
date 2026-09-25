@@ -122,6 +122,17 @@ export interface StatItem {
   color: string;
 }
 
+export interface SocialActionItem {
+  id: string;
+  label: string;
+  actionText: string;
+  url?: string;
+  badge: string;
+  badgeColor?: "red" | "gold" | "cyan";
+  type: "copy" | "link";
+  copyText?: string;
+}
+
 export interface SocialItem {
   id: string;
   label: string;
@@ -135,4 +146,9 @@ export interface SocialItem {
   links: string[];
   stats: StatItem[];
   isEmail?: boolean;
+  categoryTitle?: string;
+  description?: string;
+  channelNum?: string;
+  actionItems?: SocialActionItem[];
 }
+

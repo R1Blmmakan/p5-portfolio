@@ -1,17 +1,18 @@
 /* App Core Styles */
 main {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
-@media (max-width: 900px) {
+/* Widescreen desktop monitors with ample vertical space keep the fixed viewport */
+@media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
   main {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    min-height: 100dvh;
-    overflow: visible;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
 }
