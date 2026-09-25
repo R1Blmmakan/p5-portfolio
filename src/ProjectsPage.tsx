@@ -82,7 +82,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
             <div className="p5-deck-stamp-bar">
               <div className="p5-deck-red-stamp">
                 <span className="p5-stamp-star">★</span>
-                <span>TAKE YOUR HEART // PHANTOM CALLING CARD</span>
+                <span>FEATURED WORKS // APPLICATION PORTFOLIO</span>
               </div>
               <div className="p5-deck-arcana-tag">
                 <span>{current.arcana} // NO. {current.arcanaNum}</span>
@@ -99,7 +99,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 className="p5-deck-preview-img"
               />
               <div className="p5-deck-preview-scanlines" />
-              <div className="p5-deck-preview-badge">TARGET DOSSIER // {current.status}</div>
+              <div className="p5-deck-preview-badge">PROJECT SHOWCASE // {current.status}</div>
             </div>
 
             <p className="p5-deck-card-desc">{current.desc}</p>
@@ -123,7 +123,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 rel="noopener noreferrer"
                 className="p5-deck-btn p5-deck-btn-white"
               >
-                <span>⚔ LAUNCH DEMO [ENTER]</span>
+                <span>LIVE DEMO [ENTER]</span>
               </a>
               <a
                 href={current.githubUrl}
@@ -131,7 +131,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                 rel="noopener noreferrer"
                 className="p5-deck-btn p5-deck-btn-black"
               >
-                <span>⚡ SOURCE CODE [G]</span>
+                <span>GITHUB REPO [G]</span>
               </a>
             </div>
           </div>
@@ -139,10 +139,10 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
 
         <div className="p5-deck-stack-column">
           <div className="p5-deck-stack-header">
-            <span>INFILTRATION TARGETS ({activeIdx + 1} / {PROJECTS.length})</span>
+            <span>PROJECT ARCHIVES ({activeIdx + 1} / {PROJECTS.length})</span>
           </div>
 
-          <div className="p5-deck-card-stack" role="tablist" aria-label="Calling Cards Deck">
+          <div className="p5-deck-card-stack" role="tablist" aria-label="Project Selection Deck">
             {PROJECTS.map((proj, idx) => {
               const isActive = activeIdx === idx;
               const isConfirmed = confirmedIdx === idx;
@@ -169,7 +169,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
                   <div className="p5-mini-card-inner">
                     <div className="p5-mini-header">
                       <span className="p5-mini-arcana">ARCANA {proj.arcanaNum}</span>
-                      <span className="p5-mini-tag">★ TARGET 0{idx + 1}</span>
+                      <span className="p5-mini-tag">★ PROJECT 0{idx + 1}</span>
                     </div>
                     <div className="p5-mini-title">{proj.title}</div>
                     <div className="p5-mini-footer">
@@ -191,7 +191,7 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
         </div>
         <div className="p5-footer-item">
           <span className="p5-footer-glyph">✕</span>
-          <span className="p5-footer-desc">LAUNCH [ENTER]</span>
+          <span className="p5-footer-desc">DEMO [ENTER]</span>
         </div>
         <div className="p5-footer-item">
           <span className="p5-footer-glyph">□</span>

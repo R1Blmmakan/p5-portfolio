@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ResumePage.css";
 import VideoOverlay from "./VideoOverlay";
-
 import { DetailRow } from "./types/portfolio";
 import { RESUME_ITEMS as ITEMS } from "./data/resume";
 
@@ -53,10 +52,8 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
     if (touchStartX === null) return;
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (diff > 50) {
-      // Swiped left -> Next category
       setActive((i) => (i + 1) % ITEMS.length);
     } else if (diff < -50) {
-      // Swiped right -> Previous category
       setActive((i) => (i - 1 + ITEMS.length) % ITEMS.length);
     }
     setTouchStartX(null);
@@ -94,7 +91,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
       <VideoOverlay zIndex={6} darkness={0.4} />
 
       <div className="resume-overlay">
-        {/* Top Header Bar */}
         <header className="resume-top-bar">
           <button
             type="button"
@@ -106,8 +102,8 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           </button>
 
           <div className="resume-top-hud">
-            <span className="resume-hud-pill">CLASSIFIED ARCHIVE</span>
-            <span className="resume-hud-title">CANDIDATE DOSSIER // 2026</span>
+            <span className="resume-hud-pill">OFFICIAL ARCHIVE</span>
+            <span className="resume-hud-title">RESUME & CREDENTIALS // 2026</span>
           </div>
 
           <button
@@ -121,9 +117,7 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           </button>
         </header>
 
-        {/* Main 30/70 Spread */}
         <div className="resume-spread">
-          {/* Left Navigation Dock (30%) */}
           <aside className="resume-nav-dock">
             <div className={`resume-list-tag${mounted ? " mounted" : ""}`}>
               <span>LIST</span>
@@ -169,24 +163,22 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
               })}
             </nav>
 
-            {/* Candidate Quick Telemetry Card */}
             <div className="resume-dock-telemetry">
               <div className="resume-telemetry-tag">
-                <span className="resume-telemetry-key">[RECORD: AGENT]</span>
+                <span className="resume-telemetry-key">[CANDIDATE]</span>
                 <span className="resume-telemetry-val">FIKRI // FULL-STACK</span>
               </div>
               <div className="resume-telemetry-tag highlight-gold">
-                <span className="resume-telemetry-key">[RECORD: HONORS]</span>
+                <span className="resume-telemetry-key">[ACCREDITATION]</span>
                 <span className="resume-telemetry-val">BNSP • 1ST NAT CHAMPION</span>
               </div>
               <div className="resume-telemetry-tag highlight-red">
-                <span className="resume-telemetry-key">[RECORD: PIPELINE]</span>
+                <span className="resume-telemetry-key">[AVAILABILITY]</span>
                 <span className="resume-telemetry-val">OPEN FOR 2026 APPRENTICESHIP</span>
               </div>
             </div>
           </aside>
 
-          {/* Right Expansive Dossier Canvas (70%) */}
           {currentItem && (
             <main key={`panel-${currentItem.id}`} className="resume-dossier-canvas">
               {currentItem.charImg && (
@@ -198,7 +190,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
                 />
               )}
 
-              {/* Dossier Header Slash */}
               <div className="resume-dossier-top-banner">
                 <div className="resume-banner-slash-accent" />
                 <div className="resume-banner-index">{currentItem.details.topIndex}</div>
@@ -209,7 +200,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
                 <div className="resume-banner-progress">{currentItem.details.topProgress}</div>
               </div>
 
-              {/* Scrollable Dossier Body with Bottom Mask */}
               <div className="resume-dossier-scroll-area">
                 <div className="resume-dossier-list">
                   {currentItem.details.rows.map((row) => (
@@ -278,7 +268,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
                         </ul>
                       )}
 
-                      {/* Tactical Skill Chips (Replacing Hashtags) */}
                       {row.tags && row.tags.length > 0 && (
                         <div className="resume-dossier-chips" aria-label="Technical modules and tags">
                           {row.tags.map((tag, idx) => (
@@ -316,7 +305,6 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           )}
         </div>
 
-        {/* Bottom HUD Bar */}
         <footer className={`resume-footer${mounted ? " mounted" : ""}`}>
           <div className="resume-footer-row">
             <span className="resume-footer-key">↑↓</span>

@@ -21,7 +21,6 @@
   padding: 0;
 }
 
-/* Scope non-selectable behavior to HUD, buttons, controls and overlays */
 button,
 nav,
 .p3-skew-wrap,
@@ -39,7 +38,6 @@ video {
   -webkit-user-select: none;
 }
 
-/* Authentic Persona 5 Crimson Text Selection */
 ::selection {
   background: #e61438;
   color: #ffffff;

@@ -24,7 +24,7 @@ export default function Socials({ onBack }: SocialsProps) {
   const executeAction = (action: SocialActionItem) => {
     if (action.type === "copy" && action.copyText) {
       navigator.clipboard.writeText(action.copyText);
-      setToast(`✓ FREQUENCY COPIED: ${action.copyText}`);
+      setToast(`✓ EMAIL COPIED: ${action.copyText}`);
       setTimeout(() => setToast(null), 3200);
     } else if (action.url) {
       if (action.url.startsWith("mailto:")) {
@@ -40,7 +40,6 @@ export default function Socials({ onBack }: SocialsProps) {
     return () => clearTimeout(t);
   }, []);
 
-  // Keyboard navigation adhering to Persona 5 Area Map mechanics
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" || e.key === "Backspace") {
@@ -72,7 +71,6 @@ export default function Socials({ onBack }: SocialsProps) {
           }
         }
       } else {
-        // focus === "actions"
         if (e.key === "ArrowUp") {
           e.preventDefault();
           setActiveAction((i) => (i - 1 + actionItems.length) % actionItems.length);
@@ -97,7 +95,6 @@ export default function Socials({ onBack }: SocialsProps) {
 
   return (
     <div className={`p5-socials-stage ${mounted ? "mounted" : ""}`}>
-      {/* Dynamic Background */}
       <video
         className="p5-socials-video"
         poster="/newBg_poster.webp"
@@ -117,23 +114,21 @@ export default function Socials({ onBack }: SocialsProps) {
       <div className="p5-socials-screentone" aria-hidden="true" />
       <div className="p5-socials-vignette" aria-hidden="true" />
 
-      {/* Copy Feedback Toast */}
       {toast && (
         <div className="p5-socials-toast" role="status" aria-live="polite">
           <div className="p5-toast-inner">
             <span className="p5-toast-hazard">►►</span>
-            <span className="p5-toast-title">TRANSMISSION CONFIRMED</span>
+            <span className="p5-toast-title">NOTIFICATION</span>
             <span className="p5-toast-text">{toast}</span>
           </div>
         </div>
       )}
 
-      {/* Top Bar Header */}
       <header className="p5-socials-topbar">
         <div className="p5-socials-hazard-tape">
           <span className="p5-tape-hazard-box" />
-          <span className="p5-tape-title">PHANTOM FREQUENCY // COGNITIVE CONTACT</span>
-          <span className="p5-tape-code">SYS.2026</span>
+          <span className="p5-tape-title">CONTACT & NETWORKS // GET IN TOUCH</span>
+          <span className="p5-tape-code">OPEN 2026</span>
         </div>
 
         <button
@@ -146,27 +141,25 @@ export default function Socials({ onBack }: SocialsProps) {
         </button>
       </header>
 
-      {/* Persona 5 Area Map Canvas Frame */}
       <main className="p5-areamap-arena">
         <div className="p5-areamap-frame">
           <div className="p5-areamap-jagged-border" aria-hidden="true" />
 
-          {/* Left Column: Transmission Dossier (Replaces Area Map) */}
           <section
             className={`p5-areamap-dossier ${focus === "actions" ? "focused" : ""}`}
-            aria-label="Transmission Dossier"
+            aria-label="Contact Channel Details"
           >
             <div className="p5-dossier-topbar">
               <div className="p5-dossier-pulse-badge">
                 <span className="p5-live-beacon" />
-                <span>SIGNAL: ONLINE</span>
+                <span>STATUS: ONLINE & RESPONSIVE</span>
               </div>
-              <span className="p5-dossier-freq">FREQ: 106.8456° E</span>
+              <span className="p5-dossier-freq">LOCATION: JAKARTA, ID</span>
             </div>
 
             <div className="p5-dossier-category">
               <span className="p5-channel-num">{currentItem.channelNum || "CH-01"}</span>
-              <span className="p5-category-name">{currentItem.categoryTitle || "CONFIDANT CHANNEL"}</span>
+              <span className="p5-category-name">{currentItem.categoryTitle || "CONTACT CHANNEL"}</span>
             </div>
 
             <div className="p5-dossier-headline-box">
@@ -177,10 +170,9 @@ export default function Socials({ onBack }: SocialsProps) {
 
             <p className="p5-dossier-desc">{currentItem.description}</p>
 
-            {/* Interactive Action Slips */}
             <div className="p5-dossier-action-deck">
               <div className="p5-action-deck-header">
-                <span>AVAILABLE ACTIONS // TRIGGER VIA [ENTER]</span>
+                <span>AVAILABLE ACTIONS // CLICK OR PRESS [ENTER]</span>
               </div>
 
               {actionItems.map((action, idx) => {
@@ -215,7 +207,6 @@ export default function Socials({ onBack }: SocialsProps) {
               })}
             </div>
 
-            {/* Tactical Specs Footprint */}
             <div className="p5-dossier-metrics">
               {currentItem.stats.map((st) => (
                 <div key={st.tag} className="p5-metric-pill">
@@ -232,14 +223,13 @@ export default function Socials({ onBack }: SocialsProps) {
             </div>
           </section>
 
-          {/* Middle Column: Slanted Pointed Chevron Banners */}
           <nav
             className={`p5-areamap-chevrons ${focus === "channels" ? "focused" : ""}`}
             aria-label="Channel Selection"
           >
             <div className="p5-chevrons-headline">
               <span className="p5-headline-star">✦</span>
-              <span>SELECT FREQUENCY</span>
+              <span>SELECT CHANNEL</span>
               <span className="p5-headline-star">✦</span>
             </div>
 
@@ -273,7 +263,6 @@ export default function Socials({ onBack }: SocialsProps) {
             </div>
           </nav>
 
-          {/* Right Column: Joker Cutout Character & Speech Ribbon */}
           <aside className="p5-areamap-character" aria-hidden="true">
             <div className="p5-character-frame">
               <img
@@ -284,18 +273,16 @@ export default function Socials({ onBack }: SocialsProps) {
               <div className="p5-character-halftone" />
             </div>
 
-            {/* P5 Iconic Dialogue Speech Ribbon */}
             <div className="p5-comic-speech-ribbon">
               <div className="p5-speech-ribbon-tail" />
               <p className="p5-speech-ribbon-text">
-                Who should I establish contact with...?
+                How would you like to connect today?
               </p>
             </div>
           </aside>
         </div>
       </main>
 
-      {/* Controller / Keyboard Navigation HUD Footer */}
       <footer className="p5-socials-footer">
         <div className="p5-hud-controls">
           <div className="p5-hud-item">
@@ -321,9 +308,9 @@ export default function Socials({ onBack }: SocialsProps) {
         </div>
 
         <div className="p5-hud-meta">
-          <span>COGNITIVE FREQUENCY LINK // FIKRI 2026</span>
+          <span>PORTFOLIO CONTACT // FIKRI • JAKARTA, ID</span>
           <span className="p5-hud-dot">•</span>
-          <span>JAKARTA, ID</span>
+          <span>AVAILABLE 2026</span>
         </div>
       </footer>
     </div>

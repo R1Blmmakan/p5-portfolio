@@ -48,7 +48,7 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
       <header className="p5-manga-topbar">
         <div className="p5-manga-tape-strip">
           <span className="p5-tape-hazard" />
-          <span className="p5-tape-text">CLASSIFIED DOSSIER // ARCHIVE VOL. 2026</span>
+          <span className="p5-tape-text">CANDIDATE DOSSIER // FIKRI • SOFTWARE ENGINEER</span>
         </div>
         <button
           type="button"
@@ -71,30 +71,30 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
               className="p5-comic-img"
             />
             <div className="p5-comic-halftone-overlay" />
-            <div className="p5-comic-status-banner">VERIFIED AGENT</div>
+            <div className="p5-comic-status-banner">VERIFIED CANDIDATE</div>
           </div>
 
           <div className="p5-comic-nameplate">
             <div className="p5-nameplate-slash" />
             <h1 className="p5-comic-name">FIKRI</h1>
-            <div className="p5-comic-role">FULL-STACK CREATIVE ENGINEER</div>
+            <div className="p5-comic-role">FULL-STACK SOFTWARE ENGINEER</div>
           </div>
 
           <div className="p5-comic-evidence-deck">
             <div className="p5-evidence-tag">
-              <span className="p5-evidence-label">[RECORD: EXP]</span>
-              <span className="p5-evidence-val">2+ YEARS PRODUCTION</span>
+              <span className="p5-evidence-label">[EXPERIENCE]</span>
+              <span className="p5-evidence-val">2+ YEARS CODING EXP</span>
             </div>
             <div className="p5-evidence-tag">
-              <span className="p5-evidence-label">[RECORD: GUILD]</span>
+              <span className="p5-evidence-label">[EDUCATION]</span>
               <span className="p5-evidence-val">SMK METLAND (RPL)</span>
             </div>
             <div className="p5-evidence-tag accent-gold">
-              <span className="p5-evidence-label">[RECORD: LICENSE]</span>
-              <span className="p5-evidence-val">BNSP CERTIFIED (WEB)</span>
+              <span className="p5-evidence-label">[CERTIFICATION]</span>
+              <span className="p5-evidence-val">BNSP JUNIOR SE</span>
             </div>
             <div className="p5-evidence-tag accent-red">
-              <span className="p5-evidence-label">[RECORD: VICTORY]</span>
+              <span className="p5-evidence-label">[ACHIEVEMENT]</span>
               <span className="p5-evidence-val">1ST NATIONAL WEB CRAFT</span>
             </div>
           </div>
@@ -102,21 +102,21 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
           <div className="p5-identity-telemetry">
             <div className="p5-telemetry-header">
               <span className="p5-telemetry-dot" />
-              <span>LIVE TRANSMISSION PIPELINE</span>
+              <span>STATUS & RECRUITMENT AVAILABILITY</span>
             </div>
             <div className="p5-telemetry-status">
-              <span className="p5-telemetry-label">DEPLOYMENT STATUS:</span>
+              <span className="p5-telemetry-label">RECRUITMENT STATUS:</span>
               <span className="p5-telemetry-highlight">OPEN FOR 2026 APPRENTICESHIP</span>
             </div>
             <div className="p5-telemetry-footer">
-              <span className="p5-telemetry-coords">JAKARTA, ID • UTC+7</span>
+              <span className="p5-telemetry-coords">JAKARTA, ID • HYBRID / REMOTE</span>
               {onNavigate && (
                 <button
                   type="button"
                   className="p5-telemetry-action-btn"
                   onClick={() => onNavigate("socials")}
                 >
-                  CONTACT ►
+                  CONTACT ME ►
                 </button>
               )}
             </div>
@@ -127,51 +127,50 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
           <article className="p5-manga-panel p5-panel-origin">
             <div className="p5-panel-comic-header">
               <span className="p5-koma-num">ACT 01</span>
-              <h2 className="p5-koma-title">ORIGIN & PHILOSOPHY</h2>
+              <h2 className="p5-koma-title">PROFESSIONAL BACKGROUND & PHILOSOPHY</h2>
             </div>
 
             <div className="p5-comic-speech-spike">
               <div className="p5-speech-text">
-                "CODE WITH ALGEBRAIC PRECISION, DESIGN WITH ABSOLUTE REBELLION."
+                "ENGINEERING CLEAN ARCHITECTURES, INTUITIVE EXPERIENCES, AND SCALABLE WEB SYSTEMS."
               </div>
             </div>
 
             <p className="p5-koma-body">
-              Started programming at age 14, driven by the kinetic thrill of interactive interfaces.
-              Balancing vocational Software Engineering at Metland with aggressive self-taught
-              exploration. I engineer interfaces that reject cookie-cutter templates, combining
-              sub-millisecond responsiveness, custom mathematical CSS polygon matrices, and
-              60FPS hardware-accelerated GPU pipelines.
+              Vocational Software Engineering student at SMK Metland with over 2 years of hands-on experience
+              building modern, responsive web applications. I focus on creating high-performance frontend interfaces
+              with React, TypeScript, and modern CSS, paired with robust backend services in Node.js and PostgreSQL.
+              Committed to clean code, accessibility standards, and intuitive design.
             </p>
           </article>
 
           <article className="p5-manga-panel p5-panel-arsenal">
             <div className="p5-panel-comic-header">
               <span className="p5-koma-num">ACT 02</span>
-              <h2 className="p5-koma-title">TECHNICAL ARSENAL // CORE STACK</h2>
+              <h2 className="p5-koma-title">TECHNICAL SKILLS & CORE STACK</h2>
             </div>
 
             <div className="p5-comic-grid-split">
               <div className="p5-comic-stack-col">
-                <span className="p5-stack-heading">⚔ FRONTEND & MOTION</span>
+                <span className="p5-stack-heading">⚔ FRONTEND & UI DEVELOPMENT</span>
                 <div className="p5-comic-stamp-cloud">
                   <span className="p5-comic-stamp">React 19</span>
                   <span className="p5-comic-stamp">TypeScript</span>
                   <span className="p5-comic-stamp">Next.js</span>
                   <span className="p5-comic-stamp">Vite</span>
-                  <span className="p5-comic-stamp highlight">CSS Polygons</span>
+                  <span className="p5-comic-stamp highlight">Modern CSS</span>
                   <span className="p5-comic-stamp">Framer Motion</span>
                 </div>
               </div>
 
               <div className="p5-comic-stack-col">
-                <span className="p5-stack-heading">⚡ BACKEND & SYSTEMS</span>
+                <span className="p5-stack-heading">⚡ BACKEND & DATABASE</span>
                 <div className="p5-comic-stamp-cloud">
                   <span className="p5-comic-stamp">Node.js</span>
                   <span className="p5-comic-stamp">Express REST</span>
                   <span className="p5-comic-stamp highlight">PostgreSQL</span>
                   <span className="p5-comic-stamp">Clean Arch</span>
-                  <span className="p5-comic-stamp">JWT Rotation</span>
+                  <span className="p5-comic-stamp">JWT Auth</span>
                   <span className="p5-comic-stamp">Docker</span>
                 </div>
               </div>
@@ -181,7 +180,7 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
           <article className="p5-manga-panel p5-panel-records">
             <div className="p5-panel-comic-header">
               <span className="p5-koma-num">ACT 03</span>
-              <h2 className="p5-koma-title">BATTLE RECORD // ACCREDITATION</h2>
+              <h2 className="p5-koma-title">CERTIFICATIONS & ACHIEVEMENTS</h2>
             </div>
 
             <div className="p5-comic-record-grid">
@@ -206,15 +205,15 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
           <article className="p5-manga-panel p5-panel-contract">
             <div className="p5-panel-comic-header">
               <span className="p5-koma-num">ACT 04</span>
-              <h2 className="p5-koma-title">THE CONTRACT // MISSION & GUILD OBJECTIVE</h2>
+              <h2 className="p5-koma-title">CAREER OBJECTIVE & 2026 AVAILABILITY</h2>
             </div>
 
             <div className="p5-comic-contract-grid">
               <div className="p5-comic-contract-body">
                 <p className="p5-koma-body">
-                  Targeting an industrial apprenticeship or junior full-stack engineering role for 2026.
-                  Prepared to contribute production-grade code to a high-caliber team with algebraic precision,
-                  resilient architecture, and uncompromising creative passion.
+                  Actively seeking an industrial apprenticeship or junior software engineer role for 2026.
+                  Ready to contribute production-grade code to engineering teams with solid TypeScript and React foundations,
+                  reliable backend knowledge, eager adaptability, and high professional work ethic.
                 </p>
               </div>
 
@@ -228,8 +227,8 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
                   <span className="p5-spec-val">JAKARTA, ID • HYBRID / REMOTE</span>
                 </div>
                 <div className="p5-spec-pill">
-                  <span className="p5-spec-label">GUILD FOCUS</span>
-                  <span className="p5-spec-val highlight-cyan">CREATIVE UI & FULL-STACK SYSTEMS</span>
+                  <span className="p5-spec-label">ROLE FOCUS</span>
+                  <span className="p5-spec-val highlight-cyan">FULL-STACK / FRONTEND ENGINEER</span>
                 </div>
               </div>
             </div>
@@ -243,9 +242,9 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
           <span>RETURN TO HOME</span>
         </div>
         <div className="p5-manga-footer-coords">
-          <span>CLASSIFIED ARCHIVE // FIKRI 2026</span>
+          <span>PORTFOLIO PROFILE // FIKRI • JAKARTA, ID</span>
           <span className="p5-dot">•</span>
-          <span>JAKARTA, ID</span>
+          <span>AVAILABLE 2026</span>
         </div>
       </footer>
     </div>

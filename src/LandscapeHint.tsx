@@ -30,7 +30,7 @@ export default function LandscapeHint() {
       <div className="p5-landscape-hint-content">
         <span className="p5-hint-icon">📱 ↷</span>
         <span className="p5-hint-text">
-          ROTATE TO <strong>LANDSCAPE</strong> FOR THE FULL VELVET CONSOLE EXPERIENCE
+          ROTATE TO <strong>LANDSCAPE</strong> FOR THE OPTIMAL INTERACTIVE EXPERIENCE
         </span>
       </div>
       <button

@@ -1,4 +1,3 @@
-/* App Core Styles */
 main {
   width: 100%;
   min-height: 100vh;
@@ -8,7 +7,6 @@ main {
   overflow-y: visible;
 }
 
-/* Widescreen desktop monitors with ample vertical space keep the fixed viewport */
 @media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
   main {
     width: 100vw;

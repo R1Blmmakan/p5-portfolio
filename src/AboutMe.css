@@ -1,12 +1,3 @@
-/* ==========================================================================
-   Persona 5 Manga Dossier // About Me
-   Aesthetic: JRPG Classified Archives (ENERGY 3 / RHYTHM 3 / MOTION 2)
-   Tokens: #e60012 (Crimson), #000000 (Black), #ffffff (White), #ffea00 (Gold)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   Stage & Backgrounds
-   -------------------------------------------------------------------------- */
 .p5-manga-stage {
   position: relative;
   width: 100%;
@@ -48,9 +39,6 @@
   z-index: 1;
 }
 
-/* --------------------------------------------------------------------------
-   Top Bar
-   -------------------------------------------------------------------------- */
 .p5-manga-topbar {
   position: relative;
   z-index: 20;
@@ -129,9 +117,6 @@
   outline-offset: 3px;
 }
 
-/* --------------------------------------------------------------------------
-   Manga Spread (Core Container)
-   -------------------------------------------------------------------------- */
 .p5-manga-spread {
   position: relative;
   z-index: 20;
@@ -153,9 +138,6 @@
   position: relative;
 }
 
-/* --------------------------------------------------------------------------
-   Left Column: Classified Identity Panel
-   -------------------------------------------------------------------------- */
 .p5-panel-identity {
   width: clamp(280px, 25vw, 340px);
   box-shadow: 7px 7px 0px #000000, 11px 11px 0px #e60012;
@@ -416,9 +398,6 @@
   outline-offset: 2px;
 }
 
-/* --------------------------------------------------------------------------
-   Right Column: Storyboard Acts
-   -------------------------------------------------------------------------- */
 .p5-manga-storyboard {
   flex: 1;
   display: flex;
@@ -628,7 +607,6 @@
   color: #94a3b8;
 }
 
-/* Act 04: The Contract */
 .p5-panel-contract {
   padding: clamp(12px, 1.6vh, 16px) clamp(16px, 1.8vw, 20px);
   transform: rotate(-0.25deg);
@@ -689,9 +667,6 @@
   color: #00e1ff;
 }
 
-/* --------------------------------------------------------------------------
-   Footer
-   -------------------------------------------------------------------------- */
 .p5-manga-footer {
   position: relative;
   z-index: 20;
@@ -738,10 +713,6 @@
   color: #e60012;
 }
 
-/* ==========================================================================
-   Widescreen Desktop Monitors (Fixed Viewport)
-   Only spacious displays with ample width AND height keep fixed 100vh stage
-   ========================================================================== */
 @media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
   .p5-manga-stage {
     width: 100vw;
@@ -755,11 +726,6 @@
   }
 }
 
-/* ==========================================================================
-   TABLET PORTRAIT REFLOW
-   Targets: iPad Pro 13 (1032x1376), Surface Pro 10 (960-1000x1440),
-            iPad Air (820x1180), iPad Mini (768x1024), and portrait foldables
-   ========================================================================== */
 @media (max-width: 1180px) and (orientation: portrait), (orientation: portrait) and (max-aspect-ratio: 1.05) {
   .p5-manga-stage {
     height: auto;
@@ -777,7 +743,6 @@
     height: auto;
   }
 
-  /* Wide Tablet Passport Dossier Card */
   .p5-panel-identity {
     width: 100%;
     transform: none !important;
@@ -798,7 +763,6 @@
     transform: rotate(-1.5deg);
   }
 
-  /* Column 1: Avatar spans full height */
   .p5-comic-frame {
     grid-column: 1;
     grid-row: 1 / span 2;
@@ -808,7 +772,6 @@
     aspect-ratio: auto;
   }
 
-  /* Column 2: Nameplate on Row 1 */
   .p5-comic-nameplate {
     grid-column: 2;
     grid-row: 1;
@@ -825,7 +788,6 @@
     font-size: 10px;
   }
 
-  /* Column 2: Evidence Deck on Row 2 directly under Nameplate - NO GAP */
   .p5-comic-evidence-deck {
     grid-column: 2;
     grid-row: 2;
@@ -847,7 +809,6 @@
     font-size: 11px;
   }
 
-  /* Column 3: Telemetry spans full height */
   .p5-identity-telemetry {
     grid-column: 3;
     grid-row: 1 / span 2;
@@ -873,7 +834,6 @@
     font-size: 10.5px;
   }
 
-  /* Storyboard full width expansion */
   .p5-manga-storyboard {
     width: 100%;
     overflow: visible;
@@ -976,7 +936,6 @@
   }
 }
 
-/* Tall Tablet Portrait Screens (iPad Pro 13: 1032x1376, Surface Pro 10: 960-1000x1440) */
 @media (max-width: 1180px) and (orientation: portrait) and (min-height: 1150px) {
   .p5-manga-spread {
     gap: 22px;
@@ -1052,7 +1011,6 @@
   }
 }
 
-/* Medium portrait adjustments (768px - 860px) */
 @media (max-width: 860px) and (orientation: portrait) {
   .p5-panel-identity {
     grid-template-columns: 130px 1fr;
@@ -1084,11 +1042,6 @@
   }
 }
 
-/* ==========================================================================
-   SHORT LANDSCAPE & FOLDABLE IN LANDSCAPE
-   Targets: Pixel 9 Pro Fold Landscape (922x412), Galaxy Z Fold Landscape,
-            and any screen with vertical height <= 620px
-   ========================================================================== */
 @media (max-height: 620px) {
   .p5-manga-stage {
     height: auto;
@@ -1125,7 +1078,6 @@
     overflow: visible;
   }
 
-  /* Keep side-by-side on wide-enough landscape screens, but compact vertical sizes */
   .p5-panel-identity {
     width: clamp(250px, 30vw, 290px);
     transform: none !important;
@@ -1140,7 +1092,6 @@
     display: none;
   }
 
-  /* Compact avatar prevents pushing content offscreen */
   .p5-comic-frame {
     width: 100%;
     height: 80px;
@@ -1223,7 +1174,6 @@
     min-height: 26px;
   }
 
-  /* Storyboard flows and scrolls cleanly */
   .p5-manga-storyboard {
     height: auto;
     overflow: visible;
@@ -1320,9 +1270,6 @@
   }
 }
 
-/* ==========================================================================
-   MOBILE PORTRAIT (PHONES < 650px)
-   ========================================================================== */
 @media (max-width: 650px) and (orientation: portrait) {
   .p5-manga-topbar {
     padding: 8px 12px;

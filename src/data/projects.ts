@@ -59,7 +59,7 @@ export const PROJECTS: ProjectItem[] = [
     image: "/mainf.webp",
     desc: "Scalable backend microservice engineered with Node.js and Express. Features automatic request validation, rate limiting, centralized logging, and comprehensive API documentation.",
     highlights: [
-      "99.9% uptime deployment with health check monitoring and error traps",
+      "Production-ready deployment with health check monitoring and structured logging",
       "Clean layered architecture (Controllers, Services, Repositories)",
       "Automated unit testing with Jest and Supertest suites",
     ],

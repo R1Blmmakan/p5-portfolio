@@ -1,10 +1,3 @@
-/* ==========================================================================
-   PERSONA 5 TACTICAL DOSSIER // RESUME PAGE STYLING
-   Aesthetic: P5 Manga Classified Dossier (ENERGY 3 / RHYTHM 3 / MOTION 2)
-   Palette: Crimson (#e60012), Pitch Black (#000000), White (#ffffff),
-            Hazard Gold (#ffea00), Dark Slate (#06080e)
-   ========================================================================== */
-
 .resume-screen {
   position: relative;
   width: 100vw;
@@ -62,9 +55,6 @@
   background: radial-gradient(circle at 85% 15%, rgba(230, 0, 18, 0.15) 0%, transparent 65%);
 }
 
-/* ==========================================================================
-   TOP ACTION BAR
-   ========================================================================== */
 .resume-top-bar {
   position: relative;
   z-index: 25;
@@ -171,9 +161,6 @@
   border: 1px solid #000000;
 }
 
-/* ==========================================================================
-   MAIN 30 / 70 SPREAD
-   ========================================================================== */
 .resume-spread {
   position: relative;
   z-index: 20;
@@ -185,9 +172,6 @@
   align-items: stretch;
 }
 
-/* ==========================================================================
-   LEFT DOCK (30%)
-   ========================================================================== */
 .resume-nav-dock {
   width: clamp(280px, 28vw, 360px);
   display: flex;
@@ -335,7 +319,6 @@
   font-weight: 600;
 }
 
-/* Candidate Dock Telemetry */
 .resume-dock-telemetry {
   background: #06070e;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
@@ -376,9 +359,6 @@
   color: #e60012;
 }
 
-/* ==========================================================================
-   RIGHT EXPANSIVE DOSSIER CANVAS (70%)
-   ========================================================================== */
 .resume-dossier-canvas {
   flex: 1;
   position: relative;
@@ -411,7 +391,6 @@
   mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 90%);
 }
 
-/* Dossier Top Banner Slash */
 .resume-dossier-top-banner {
   position: relative;
   z-index: 2;
@@ -480,7 +459,6 @@
   box-shadow: 2px 2px 0px #000000;
 }
 
-/* Dossier Scroll Container */
 .resume-dossier-scroll-area {
   position: relative;
   z-index: 1;
@@ -510,7 +488,6 @@
   gap: 14px;
 }
 
-/* Dossier Entry Cards */
 .resume-dossier-card {
   position: relative;
   background: rgba(14, 18, 28, 0.96);
@@ -684,7 +661,6 @@
   flex-shrink: 0;
 }
 
-/* Tactical Skill Chips (Anti-Slop: No Hashtag Soup) */
 .resume-dossier-chips {
   display: flex;
   flex-wrap: wrap;
@@ -711,7 +687,6 @@
   transform: translateY(-1px);
 }
 
-/* Bottom Summary Block */
 .resume-detail-bottom {
   margin-top: 14px;
   background: #05070e;
@@ -765,9 +740,6 @@
   color: #64748b;
 }
 
-/* ==========================================================================
-   BOTTOM HUD BAR
-   ========================================================================== */
 .resume-footer {
   position: relative;
   z-index: 25;
@@ -811,9 +783,6 @@
   outline: 2px solid #ffea00;
 }
 
-/* ==========================================================================
-   CERTIFICATE INSPECTION MODAL
-   ========================================================================== */
 .resume-cert-modal {
   position: fixed;
   inset: 0;
@@ -976,9 +945,6 @@
   border-color: #000000;
 }
 
-/* ==========================================================================
-   MOBILE & RESPONSIVE REFLOW (R-03 & antislop-layoutmobile)
-   ========================================================================== */
 @media (max-width: 900px) {
   .resume-screen {
     height: auto;
@@ -1049,7 +1015,6 @@
     display: none;
   }
 
-  /* Segmented Horizontal Tab Bar on Mobile */
   .resume-stack {
     display: flex;
     flex-direction: row;
@@ -1121,7 +1086,6 @@
     font-weight: 800;
   }
 
-  /* Right Dossier Canvas Appears Immediately Below Tabs */
   .resume-dossier-canvas {
     width: 100%;
     height: auto;

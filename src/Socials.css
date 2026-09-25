@@ -1,12 +1,3 @@
-/* ==========================================================================
-   Persona 5 Area Map // Socials & Cognitive Contact
-   Aesthetic: Kichijoji Area Map / Town Selection UI (ENERGY 3 / RHYTHM 3 / MOTION 2)
-   Tokens: #e60012 (Crimson), #000000 (Black), #ffffff (White), #ffea00 (Gold), #00e1ff (Cyan)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   Stage & Backgrounds
-   -------------------------------------------------------------------------- */
 .p5-socials-stage {
   position: relative;
   width: 100%;
@@ -56,9 +47,6 @@
   z-index: 2;
 }
 
-/* --------------------------------------------------------------------------
-   Top Bar
-   -------------------------------------------------------------------------- */
 .p5-socials-topbar {
   position: relative;
   z-index: 20;
@@ -144,9 +132,6 @@
   outline-offset: 3px;
 }
 
-/* --------------------------------------------------------------------------
-   Copy Feedback Toast (Take Your Heart Banner)
-   -------------------------------------------------------------------------- */
 .p5-socials-toast {
   position: fixed;
   top: 70px;
@@ -202,9 +187,6 @@
   color: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   Persona 5 Area Map Canvas Frame (Core Container)
-   -------------------------------------------------------------------------- */
 .p5-areamap-arena {
   position: relative;
   z-index: 20;
@@ -233,7 +215,6 @@
   overflow: hidden;
 }
 
-/* Dynamic comic jagged spikes around the frame border */
 .p5-areamap-jagged-border {
   position: absolute;
   top: 0;
@@ -251,9 +232,6 @@
   );
 }
 
-/* --------------------------------------------------------------------------
-   Left Column: Transmission Dossier (Replacing Area Map)
-   -------------------------------------------------------------------------- */
 .p5-areamap-dossier {
   background: #080a12;
   border: 2px solid #ffffff;
@@ -382,7 +360,6 @@
   color: #cbd5e1;
 }
 
-/* Action Deck Slips */
 .p5-dossier-action-deck {
   display: flex;
   flex-direction: column;
@@ -484,7 +461,6 @@
   color: #000000;
 }
 
-/* Dossier Metrics */
 .p5-dossier-metrics {
   display: flex;
   flex-wrap: wrap;
@@ -521,9 +497,6 @@
   color: #ffea00;
 }
 
-/* --------------------------------------------------------------------------
-   Middle Column: Slanted Pointed Chevron Banners
-   -------------------------------------------------------------------------- */
 .p5-areamap-chevrons {
   display: flex;
   flex-direction: column;
@@ -559,7 +532,6 @@
   gap: 12px;
 }
 
-/* Pointed chevron arrow pointing left toward the dossier */
 .p5-chevron-banner {
   position: relative;
   background: #090b14;
@@ -627,9 +599,6 @@
   color: #000000;
 }
 
-/* --------------------------------------------------------------------------
-   Right Column: Joker Cutout Character & Speech Ribbon
-   -------------------------------------------------------------------------- */
 .p5-areamap-character {
   position: relative;
   display: flex;
@@ -671,7 +640,6 @@
   z-index: 3;
 }
 
-/* Iconic Persona 5 Dialogue Speech Ribbon */
 .p5-comic-speech-ribbon {
   position: absolute;
   bottom: 12px;
@@ -707,9 +675,6 @@
   text-shadow: 1.5px 1.5px 0px #000000;
 }
 
-/* --------------------------------------------------------------------------
-   Footer / HUD Controls
-   -------------------------------------------------------------------------- */
 .p5-socials-footer {
   position: relative;
   z-index: 20;
@@ -774,9 +739,6 @@
   color: #e60012;
 }
 
-/* ==========================================================================
-   Widescreen Desktop Monitors (Fixed Viewport)
-   ========================================================================== */
 @media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
   .p5-socials-stage {
     width: 100vw;
@@ -785,11 +747,6 @@
   }
 }
 
-/* ==========================================================================
-   TABLET PORTRAIT REFLOW
-   Targets: iPad Pro 13 (1032x1376), Surface Pro 10 (960-1000x1440),
-            iPad Air (820x1180), iPad Mini (768x1024)
-   ========================================================================== */
 @media (max-width: 1180px) and (orientation: portrait), (orientation: portrait) and (max-aspect-ratio: 1.05) {
   .p5-socials-stage {
     height: auto;
@@ -813,7 +770,6 @@
     min-height: auto;
   }
 
-  /* Place Chevrons at top for quick selection */
   .p5-areamap-chevrons {
     order: 1;
     gap: 10px;
@@ -836,7 +792,6 @@
     transform: translateY(-3px) scale(1.02);
   }
 
-  /* Dossier sits prominent in middle */
   .p5-areamap-dossier {
     order: 2;
     padding: 18px 22px;
@@ -846,7 +801,6 @@
     padding: 10px 14px;
   }
 
-  /* Character sits at the bottom */
   .p5-areamap-character {
     order: 3;
     min-height: 220px;
@@ -883,10 +837,6 @@
   }
 }
 
-/* ==========================================================================
-   SHORT LANDSCAPE & FOLDABLES IN LANDSCAPE (max-height: 620px)
-   Targets: Pixel 9 Pro Fold Landscape (922x412), Galaxy Z Fold, etc.
-   ========================================================================== */
 @media (max-height: 620px) {
   .p5-socials-stage {
     height: auto;
@@ -992,9 +942,6 @@
   }
 }
 
-/* ==========================================================================
-   MOBILE PORTRAIT (PHONES < 650px)
-   ========================================================================== */
 @media (max-width: 650px) and (orientation: portrait) {
   .p5-socials-topbar {
     padding: 8px 12px;
