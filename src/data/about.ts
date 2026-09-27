@@ -97,7 +97,7 @@ export const ABOUT_DATA: AboutData = {
       highlight: "OPEN FOR On-The-Job Training as of 2027",
     },
     locationCoords: "JONGGOL, ID • HYBRID / REMOTE",
-    resumePdfUrl: "/Resume.pdf",
+    resumePdfUrl: "/Fikri_Resume_2026.pdf",
   },
   act01: {
     komaNum: "ACT 01",

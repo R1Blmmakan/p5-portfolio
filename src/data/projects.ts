@@ -103,7 +103,7 @@ export const PROJECTS: ProjectItem[] = [
     title: "MIRAE MOBILE APPLICATION",
     category: "CROSS-PLATFORM MOBILE APPLICATION",
     status: "COMPLETED",
-    demoUrl: "https://github.com/R1Blmmakan/Mirae/releases/download/v1.0.0/app-arm64-v8a-release.apk",
+    demoUrl: "https://github.com/R1Blmmakan/Mirae/releases/",
     demoLabel: "DOWNLOAD APK [ENTER]",
     githubUrl: "https://github.com/R1Blmmakan/Mirae",
     image: "/mirae_mobile.webp",

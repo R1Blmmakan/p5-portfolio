@@ -1,0 +1,114 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2303 >>
+stream
+BT
+/F2 20 Tf
+50 780 Td
+(FIKRI) Tj
+/F1 11 Tf
+0 -18 Td
+(Software Engineer | Full-Stack Web Developer) Tj
+0 -15 Td
+(Portfolio: https://r1fikri.dev | GitHub: https://github.com/R1Blmmakan) Tj
+ET
+0.5 w
+0 0 0 RG
+50 735 m 545 735 l S
+BT
+/F2 13 Tf
+50 715 Td
+(PROFESSIONAL SUMMARY) Tj
+/F1 10 Tf
+0 -15 Td
+(Full-Stack Software Engineer with expertise in modern TypeScript ecosystems, high-throughput) Tj
+0 -13 Td
+(backend relays, and reactive frontend architectures. Proven experience in delivering scalable) Tj
+0 -13 Td
+(applications, automated circulation platforms, and enterprise property management systems.) Tj
+/F2 13 Tf
+0 -25 Td
+(TECHNICAL SKILLS) Tj
+/F1 10 Tf
+0 -15 Td
+(Languages: TypeScript, JavaScript, Python, PHP, Dart, HTML5, CSS3) Tj
+0 -13 Td
+(Frontend: React, Next.js, Framer Motion, Tailwind CSS, Alpine.js, Bootstrap) Tj
+0 -13 Td
+(Backend: Node.js, Express, FastAPI, Laravel, NextAuth.js) Tj
+0 -13 Td
+(Database & DevOps: PostgreSQL, Prisma ORM, Docker, Cloudflare Workers/Pages, Git) Tj
+0 -13 Td
+(Mobile: Flutter, Dart, Android) Tj
+/F2 13 Tf
+0 -25 Td
+(FEATURED PROJECTS) Tj
+/F2 11 Tf
+0 -16 Td
+(Unified Lossless API (FastAPI, Python, Docker)) Tj
+/F1 9.5 Tf
+0 -13 Td
+(- High-throughput lossless audio streaming and caching relay deployed in containerized Docker.) Tj
+0 -12 Td
+(- Features on-the-fly Blowfish CBC stream decryption and HTTP 206 chunked range delivery.) Tj
+/F2 11 Tf
+0 -17 Td
+(Metland School Library (Next.js, React, Prisma, PostgreSQL)) Tj
+/F1 9.5 Tf
+0 -13 Td
+(- Enterprise digital circulation and loan management system for vocational institutions.) Tj
+0 -12 Td
+(- Automated fine calculation algorithms and role-based access control (RBAC).) Tj
+/F2 11 Tf
+0 -17 Td
+(Pillo Hotel Reservation (Laravel, PHP, Alpine.js, Tailwind CSS)) Tj
+/F1 9.5 Tf
+0 -13 Td
+(- Property management system managing room categories, real-time availability, and bookings.) Tj
+/F2 11 Tf
+0 -17 Td
+(Mirae Web & Mobile Platform (Flutter, JavaScript, Cloudflare Pages)) Tj
+/F1 9.5 Tf
+0 -13 Td
+(- Cross-platform platform featuring interactive destination routing and mobile applications.) Tj
+/F2 13 Tf
+0 -25 Td
+(EDUCATION) Tj
+/F2 10.5 Tf
+0 -15 Td
+(SMK Metland - Software Engineering (PPLG)) Tj
+/F1 9.5 Tf
+0 -13 Td
+(Focus on Software Development, Web Technologies, Database Architecture, and Agile Workflows.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000257 00000 n 
+0000002612 00000 n 
+0000002682 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2757
+%%EOF
