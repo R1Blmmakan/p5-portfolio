@@ -85,7 +85,7 @@
 }
 
 .p5-deck-hero-wrapper {
-  width: clamp(520px, 58vw, 820px);
+  width: clamp(540px, 60vw, 860px);
   z-index: 20;
 }
 
@@ -94,13 +94,20 @@
   border: 3px solid #ffffff;
   border-radius: 0px;
   box-shadow: 8px 8px 0px #000000, 14px 14px 0px rgba(196, 0, 26, 0.7);
-  padding: clamp(16px, 2.2vh, 26px) clamp(18px, 2.4vw, 32px);
+  padding: clamp(16px, 2vh, 24px) clamp(18px, 2.2vw, 30px);
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.3vh, 14px);
+  gap: clamp(8px, 1.2vh, 12px);
   box-sizing: border-box;
   transform: rotate(-0.5deg);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  scrollbar-width: none;
   animation: p5-card-slam 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.p5-deck-hero-card::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes p5-card-slam {
@@ -176,52 +183,128 @@
 .p5-deck-preview-box {
   position: relative;
   width: 100%;
-  height: clamp(140px, 20vh, 220px);
+  aspect-ratio: 2.22 / 1;
+  max-height: clamp(230px, 33vh, 340px);
   overflow: hidden;
   border: 2.5px solid #ffffff;
   border-radius: 0px;
   background: #000000;
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 5px 5px 0px #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .p5-deck-preview-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
-  filter: contrast(1.1) brightness(0.95);
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
+  filter: none;
+  background: #000000;
+  transform: scale(1);
+  transition: transform 0.25s ease;
 }
 
 .p5-deck-preview-box:hover .p5-deck-preview-img {
-  transform: scale(1.07);
+  transform: scale(1.02);
 }
 
-.p5-deck-preview-scanlines {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.35) 50%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
+/* Portrait Layout for Mobile Projects */
+.p5-deck-portrait-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(16px, 2.2vw, 28px);
+  width: 100%;
+}
+
+.p5-deck-preview-box.p5-preview-portrait {
+  width: clamp(165px, 18vw, 210px);
+  aspect-ratio: 1220 / 2712;
+  height: auto;
+  max-height: clamp(300px, 42vh, 410px);
+  flex-shrink: 0;
+  margin: 0;
+  border: 2.5px solid #ffffff;
+  box-shadow: 5px 5px 0px #000000;
+  background: #000000;
+}
+
+.p5-deck-preview-box.p5-preview-portrait .p5-deck-preview-img {
+  object-fit: cover;
+  object-position: center top;
+  background: transparent;
+  transform: scale(1);
+}
+
+.p5-deck-preview-box.p5-preview-portrait:hover .p5-deck-preview-img {
+  transform: scale(1.02);
+}
+
+.p5-preview-portrait .p5-deck-preview-badge {
+  top: 8px;
+  left: 8px;
+  font-size: 9.5px;
+  padding: 2px 7px;
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p5-deck-portrait-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(8px, 1.3vh, 14px);
+  flex: 1;
+  min-width: 0;
+}
+
+.p5-deck-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid #c4001a;
+  box-sizing: border-box;
+}
+
+.p5-deck-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(11.5px, 0.88vw, 13px);
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.p5-deck-highlight-bullet {
+  color: #c4001a;
+  font-size: 10px;
+  line-height: 1.4;
+  flex-shrink: 0;
 }
 
 .p5-deck-preview-badge {
   position: absolute;
-  top: 8px;
-  left: 10px;
-  background: #000000;
+  top: 10px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(4px);
   border: 1px solid #ffffff;
   border-radius: 0px;
   color: #ffffff;
   font-family: 'Anton', sans-serif;
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 1.5px;
-  padding: 2px 8px;
+  padding: 3px 10px;
   box-shadow: 2px 2px 0px #000000;
+  z-index: 2;
 }
 
 .p5-deck-card-desc {
@@ -616,6 +699,33 @@
     padding: 14px 16px;
     box-shadow: 4px 4px 0px #000000, 7px 7px 0px rgba(196, 0, 26, 0.7);
     gap: 10px;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .p5-deck-preview-box {
+    width: 100%;
+    aspect-ratio: 2.2 / 1;
+    height: auto;
+    max-height: 240px;
+  }
+
+  .p5-deck-portrait-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .p5-deck-preview-box.p5-preview-portrait {
+    width: clamp(160px, 48vw, 210px);
+    height: auto;
+    max-height: 380px;
+    margin: 0 auto;
+  }
+
+  .p5-deck-portrait-details {
+    width: 100%;
+    gap: 12px;
   }
 
   .p5-deck-stamp-bar {

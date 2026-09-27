@@ -12,8 +12,10 @@ export interface ProjectItem {
   category: string;
   status: string;
   demoUrl: string;
+  demoLabel?: string;
   githubUrl: string;
   image: string;
+  isPortrait?: boolean;
   desc: string;
   highlights: string[];
   techs: TechAffinity[];

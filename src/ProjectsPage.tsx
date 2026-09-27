@@ -92,48 +92,108 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
             <h1 className="p5-deck-card-title">{current.title}</h1>
             <div className="p5-deck-card-category">{current.category}</div>
 
-            <div className="p5-deck-preview-box">
-              <img
-                src={current.image}
-                alt={current.title}
-                className="p5-deck-preview-img"
-              />
-              <div className="p5-deck-preview-scanlines" />
-              <div className="p5-deck-preview-badge">PROJECT SHOWCASE // {current.status}</div>
-            </div>
+            {current.isPortrait ? (
+              <div className="p5-deck-portrait-layout">
+                <div className="p5-deck-preview-box p5-preview-portrait">
+                  <img
+                    src={current.image}
+                    alt={current.title}
+                    className="p5-deck-preview-img"
+                  />
+                  <div className="p5-deck-preview-badge">{current.status}</div>
+                </div>
 
-            <p className="p5-deck-card-desc">{current.desc}</p>
+                <div className="p5-deck-portrait-details">
+                  <p className="p5-deck-card-desc">{current.desc}</p>
 
-            <div className="p5-deck-tech-row">
-              {current.techs.map((tech) => (
-                <span
-                  key={tech.name}
-                  className="p5-deck-tech-stamp"
-                  style={{ "--tech-color": tech.color } as React.CSSProperties}
-                >
-                  {tech.name}
-                </span>
-              ))}
-            </div>
+                  <div className="p5-deck-highlights">
+                    {current.highlights.map((h, i) => (
+                      <div key={i} className="p5-deck-highlight-item">
+                        <span className="p5-deck-highlight-bullet">▶</span>
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
 
-            <div className="p5-deck-action-row">
-              <a
-                href={current.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p5-deck-btn p5-deck-btn-white"
-              >
-                <span>LIVE DEMO [ENTER]</span>
-              </a>
-              <a
-                href={current.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p5-deck-btn p5-deck-btn-black"
-              >
-                <span>GITHUB REPO [G]</span>
-              </a>
-            </div>
+                  <div className="p5-deck-tech-row">
+                    {current.techs.map((tech) => (
+                      <span
+                        key={tech.name}
+                        className="p5-deck-tech-stamp"
+                        style={{ "--tech-color": tech.color } as React.CSSProperties}
+                      >
+                        {tech.name}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="p5-deck-action-row">
+                    <a
+                      href={current.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p5-deck-btn p5-deck-btn-white"
+                    >
+                      <span>{current.demoLabel || "LIVE DEMO [ENTER]"}</span>
+                    </a>
+                    <a
+                      href={current.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p5-deck-btn p5-deck-btn-black"
+                    >
+                      <span>GITHUB REPO [G]</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="p5-deck-preview-box">
+                  <img
+                    src={current.image}
+                    alt={current.title}
+                    className="p5-deck-preview-img"
+                  />
+                  <div className="p5-deck-preview-badge">
+                    PROJECT SHOWCASE // {current.status}
+                  </div>
+                </div>
+
+                <p className="p5-deck-card-desc">{current.desc}</p>
+
+                <div className="p5-deck-tech-row">
+                  {current.techs.map((tech) => (
+                    <span
+                      key={tech.name}
+                      className="p5-deck-tech-stamp"
+                      style={{ "--tech-color": tech.color } as React.CSSProperties}
+                    >
+                      {tech.name}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="p5-deck-action-row">
+                  <a
+                    href={current.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p5-deck-btn p5-deck-btn-white"
+                  >
+                    <span>{current.demoLabel || "LIVE DEMO [ENTER]"}</span>
+                  </a>
+                  <a
+                    href={current.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p5-deck-btn p5-deck-btn-black"
+                  >
+                    <span>GITHUB REPO [G]</span>
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -191,7 +251,9 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
         </div>
         <div className="p5-footer-item">
           <span className="p5-footer-glyph">✕</span>
-          <span className="p5-footer-desc">DEMO [ENTER]</span>
+          <span className="p5-footer-desc">
+            {current.demoLabel ? current.demoLabel.replace(" [ENTER]", "") + " [ENTER]" : "DEMO [ENTER]"}
+          </span>
         </div>
         <div className="p5-footer-item">
           <span className="p5-footer-glyph">□</span>
