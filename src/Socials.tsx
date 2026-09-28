@@ -7,6 +7,45 @@ import VideoOverlay from "./VideoOverlay";
 const jokerGlasses = "/joker_glasses.webp";
 const bgVideo = "/newBg.mp4";
 
+function renderChannelIcon(id: string) {
+  switch (id) {
+    case "email":
+      return (
+        <svg className="p5-channel-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" />
+          <path d="M2 5l10 8 10-8" />
+        </svg>
+      );
+    case "github":
+      return (
+        <svg className="p5-channel-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="6" cy="6" r="3" />
+          <circle cx="18" cy="6" r="3" />
+          <line x1="6" y1="9" x2="6" y2="15" />
+          <path d="M18 9a9 9 0 0 1-9 9" />
+        </svg>
+      );
+    case "instagram":
+      return (
+        <svg className="p5-channel-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" />
+          <circle cx="12" cy="12" r="4.5" />
+          <rect x="16.5" y="5.5" width="2" height="2" fill="currentColor" />
+        </svg>
+      );
+    case "tiktok":
+      return (
+        <svg className="p5-channel-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+          <path d="M12 4v10a3 3 0 1 1-3-3" />
+          <path d="M12 4c1.5 2.5 3.5 4 6 4" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 interface SocialsProps {
   onBack?: () => void;
 }
@@ -252,11 +291,22 @@ export default function Socials({ onBack }: SocialsProps) {
                     }}
                   >
                     <div className="p5-chevron-inner">
-                      <span className="p5-chevron-icon" aria-hidden="true">{item.icon}</span>
-                      <span className="p5-chevron-label">{item.label}</span>
-                      <span className="p5-chevron-tag">{item.channelNum || `0${idx + 1}`}</span>
+                      <div className="p5-chevron-left-group">
+                        <span className="p5-chevron-tag">{item.channelNum || `0${idx + 1}`}</span>
+                        <span className="p5-chevron-icon" aria-hidden="true">
+                          {renderChannelIcon(item.id) || item.icon}
+                        </span>
+                        <span className="p5-chevron-label">{item.label}</span>
+                      </div>
+                      <div className="p5-chevron-status-stamp">
+                        {isActive ? (
+                          <span className="p5-stamp-active">► TARGET</span>
+                        ) : (
+                          <span className="p5-stamp-idle">DISPATCH</span>
+                        )}
+                      </div>
                     </div>
-                    <div className="p5-chevron-notch" />
+                    <div className="p5-chevron-notch" aria-hidden="true" />
                   </button>
                 );
               })}

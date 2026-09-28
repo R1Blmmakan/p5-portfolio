@@ -207,7 +207,7 @@
   border: 3px solid #ffffff;
   box-shadow: 8px 8px 0px #000000, 14px 14px 0px rgba(230, 0, 18, 0.85);
   display: grid;
-  grid-template-columns: minmax(360px, 1.25fr) minmax(280px, 0.95fr) minmax(260px, 0.8fr);
+  grid-template-columns: minmax(340px, 1.18fr) minmax(320px, 1.1fr) minmax(240px, 0.72fr);
   gap: clamp(16px, 2vw, 28px);
   padding: clamp(16px, 2.2vh, 28px) clamp(20px, 2.5vw, 36px);
   align-items: stretch;
@@ -501,7 +501,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   padding: 10px 0;
   position: relative;
 }
@@ -512,14 +512,14 @@
   align-items: center;
   gap: 8px;
   font-family: 'Anton', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: #ffffff;
   background: #000000;
   border: 1.5px solid #ffffff;
-  padding: 3px 12px;
-  box-shadow: 3px 3px 0px #000000;
-  transform: rotate(-1deg);
+  padding: 3px 14px;
+  box-shadow: 3px 3px 0px #000000, 5px 5px 0px rgba(230, 0, 18, 0.7);
+  transform: skewX(-8deg) rotate(-0.5deg);
 }
 
 .p5-headline-star {
@@ -529,74 +529,184 @@
 .p5-chevrons-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  position: relative;
 }
 
+/* Authentic Persona 5 Manga Calling-Card Chevron Blade */
 .p5-chevron-banner {
   position: relative;
-  background: #090b14;
-  border: 2px solid #ffffff;
+  background: #ffffff; /* Sharp outer border frame */
+  border: none;
   color: #ffffff;
   cursor: pointer;
-  padding: 10px 18px 10px 24px;
+  padding: 2.5px; /* Uniform 2.5px razor border around all clipped edges */
   clip-path: polygon(
-    14px 0%,
+    20px 0%,
     100% 0%,
-    calc(100% - 14px) 100%,
-    0% 100%
+    calc(100% - 18px) 50%,
+    100% 100%,
+    20px 100%,
+    0% 50%
   );
-  box-shadow: 4px 4px 0px #000000;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(4px 4px 0px #000000);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  text-align: left;
+  outline: none;
 }
 
-.p5-chevron-banner:nth-child(1) { transform: rotate(-0.5deg); }
-.p5-chevron-banner:nth-child(2) { transform: rotate(0.4deg); }
-.p5-chevron-banner:nth-child(3) { transform: rotate(-0.3deg); }
-.p5-chevron-banner:nth-child(4) { transform: rotate(0.6deg); }
+/* Staggered comic fan angle offsets */
+.p5-chevron-banner:nth-child(1) { transform: rotate(-1deg) skewX(-3deg); }
+.p5-chevron-banner:nth-child(2) { transform: rotate(0.8deg) skewX(-2deg) translateX(4px); }
+.p5-chevron-banner:nth-child(3) { transform: rotate(-0.5deg) skewX(-3deg) translateX(-2px); }
+.p5-chevron-banner:nth-child(4) { transform: rotate(1deg) skewX(-2deg) translateX(6px); }
 
-.p5-chevron-banner:hover,
+/* Hover State (Non-active) */
+.p5-chevron-banner:hover:not(.active) {
+  background: #ffea00; /* Hazard Gold border glow */
+  transform: translateX(-8px) scale(1.015) rotate(0deg);
+  filter: drop-shadow(5px 5px 0px #000000) drop-shadow(8px 8px 0px rgba(230, 0, 18, 0.6));
+  z-index: 4;
+}
+
+/* Active State: Forward thrust towards dossier with Persona Crimson + Hazard Gold punch */
 .p5-chevron-banner.active {
-  background: #e60012;
-  border-color: #ffffff;
-  transform: translateX(-14px) scale(1.03);
-  box-shadow: 6px 6px 0px #000000, 10px 10px 0px rgba(255, 234, 0, 0.5);
-  z-index: 5;
+  background: #ffffff;
+  transform: translateX(-18px) scale(1.025) rotate(-0.4deg) skewX(-3deg);
+  filter: drop-shadow(6px 6px 0px #000000) drop-shadow(11px 11px 0px rgba(255, 234, 0, 0.7));
+  z-index: 10;
 }
 
 .p5-chevron-inner {
+  position: relative;
+  width: 100%;
+  background: #080a12;
+  clip-path: polygon(
+    19px 0%,
+    100% 0%,
+    calc(100% - 17px) 50%,
+    100% 100%,
+    19px 100%,
+    0% 50%
+  );
+  padding: 8px 16px 8px 24px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 8px;
+  transition: background 0.2s ease;
 }
 
-.p5-chevron-icon {
-  font-size: 15px;
+.p5-chevron-banner.active .p5-chevron-inner {
+  background: #e60012;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.25) 1.5px, transparent 1.5px);
+  background-size: 6px 6px;
 }
 
-.p5-chevron-label {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(15px, 1.4vw, 19px);
-  letter-spacing: 1.2px;
-  color: #ffffff;
-  text-shadow: 2px 2px 0px #000000;
+.p5-chevron-left-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
+/* Channel Badge: High-contrast Manga Pin */
 .p5-chevron-tag {
   font-family: 'Space Grotesk', monospace;
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 800;
+  letter-spacing: 1px;
   background: #000000;
   color: #ffea00;
   padding: 2px 6px;
-  border: 1px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
 .p5-chevron-banner.active .p5-chevron-tag {
   background: #ffea00;
   color: #000000;
+  border-color: #000000;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Sharp Vector Icon */
+.p5-chevron-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.p5-channel-svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.p5-chevron-banner:hover .p5-channel-svg {
+  transform: scale(1.12);
+}
+
+.p5-chevron-banner.active .p5-channel-svg {
+  filter: drop-shadow(1px 1px 0px #000000);
+}
+
+/* Typographic Label */
+.p5-chevron-label {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.35vw, 18px);
+  letter-spacing: 1.3px;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #000000;
+  white-space: nowrap;
+}
+
+/* Trailing Tactical Status Stamp */
+.p5-chevron-status-stamp {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.p5-stamp-active {
+  background: #000000;
+  color: #ffea00;
+  padding: 2px 7px;
+  border: 1px solid #ffea00;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+  display: inline-block;
+}
+
+.p5-stamp-idle {
+  color: rgba(255, 255, 255, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  padding: 2px 6px;
+  display: inline-block;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.p5-chevron-banner:hover:not(.active) .p5-stamp-idle {
+  color: #ffea00;
+  border-color: #ffea00;
+}
+
+.p5-chevron-notch {
+  display: none;
 }
 
 .p5-areamap-character {
@@ -783,13 +893,43 @@
   }
 
   .p5-chevron-banner {
+    clip-path: none !important;
+    filter: none !important;
     transform: none !important;
-    padding: 8px 14px;
+    padding: 8px 14px !important;
+    background: #090b14 !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
   .p5-chevron-banner:hover,
   .p5-chevron-banner.active {
-    transform: translateY(-3px) scale(1.02);
+    background: #e60012 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 5px 5px 0px #000000, 8px 8px 0px rgba(255, 234, 0, 0.5) !important;
+  }
+
+  .p5-chevron-inner {
+    clip-path: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .p5-chevron-banner.active .p5-chevron-inner {
+    background: transparent !important;
+    background-image: none !important;
+  }
+
+  .p5-chevron-status-stamp {
+    display: none;
   }
 
   .p5-areamap-dossier {
@@ -991,9 +1131,22 @@
   }
 
   .p5-chevron-banner {
-    padding: 8px 10px;
-    clip-path: none;
-    border-radius: 0;
+    padding: 8px 10px !important;
+    clip-path: none !important;
+    filter: none !important;
+    border-radius: 0 !important;
+    border: 2px solid #ffffff !important;
+  }
+
+  .p5-chevron-inner {
+    clip-path: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .p5-chevron-banner.active .p5-chevron-inner {
+    background: transparent !important;
+    background-image: none !important;
   }
 
   .p5-chevron-label {
@@ -1003,6 +1156,10 @@
   .p5-chevron-tag {
     font-size: 8.5px;
     padding: 1px 4px;
+  }
+
+  .p5-chevron-status-stamp {
+    display: none;
   }
 
   .p5-areamap-dossier {
