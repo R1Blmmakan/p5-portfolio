@@ -1,217 +1,157 @@
-# 🎭 Persona 5 Manga Dossier // Portfolio Web
+# Hi, I'm R. Wan Fikri 👋
 
-> A high-voltage, JRPG-inspired developer portfolio engineered with **React 19**, **TypeScript**, **Framer Motion**, and pure mathematical **CSS**. Built in the authentic visual style of **Persona 5** and **Persona 3 Reload**, structured as a classified manga dossier.
+I'm a 16-year-old **Full-Stack Software Engineering student** from Jonggol, Indonesia. I enjoy building interactive user interfaces, production-ready web applications, REST APIs, and reliable backend systems.
 
-[![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-13.2-FF007F?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Oxlint](https://img.shields.io/badge/Linter-Oxlint-blue?style=flat-square)](https://oxc.rs/)
-[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square)](#-license--proprietary-terms)
+I’m currently studying Software Engineering at **SMK Metland Cileungsi**, while working on real-world projects using technologies such as React, TypeScript, Node.js, PostgreSQL, Laravel, Docker, and Flutter.
 
----
+## About Me
 
-## 🌟 Concept & Design Philosophy
+- 🧑‍💻 Full-Stack Software Engineering student
+- 🎓 Studying Software Engineering at SMK Metland Cileungsi
+- 📍 Based in Jonggol, Indonesia
+- 🚀 Focused on frontend architecture, backend engineering, and API development
+- 🏆 Juara Harapan 2 / 5th place in LKS (Lomba Kompetensi Siswa) Tingkat Kabupaten ITSFB
+- 📜 BNSP-certified Junior Software Engineer
+- 🛠️ Building projects with clean architecture and production-focused practices
+- 🎯 Open to industrial apprenticeship opportunities for 2027
 
-Generic developer portfolios rely on the same predictable blueprint: a neutral top navbar, centered hero text, and a quiet grid of cards.
+## My Development Philosophy
 
-**This portfolio is engineered like an interactive console game.**
+> Architecting robust systems, clean interfaces, and production-ready logic.
 
-Inspired by ATLUS's signature JRPG menus, high-contrast typography, and dynamic comic panel transitions, this application transforms technical credentials, competition records, and production projects into an interactive **Classified Manga Dossier**.
+I believe software development is more than writing code. It is about understanding problems, designing maintainable solutions, creating useful experiences, and continuously improving through practice.
 
-### Three Design Dials (from `DESIGN.md`)
-- **ENERGY 3 (Bold)**: High-voltage rebellion, sharp comic frame angles, classified archive tape strips, and high-contrast color collisions. No washed-out neutrals.
-- **RHYTHM 3 (Asymmetric)**: Varied manga panels, diagonal cut-outs, telemetry metadata tags, and narrative chapters.
-- **MOTION 2 (Kinetic with Restraint)**: Hardware-accelerated entrance transitions and 60 FPS GPU hover states. Motion serves user interaction rather than endless idle loops.
+My approach focuses on:
 
-### Color Tokens
-- **Base Neutral**: `#000000` (Pitch Black), `#040508` (Dark Stage)
-- **Primary Signal**: `#e60012` (Persona Crimson Red)
-- **Structural White**: `#ffffff` (High-contrast manga borders and display headers)
-- **Disciplined Accents**: `#ffea00` (Hazard Gold for credentials/honors), `#00e1ff` (Persona 3 Cyan for system telemetry)
+- Clean and modular architecture
+- Responsive and accessible interfaces
+- Reliable backend systems
+- Structured database design
+- Secure API development
+- Performance optimization
+- Continuous learning and experimentation
 
----
+## Technical Skills
 
-## 🎮 Core Dossiers & Features
+### Frontend & UI Development
 
-### 1. ⚡ The Phantom Menu (`/`)
-- Dynamic skew angles rendered through custom CSS `clip-path` polygon mathematics.
-- Looping video reel with radial darkening overlay masks to maintain 60 FPS performance.
-- Sub-route prefetching ensuring zero-latency transitions when entering dossiers.
-- Full keyboard and mobile touch support.
+- React
+- TypeScript
+- Next.js
+- Vite
+- Modern CSS
+- Framer Motion
+- PHP and Laravel
+- Windows Forms
 
-### 2. 📂 Classified Dossier // About Me (`/about`)
-- **Chronicle Chapters**: Multi-act narrative covering Origin & Awakening, Frontend Alchemy, Systems Architecture, Battle Record, and Career Objective.
-- **Dialogue Archive**: Developer interview transcripts detailing philosophy, technical choices, and competitive edge.
-- **Manga Stage Layout**: Angled panels, halftone screentones, and caution hazard tape headers with rapid keyboard shortcuts (`ESC` / `Backspace`).
+### Backend & Database
 
-### 3. 🃏 Tarot Arcana Projects Vault (`/projects` & `/sideproj`)
-- Projects categorized under Tarot Arcana (The Fool, The Magician, The Emperor, The Chariot).
-- Tech stack affinity chips with customized glowing color schemes.
-- Direct links to Live Production Demos and GitHub repositories.
-- Fluid keyboard cycling (<kbd>←</kbd> / <kbd>→</kbd> or <kbd>A</kbd> / <kbd>D</kbd>) and touch swipe support.
+- Node.js
+- Express.js
+- REST APIs
+- PostgreSQL
+- SQL Server
+- .NET
+- JWT authentication
+- Docker
+- Clean architecture
 
-### 4. 📜 Persona Status & Credentials (`/resume`)
-- Categorized into **Education** (SMK Metland RPL), **Tech Arsenal**, **Certificates**, and **Battle Record**.
-- **Interactive Certificate Modal**: Click on any listed credential to open an in-game dossier inspector complete with issuer verification, date, and badge.
-- **Direct CV Download**: One-click download button for the latest verified PDF resume (`/Fikri_Resume_2026.pdf`).
+### Development Practices
 
-### 5. 🌐 Guild Communications Network (`/socials`)
-- Persona-style communications hub linking GitHub, Instagram, TikTok, and direct email.
-- **One-Click Email Copy**: Clicking the email copies `fikripricahyadi10@gmail.com` to the clipboard with an in-game toast notification.
+- Git and GitHub
+- Pull request workflows
+- REST API design
+- Database relationship modeling
+- Responsive web design
+- Performance optimization
+- Code quality and maintainability
 
-### 6. 🎬 Staggered Color Wipe Transitions
-- Multi-layer color wipe sequence (Persona Blue `#040a1f`, Crimson `#c4001a`, Cyan `#00e1ff`, White) driven by **Framer Motion**.
-- Skewed polygons and stage unmount/mount coordination without layout shift.
+## Featured Projects
 
-### 7. 📱 Mobile Adaptation & Landscape Advisory
-- Reflowing responsive layout for phone and tablet viewports.
-- **Landscape Advisory Banner**: Automatically detects mobile portrait orientation and advises rotating for the widescreen console experience.
+### Unified Lossless API
 
----
+A high-throughput lossless audio streaming and caching API built with FastAPI and Docker.
 
-## 🕹️ Input Controls
+**Highlights:**
 
-The entire portfolio can be operated via keyboard, mouse, or touch gestures:
+- Real-time stream decryption
+- HTTP 206 partial-content delivery
+- Audio caching and relay functionality
+- Hardware monitoring dashboard
 
-| Context | Keys | Touch Gesture | Action |
-| :--- | :--- | :--- | :--- |
-| **Global** | <kbd>Esc</kbd> / <kbd>Backspace</kbd> | Tap Back Button | Return to Main Menu |
-| **Main Menu** | <kbd>↑</kbd> / <kbd>↓</kbd> | Tap Menu Row | Navigate Menu Options |
-| **Main Menu** | <kbd>Enter</kbd> | Tap Selected | Open Dossier Route |
-| **About Dossier** | <kbd>Q</kbd> / <kbd>E</kbd> or <kbd>←</kbd> / <kbd>→</kbd> | Horizontal Swipe | Switch Dossier Sections |
-| **Projects** | <kbd>A</kbd> / <kbd>D</kbd> or <kbd>←</kbd> / <kbd>→</kbd> | Horizontal Swipe | Cycle Projects |
-| **Projects** | <kbd>Enter</kbd> | Tap Action Button | Launch Live Demo URL |
-| **Resume Screen** | <kbd>↑</kbd> / <kbd>↓</kbd> | Tap Category | Change Resume Tab |
-| **Resume Screen** | <kbd>Enter</kbd> | Tap Card | Inspect Certificate Modal |
-| **Socials Screen** | <kbd>↑</kbd> / <kbd>↓</kbd> | Tap Platform | Select Channel |
+**Technologies:** Python, FastAPI, Docker, Cryptography
 
----
+[View the repository](https://github.com/R1Blmmakan/music_addon) · [Live demo](https://api.r1fikri.dev)
 
-## 🛠️ Technology Stack
+### Metland School Library
 
-| Technology | Role | Implementation Rationale |
-| :--- | :--- | :--- |
-| **React 19** | Core UI Engine | Component architecture utilizing concurrent rendering and route-level suspense boundaries. |
-| **TypeScript 5.7** | Type System | Strict compile-time contracts across project datasets, navigation models, and props. |
-| **Vite 8.2** | Build & Dev Tooling | Fast Hot Module Replacement (HMR) and optimized rollup production bundling. |
-| **Framer Motion 13.2** | Animation Layer | Hardware-accelerated page transition coordination and spring kinematics. |
-| **React Router v7** | Route Management | Single-page route handling with layout transitions. |
-| **Vanilla CSS** | Design Tokens & Layout | Custom CSS `clip-path` polygons, matrix skews, and responsive grids without framework bloat. |
-| **Oxlint** | Code Quality | High-speed JavaScript and TypeScript linting enforcing clean code consistency. |
+A full-stack digital library management platform created for Metland School.
 
----
+**Highlights:**
 
-## 📂 Repository Architecture
+- Role-based access control
+- Automated overdue tracking and fine calculation
+- Book circulation management
+- Inventory and borrowing analytics
 
-```text
-p5-portfolio/
-├── public/                       # Static public assets
-│   ├── bg.mp4                    # Looping video reel for main menu
-│   ├── newBg.mp4                 # Video background for dossier & resume
-│   ├── main3.webm                # Background video for socials hub
-│   ├── char1.webp - char3.webp   # Optimized character artwork
-│   ├── Persona5main.ttf          # Persona 5 game display typeface
-│   └── Fikri_Resume_2026.pdf     # Downloadable verified resume PDF
-│
-├── src/
-│   ├── data/                     # Typed data models and content stores
-│   │   ├── about.ts              # Chronicles, dialogue archive, and biography
-│   │   ├── projects.ts           # Tarot Arcana project entries and links
-│   │   ├── resume.ts             # Education, skills, and credential dossier
-│   │   └── socials.ts            # Network channels and contact handles
-│   │
-│   ├── types/                    # TypeScript interfaces
-│   │   └── portfolio.ts          # Contracts for projects, resume, and data models
-│   │
-│   ├── AboutMe.tsx & .css        # Classified dossier and dialogue interface
-│   ├── LandscapeHint.tsx & .css  # Orientation advisory for mobile screens
-│   ├── Menu.tsx & .css           # Skewed interactive home navigation
-│   ├── PageTransition.tsx & .css # Framer Motion multi-tier color wipe transitions
-│   ├── ProjectsPage.tsx & .css   # Tarot Arcana project showcase
-│   ├── ResumePage.tsx & .css     # Persona status screen with certificate inspector
-│   ├── Socials.tsx & .css        # Contact communications hub
-│   ├── VideoOverlay.tsx & .css   # Reusable video darkening gradient layer
-│   ├── App.tsx                   # Route definitions and suspense loader
-│   └── main.tsx                  # React application entrypoint
-│
-├── index.html                    # HTML shell, typography preloads, and SEO tags
-├── package.json                  # Scripts and dependencies
-├── tsconfig.json                 # TypeScript compiler configuration
-└── vite.config.js                # Vite build configuration
-```
+**Technologies:** Next.js, React, Prisma, PostgreSQL
 
----
+[View the repository](https://github.com/Natansilaban/SchoolLibraryMetland) · [Live demo](https://librarymetland.r1fikri.dev/)
 
-## 🚀 Local Development
+### Pillo Hotel Reservation
 
-### 1. Prerequisites
-- **Node.js** (v18.0.0 or higher recommended)
-- **npm** (comes with Node.js) or **pnpm** / **yarn**
+A hotel reservation and property management system built for managing rooms, guests, facilities, and bookings.
 
-### 2. Setup
-```bash
-# Clone the repository
-git clone https://github.com/R1Blmmakan/p5-portfolio.git
+**Technologies:** Laravel, PHP, Alpine.js, Tailwind CSS
 
-# Enter the project directory
-cd p5-portfolio
+[View the repository](https://github.com/asabrightzzz/pillo_hotel2) · [Live demo](https://pillohotel.r1fikri.dev/)
 
-# Install dependencies
-npm install
-```
+### Mirae Web Platform
 
-### 3. Start Development Server
-```bash
-npm run dev
-```
+An interactive cultural and educational tourism platform focused on destinations and traditional Emirati culture.
 
-Open your browser at `http://localhost:5173` to explore the portfolio.
+**Technologies:** JavaScript, Bootstrap, CSS Grid
 
----
+[View the repository](https://github.com/R1Blmmakan/Mirae-web) · [Live demo](https://mirae.r1fikri.dev/)
 
-## 💻 Available Scripts
+### Mirae Mobile Application
 
-| Script | Purpose |
-| :--- | :--- |
-| `npm run dev` | Starts the Vite development server with hot module replacement. |
-| `npm run build` | Compiles TypeScript and creates an optimized production bundle in `/dist`. |
-| `npm run preview` | Locally serves the `/dist` production build for pre-deployment verification. |
-| `npm run lint` | Runs **Oxlint** across all source files for fast syntax and hygiene checks. |
+A Flutter mobile application for exploring destinations, regional information, and travel routes in the United Arab Emirates.
 
----
+**Technologies:** Flutter, Dart
 
-## 🚢 Production Deployment
+[View the repository](https://github.com/R1Blmmakan/Mirae) · [Download the Android release](https://github.com/R1Blmmakan/Mirae/releases/)
 
-To build the static distribution bundle:
+## Achievements & Certifications
 
-```bash
-npm run build
-```
+- 🏅 Juara Harapan 2 / 5th Place — LKS (Lomba Kompetensi Siswa) Tingkat Kabupaten ITSFB
+- 📜 BNSP Junior Software Engineer Certification, 2025
+- 📚 Dicoding Full-Stack Web Developer Certification, 2024
+- 💻 freeCodeCamp JavaScript Algorithms and Data Structures Certification, 2023
 
-The resulting assets in `/dist` are ready for deployment to static hosting platforms such as Vercel, Netlify, or Cloudflare Pages.
+## Current Goals
 
-> **Single-Page Application Routing**: Ensure your hosting provider is configured with a wildcard rewrite directing all traffic (`/*`) to `/index.html` to prevent 404 errors on direct URL access.
+I am currently focused on:
 
----
+- Improving my full-stack development skills
+- Building production-ready applications
+- Learning more about scalable software architecture
+- Contributing to collaborative engineering projects
+- Preparing for an industrial apprenticeship in 2027
+- Growing as a professional software engineer
 
-## 📜 License & Proprietary Terms
+## Portfolio
 
-**Copyright © 2026 Fikri. All Rights Reserved.**
+Explore my interactive developer portfolio:
 
-This repository and its codebase are published for portfolio demonstration, code inspection, and technical review purposes:
+🌐 [r1fikri.dev](https://r1fikri.dev)
 
-- **No Unauthorized Distribution**: You may not fork, clone, republish, or sell this repository as your own portfolio, template, or commercial product.
-- **Original Code & Assets**: Custom visual layouts, CSS polygon matrices, Framer Motion choreography, and personal biography content are proprietary.
-- **Fair Use Tribute**: Character artwork, logo emblems, and font references derived from *Persona 5* and *Persona 3 Reload* are the intellectual property of **ATLUS / SEGA**. They are utilized strictly for non-commercial, personal creative portfolio tribute.
+The portfolio includes my background, resume, projects, certifications, technical skills, and contact information.
 
----
+## Connect With Me
 
-## 📬 Contact & Author
+- GitHub: [@R1Blmmakan](https://github.com/R1Blmmakan)
+- Instagram: [@r1_lupanama](https://instagram.com/r1_lupanama)
+- Email: [fikripricahyadi10@gmail.com](mailto:fikripricahyadi10@gmail.com)
 
-- **Developer**: R. Wan Fikri Pricahyadi
-- **Status**: Software Engineering Student at SMK Metland (Class of 2026)
-- **Accreditation**: 1st Winner, National Vocational Web Craft & UI/UX Championship (2024) | BNSP Certified Junior Software Engineer
-- **GitHub**: [@R1Blmmakan](https://github.com/R1Blmmakan)
-- **Email**: [fikripricahyadi10@gmail.com](mailto:fikripricahyadi10@gmail.com)
-- **Live Portfolio**: [fikri-portfolio.vercel.app](https://r1fikri.dev/)
+Thanks for visiting my profile! ⭐
