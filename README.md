@@ -1,157 +1,85 @@
-# Hi, I'm R. Wan Fikri 👋
+# Persona 5 Manga Portfolio
 
-I'm a 16-year-old **Full-Stack Software Engineering student** from Jonggol, Indonesia. I enjoy building interactive user interfaces, production-ready web applications, REST APIs, and reliable backend systems.
+Interactive developer portfolio for R. Wan Fikri Pricahyadi, styled after Persona 5 and manga dossier layouts. Live deployment at [r1fikri.dev](https://r1fikri.dev).
 
-I’m currently studying Software Engineering at **SMK Metland Cileungsi**, while working on real-world projects using technologies such as React, TypeScript, Node.js, PostgreSQL, Laravel, Docker, and Flutter.
+## Overview
 
-## About Me
+This repository contains the source code for my personal portfolio. The interface adapts Persona 5 menu aesthetics and manga panels, using high-contrast black, red, and white color schemes, angular frames, screen-tone textures, and motion-driven navigation.
 
-- 🧑‍💻 Full-Stack Software Engineering student
-- 🎓 Studying Software Engineering at SMK Metland Cileungsi
-- 📍 Based in Jonggol, Indonesia
-- 🚀 Focused on frontend architecture, backend engineering, and API development
-- 🏆 Juara Harapan 2 / 5th place in LKS (Lomba Kompetensi Siswa) Tingkat Kabupaten ITSFB
-- 📜 BNSP-certified Junior Software Engineer
-- 🛠️ Building projects with clean architecture and production-focused practices
-- 🎯 Open to industrial apprenticeship opportunities for 2027
+## Tech stack
 
-## My Development Philosophy
+- React 19 and TypeScript
+- Vite 8
+- Framer Motion 13
+- React Router 7
+- Vanilla CSS with scoped layout modules
+- Oxlint for linting
+- Cloudflare Pages with Wrangler
 
-> Architecting robust systems, clean interfaces, and production-ready logic.
+## Project structure
 
-I believe software development is more than writing code. It is about understanding problems, designing maintainable solutions, creating useful experiences, and continuously improving through practice.
+```text
+p5-portfolio/
+├── public/              # Fonts, video backgrounds, images, and PDF resume
+├── src/
+│   ├── data/            # Portfolio datasets (projects, resume, about, socials)
+│   ├── types/           # TypeScript definitions
+│   ├── AboutMe.tsx      # Developer background and technical skills
+│   ├── ProjectsPage.tsx # Featured engineering projects
+│   ├── ResumePage.tsx   # Experience timeline and qualifications
+│   ├── Socials.tsx      # Contact links and communication channels
+│   ├── Menu.tsx         # Persona-themed navigation screen
+│   ├── PageTransition.tsx # Kinetic route transition handlers
+│   ├── App.tsx          # Root routing and page-level code splitting
+│   └── main.tsx         # Application entry point
+├── wrangler.json        # Cloudflare Pages static site configuration
+└── package.json
+```
 
-My approach focuses on:
+## Running locally
 
-- Clean and modular architecture
-- Responsive and accessible interfaces
-- Reliable backend systems
-- Structured database design
-- Secure API development
-- Performance optimization
-- Continuous learning and experimentation
+Requirements:
+- Node.js 20 or newer
+- npm 10 or newer
 
-## Technical Skills
+1. Clone the repository:
+```bash
+git clone https://github.com/R1Blmmakan/p5-portfolio.git
+cd p5-portfolio
+```
 
-### Frontend & UI Development
+2. Install dependencies:
+```bash
+npm install
+```
 
-- React
-- TypeScript
-- Next.js
-- Vite
-- Modern CSS
-- Framer Motion
-- PHP and Laravel
-- Windows Forms
+3. Run the development server:
+```bash
+npm run dev
+```
 
-### Backend & Database
+The application runs at `http://localhost:5173`.
 
-- Node.js
-- Express.js
-- REST APIs
-- PostgreSQL
-- SQL Server
-- .NET
-- JWT authentication
-- Docker
-- Clean architecture
+## Available scripts
 
-### Development Practices
+- `npm run dev`: Starts the local development server.
+- `npm run build`: Generates the production build in the `dist` directory.
+- `npm run preview`: Previews the production build locally.
+- `npm run lint`: Runs Oxlint static code checks.
 
-- Git and GitHub
-- Pull request workflows
-- REST API design
-- Database relationship modeling
-- Responsive web design
-- Performance optimization
-- Code quality and maintainability
+## Deployment
 
-## Featured Projects
+The project is configured for Cloudflare Pages via `wrangler.json`. Production assets build into the `dist/` directory, which handles single-page routing:
 
-### Unified Lossless API
+```bash
+npm run build
+npx wrangler pages deploy dist
+```
 
-A high-throughput lossless audio streaming and caching API built with FastAPI and Docker.
+## License and usage
 
-**Highlights:**
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
 
-- Real-time stream decryption
-- HTTP 206 partial-content delivery
-- Audio caching and relay functionality
-- Hardware monitoring dashboard
+### Terms of use
 
-**Technologies:** Python, FastAPI, Docker, Cryptography
-
-[View the repository](https://github.com/R1Blmmakan/music_addon) · [Live demo](https://api.r1fikri.dev)
-
-### Metland School Library
-
-A full-stack digital library management platform created for Metland School.
-
-**Highlights:**
-
-- Role-based access control
-- Automated overdue tracking and fine calculation
-- Book circulation management
-- Inventory and borrowing analytics
-
-**Technologies:** Next.js, React, Prisma, PostgreSQL
-
-[View the repository](https://github.com/Natansilaban/SchoolLibraryMetland) · [Live demo](https://librarymetland.r1fikri.dev/)
-
-### Pillo Hotel Reservation
-
-A hotel reservation and property management system built for managing rooms, guests, facilities, and bookings.
-
-**Technologies:** Laravel, PHP, Alpine.js, Tailwind CSS
-
-[View the repository](https://github.com/asabrightzzz/pillo_hotel2) · [Live demo](https://pillohotel.r1fikri.dev/)
-
-### Mirae Web Platform
-
-An interactive cultural and educational tourism platform focused on destinations and traditional Emirati culture.
-
-**Technologies:** JavaScript, Bootstrap, CSS Grid
-
-[View the repository](https://github.com/R1Blmmakan/Mirae-web) · [Live demo](https://mirae.r1fikri.dev/)
-
-### Mirae Mobile Application
-
-A Flutter mobile application for exploring destinations, regional information, and travel routes in the United Arab Emirates.
-
-**Technologies:** Flutter, Dart
-
-[View the repository](https://github.com/R1Blmmakan/Mirae) · [Download the Android release](https://github.com/R1Blmmakan/Mirae/releases/)
-
-## Achievements & Certifications
-
-- 🏅 Juara Harapan 2 / 5th Place — LKS (Lomba Kompetensi Siswa) Tingkat Kabupaten ITSFB
-- 📜 BNSP Junior Software Engineer Certification, 2025
-- 📚 Dicoding Full-Stack Web Developer Certification, 2024
-- 💻 freeCodeCamp JavaScript Algorithms and Data Structures Certification, 2023
-
-## Current Goals
-
-I am currently focused on:
-
-- Improving my full-stack development skills
-- Building production-ready applications
-- Learning more about scalable software architecture
-- Contributing to collaborative engineering projects
-- Preparing for an industrial apprenticeship in 2027
-- Growing as a professional software engineer
-
-## Portfolio
-
-Explore my interactive developer portfolio:
-
-🌐 [r1fikri.dev](https://r1fikri.dev)
-
-The portfolio includes my background, resume, projects, certifications, technical skills, and contact information.
-
-## Connect With Me
-
-- GitHub: [@R1Blmmakan](https://github.com/R1Blmmakan)
-- Instagram: [@r1_lupanama](https://instagram.com/r1_lupanama)
-- Email: [fikripricahyadi10@gmail.com](mailto:fikripricahyadi10@gmail.com)
-
-Thanks for visiting my profile! ⭐
+You may clone and run this codebase locally for personal study, testing, and understanding how the animations and components work. You may not publish modified copies of this repository as your own portfolio, nor reuse personal records, custom branding, or private assets without prior permission.
