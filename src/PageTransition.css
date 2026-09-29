@@ -1,16 +1,10 @@
 .p5-transition-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .p5-transition-container {
-    height: auto;
-    min-height: 100%;
-    overflow: visible;
-  }
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 .p5-transition-overlay-item {

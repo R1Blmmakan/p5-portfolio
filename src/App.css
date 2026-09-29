@@ -6,11 +6,3 @@ main {
   overflow-x: hidden;
   overflow-y: visible;
 }
-
-@media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
-  main {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-}

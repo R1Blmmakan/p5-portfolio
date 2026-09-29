@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./ResumePage.css";
 import VideoOverlay from "./VideoOverlay";
 import { DetailRow } from "./types/portfolio";
@@ -13,6 +13,13 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
   const [active, setActive] = useState<number>(0);
   const [mounted, setMounted] = useState<boolean>(false);
   const [selectedCert, setSelectedCert] = useState<DetailRow | null>(null);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTop = 0;
+    }
+  }, [active]);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
@@ -117,7 +124,14 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
           </button>
         </header>
 
-        <div className="resume-spread">
+        <div
+          className="resume-spread"
+          onWheel={(e) => {
+            if (scrollAreaRef.current) {
+              scrollAreaRef.current.scrollTop += e.deltaY;
+            }
+          }}
+        >
           <aside className="resume-nav-dock">
             <div className={`resume-list-tag${mounted ? " mounted" : ""}`}>
               <span>LIST</span>
@@ -197,7 +211,7 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
                 <div className="resume-banner-progress">{currentItem.details.topProgress}</div>
               </div>
 
-              <div className="resume-dossier-scroll-area">
+              <div className="resume-dossier-scroll-area" ref={scrollAreaRef}>
                 <div className="resume-dossier-list">
                   {currentItem.details.rows.map((row) => (
                     <article

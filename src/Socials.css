@@ -851,9 +851,12 @@
 
 @media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
   .p5-socials-stage {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
@@ -930,6 +933,22 @@
 
   .p5-chevron-status-stamp {
     display: none;
+  }
+
+  .p5-chevron-left-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .p5-chevron-label {
+    font-size: clamp(12.5px, 1.4vw, 15px);
+    letter-spacing: 0.9px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .p5-areamap-dossier {
@@ -1149,13 +1168,20 @@
     background-image: none !important;
   }
 
-  .p5-chevron-label {
-    font-size: 12px;
+  .p5-chevron-left-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .p5-chevron-tag {
-    font-size: 8.5px;
-    padding: 1px 4px;
+  .p5-chevron-label {
+    font-size: clamp(11.5px, 2.8vw, 13px);
+    letter-spacing: 0.7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .p5-chevron-status-stamp {

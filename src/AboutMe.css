@@ -40,13 +40,16 @@
 }
 
 .p5-manga-topbar {
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: clamp(10px, 1.8vh, 18px) clamp(16px, 3vw, 40px);
   flex-shrink: 0;
+  background: rgba(4, 5, 8, 0.94);
+  backdrop-filter: blur(8px);
 }
 
 .p5-manga-tape-strip {
@@ -123,11 +126,13 @@
   flex: 1;
   display: flex;
   gap: clamp(16px, 2.2vw, 32px);
-  padding: 0 clamp(16px, 3vw, 40px) clamp(10px, 1.5vh, 16px);
+  padding: 0 clamp(16px, 3vw, 40px) 44px;
   align-items: stretch;
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
+  height: auto;
+  min-height: 0;
 }
 
 .p5-manga-panel {
@@ -144,11 +149,12 @@
   padding: clamp(12px, 1.8vh, 18px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(8px, 1.2vh, 12px);
+  justify-content: flex-start;
+  gap: clamp(10px, 1.4vh, 14px);
   transform: rotate(-0.6deg);
-  overflow-y: auto;
+  overflow: visible;
   flex-shrink: 0;
+  height: fit-content;
 }
 
 .p5-panel-tape-pin {
@@ -245,7 +251,7 @@
 
 .p5-comic-role {
   font-family: 'Space Grotesk', monospace;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.2px;
   color: #cbd5e1;
@@ -262,7 +268,7 @@
   background: #080a12;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 3.5px solid #ffffff;
-  padding: 4px 7px;
+  padding: 4px 8px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -285,16 +291,16 @@
 
 .p5-evidence-label {
   font-family: 'Space Grotesk', monospace;
-  font-size: 8px;
+  font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.8px;
   color: #94a3b8;
 }
 
 .p5-evidence-val {
   font-family: 'Anton', 'Space Grotesk', sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 0.8px;
+  font-size: 13.5px;
+  letter-spacing: 0.6px;
   color: #ffffff;
 }
 
@@ -310,11 +316,11 @@
   background: #06070e;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-left: 4px solid #e60012;
-  padding: 7px 9px;
+  padding: 8px 10px;
   box-shadow: 3px 3px 0px #000000;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   margin-top: 2px;
 }
 
@@ -323,9 +329,9 @@
   align-items: center;
   gap: 6px;
   font-family: 'Space Grotesk', monospace;
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #94a3b8;
 }
 
@@ -339,20 +345,20 @@
 .p5-telemetry-status {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
 }
 
 .p5-telemetry-label {
   font-family: 'Space Grotesk', monospace;
-  font-size: 7.5px;
-  letter-spacing: 1px;
+  font-size: 10.5px;
+  letter-spacing: 0.8px;
   color: #94a3b8;
 }
 
 .p5-telemetry-highlight {
   font-family: 'Anton', sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 1px;
+  font-size: 13.5px;
+  letter-spacing: 0.8px;
   color: #ffffff;
 }
 
@@ -361,21 +367,21 @@
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 4px;
+  padding-top: 5px;
   margin-top: 2px;
 }
 
 .p5-telemetry-coords {
   font-family: 'Space Grotesk', monospace;
-  font-size: 8px;
+  font-size: 10.5px;
   color: #94a3b8;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 .p5-telemetry-actions {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .p5-telemetry-action-btn {
@@ -384,12 +390,12 @@
   border: 1px solid #ffea00;
   border-radius: 0px;
   font-family: 'Anton', sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1px;
-  padding: 2px 7px;
+  padding: 3px 8px;
   cursor: pointer;
   transition: all 0.15s ease;
-  min-height: 28px;
+  min-height: 30px;
   display: inline-flex;
   align-items: center;
 }
@@ -422,8 +428,10 @@
   display: flex;
   flex-direction: column;
   gap: clamp(10px, 1.4vh, 14px);
-  overflow-y: auto;
+  overflow: visible;
   padding-right: 6px;
+  height: auto;
+  min-height: 0;
 }
 
 .p5-manga-storyboard::-webkit-scrollbar,
@@ -488,19 +496,20 @@
 .p5-speech-text {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: clamp(12.5px, 1.05vw, 14px);
+  font-size: clamp(13px, 1.1vw, 15px);
   letter-spacing: 0.5px;
   color: #ffffff;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
 .p5-koma-body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(13px, 1vw, 14.5px);
+  font-size: clamp(13.5px, 1.05vw, 15px);
   line-height: 1.68;
   color: #f1f5f9;
-  letter-spacing: 0.15px;
+  letter-spacing: 0.2px;
+  max-width: 72ch;
 }
 
 .p5-panel-arsenal {
@@ -518,23 +527,23 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .p5-stack-heading {
   font-family: 'Space Grotesk', monospace;
-  font-size: 9.5px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 3px;
+  padding-bottom: 4px;
 }
 
 .p5-comic-stamp-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
 }
 
 .p5-comic-stamp {
@@ -542,9 +551,9 @@
   border: 1px solid #ffffff;
   color: #ffffff;
   font-family: 'Anton', sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 0.8px;
-  padding: 2px 8px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  padding: 3px 9px;
   box-shadow: 2px 2px 0px #000000;
   transition: transform 0.15s ease, background 0.15s ease;
 }
@@ -594,9 +603,9 @@
 .p5-clipping-badge {
   align-self: flex-start;
   font-family: 'Anton', sans-serif;
-  font-size: 9px;
-  letter-spacing: 1px;
-  padding: 1px 6px;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  padding: 2px 7px;
   box-shadow: 1.5px 1.5px 0px #000000;
 }
 
@@ -613,8 +622,8 @@
 .p5-clipping-headline {
   margin: 0;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(12.5px, 1.1vw, 14.5px);
-  letter-spacing: 0.8px;
+  font-size: clamp(14px, 1.15vw, 16px);
+  letter-spacing: 0.6px;
   color: #ffffff;
   line-height: 1.25;
 }
@@ -622,9 +631,9 @@
 .p5-clipping-desc {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(11.5px, 0.9vw, 13px);
+  font-size: clamp(12.5px, 0.95vw, 13.8px);
   line-height: 1.6;
-  color: #e2e8f0;
+  color: #cbd5e1;
 }
 
 .p5-record-action-row {
@@ -638,9 +647,9 @@
   color: #ffea00;
   border: 1.5px solid #ffea00;
   font-family: 'Anton', sans-serif;
-  font-size: clamp(10px, 0.9vw, 12px);
+  font-size: clamp(11.5px, 0.95vw, 13px);
   letter-spacing: 1px;
-  padding: 4px 12px;
+  padding: 5px 14px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -701,7 +710,7 @@
 .p5-spec-pill {
   background: #080a12;
   border: 1.5px solid #ffffff;
-  padding: 5px 9px;
+  padding: 6px 10px;
   box-shadow: 2px 2px 0px #000000;
   display: flex;
   align-items: center;
@@ -711,16 +720,16 @@
 
 .p5-spec-label {
   font-family: 'Space Grotesk', monospace;
-  font-size: 9.5px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
   color: #94a3b8;
 }
 
 .p5-spec-val {
   font-family: 'Anton', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.8px;
+  font-size: 13.5px;
+  letter-spacing: 0.6px;
   color: #ffffff;
 }
 
@@ -780,18 +789,23 @@
 
 @media (min-width: 1101px) and (min-height: 701px) and (orientation: landscape) {
   .p5-manga-stage {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .p5-manga-spread {
-    overflow: hidden;
+    overflow: visible;
     flex: 1;
+    height: auto;
+    padding-bottom: 44px;
   }
 }
 
-@media (max-width: 1180px) and (orientation: portrait), (orientation: portrait) and (max-aspect-ratio: 1.05) {
+@media (max-width: 1080px), (max-height: 600px), (orientation: portrait) and (max-aspect-ratio: 1.05) {
   .p5-manga-stage {
     height: auto;
     min-height: 100vh;
@@ -886,17 +900,17 @@
   }
 
   .p5-telemetry-header {
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .p5-telemetry-highlight {
-    font-size: 11.5px;
+    font-size: 13.5px;
   }
 
   .p5-telemetry-action-btn {
     min-height: 38px;
     padding: 6px 14px;
-    font-size: 10.5px;
+    font-size: 12px;
   }
 
   .p5-manga-storyboard {
@@ -970,17 +984,18 @@
   }
 
   .p5-clipping-badge {
-    font-size: 9.5px;
+    font-size: 11px;
     padding: 2px 7px;
   }
 
   .p5-clipping-headline {
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   .p5-clipping-desc {
-    font-size: 11.5px;
-    line-height: 1.55;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #cbd5e1;
   }
 
   .p5-spec-pill {
@@ -988,11 +1003,12 @@
   }
 
   .p5-spec-label {
-    font-size: 8.5px;
+    font-size: 11px;
+    font-weight: 700;
   }
 
   .p5-spec-val {
-    font-size: 12px;
+    font-size: 13.5px;
   }
 
   .p5-manga-footer {

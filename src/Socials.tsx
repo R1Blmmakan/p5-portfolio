@@ -292,7 +292,6 @@ export default function Socials({ onBack }: SocialsProps) {
                   >
                     <div className="p5-chevron-inner">
                       <div className="p5-chevron-left-group">
-                        <span className="p5-chevron-tag">{item.channelNum || `0${idx + 1}`}</span>
                         <span className="p5-chevron-icon" aria-hidden="true">
                           {renderChannelIcon(item.id) || item.icon}
                         </span>
