@@ -52,8 +52,8 @@ export default function ProjectsPage({ onBack }: ProjectsPageProps) {
     <div className={`p5-deck-stage ${mounted ? "mounted" : ""}`}>
       <video
         className="p5-deck-bg-video"
-        poster="/newBg_poster.webp"
-        src="/newBg.mp4"
+        poster="/stage_bg_poster.webp"
+        src="/stage_bg.mp4"
         autoPlay
         loop
         muted

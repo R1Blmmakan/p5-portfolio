@@ -7,12 +7,15 @@
 }
 
 :root {
-  --p3-dark-blue: #041026;
-  --p3-navy: #092042;
-  --p3-cyan: #00e1ff;
-  --p3-blue: #1c75ff;
-  --p3-red: #ff1c44;
-  --p3-white: #f5f9ff;
+  --p5-black: #000000;
+  --p5-stage: #040508;
+  --p5-crimson: #e60012;
+  --p5-crimson-dark: #b8000e;
+  --p5-white: #ffffff;
+  --p5-gold: #ffea00;
+  --p5-cyan: #00e1ff;
+  --p5-gray-dark: #12141a;
+  --p5-gray-border: #232733;
 }
 
 * {
@@ -23,9 +26,7 @@
 
 button,
 nav,
-.p3-skew-wrap,
 .p5-transition-overlay-item,
-.p3-glow,
 .sc-nav-btn,
 .sc-nav-arrow,
 .resume-badge,
@@ -39,8 +40,8 @@ video {
 }
 
 ::selection {
-  background: #e61438;
-  color: #ffffff;
+  background: var(--p5-crimson);
+  color: var(--p5-white);
 }
 
 html {
@@ -62,9 +63,9 @@ body {
   padding: 0;
   overflow-x: hidden;
   overflow-y: visible;
-  background-color: var(--p3-dark-blue);
-  color: var(--p3-white);
-  font-family: 'Persona5', 'Space Grotesk', sans-serif;
+  background-color: var(--p5-black);
+  color: var(--p5-white);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 #root,
@@ -74,3 +75,4 @@ main {
   min-height: 100%;
   position: relative;
 }
+

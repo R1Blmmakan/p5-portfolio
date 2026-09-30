@@ -39,8 +39,8 @@ export default function AboutMe({ onBack, onNavigate }: AboutMeProps) {
     <div className={`p5-manga-stage ${mounted ? "mounted" : ""}`}>
       <video
         className="p5-manga-video"
-        poster="/newBg_poster.webp"
-        src="/newBg.mp4"
+        poster="/stage_bg_poster.webp"
+        src="/stage_bg.mp4"
         autoPlay
         loop
         muted

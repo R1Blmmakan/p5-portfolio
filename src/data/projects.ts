@@ -11,7 +11,7 @@ export const PROJECTS: ProjectItem[] = [
     demoUrl: "https://api.r1fikri.dev",
     demoLabel: "LIVE DEMO [ENTER]",
     githubUrl: "https://github.com/R1Blmmakan/music_addon",
-    image: "/apiproject.webp",
+    image: "/project_bitchord_api.webp",
     desc: "High-throughput lossless audio streaming and caching relay built with FastAPI and Docker. Performs on-the-fly Blowfish CBC stream decryption for Deezer CDN, Tidal DASH manifest proxying, and HTTP 206 chunked byte-range delivery tailored for mobile ExoPlayer clients.",
     highlights: [
       "Real-time Blowfish CBC stream decryption without disk writes or buffer lag",
@@ -19,10 +19,10 @@ export const PROJECTS: ProjectItem[] = [
       "Hardware control dashboard monitoring CPU, memory, uptime, and port telemetry",
     ],
     techs: [
-      { name: "FASTAPI", color: "#009688", bg: "rgba(0,150,136,0.15)" },
-      { name: "PYTHON", color: "#3776ab", bg: "rgba(55,118,171,0.15)" },
-      { name: "DOCKER", color: "#2496ed", bg: "rgba(36,150,237,0.15)" },
-      { name: "CRYPTOGRAPHY", color: "#e53935", bg: "rgba(229,57,53,0.15)" },
+      { name: "FASTAPI", color: "#00e1ff" },
+      { name: "PYTHON", color: "#ffffff" },
+      { name: "DOCKER", color: "#ffea00" },
+      { name: "CRYPTOGRAPHY", color: "#e60012" },
     ],
   },
   {
@@ -35,7 +35,7 @@ export const PROJECTS: ProjectItem[] = [
     demoUrl: "https://librarymetland.r1fikri.dev/",
     demoLabel: "LIVE DEMO [ENTER]",
     githubUrl: "https://github.com/Natansilaban/SchoolLibraryMetland",
-    image: "/library_project.webp",
+    image: "/project_school_library.webp",
     desc: "Full-stack digital library management system built for Metland School. Automates book circulation workflows, fine estimation algorithms, role-based authorization for administrators and students, and digital inventory reporting.",
     highlights: [
       "Role-based access control (RBAC) powered by NextAuth.js and PostgreSQL",
@@ -43,10 +43,10 @@ export const PROJECTS: ProjectItem[] = [
       "Circulation analytics and monthly borrowing velocity visualization using Recharts",
     ],
     techs: [
-      { name: "NEXT.JS", color: "#ffffff", bg: "rgba(255,255,255,0.15)" },
-      { name: "REACT", color: "#00e1ff", bg: "rgba(0,225,255,0.15)" },
-      { name: "PRISMA", color: "#48bb78", bg: "rgba(72,187,120,0.15)" },
-      { name: "POSTGRESQL", color: "#336791", bg: "rgba(51,103,145,0.15)" },
+      { name: "NEXT.JS", color: "#ffffff" },
+      { name: "REACT", color: "#00e1ff" },
+      { name: "PRISMA", color: "#ffea00" },
+      { name: "POSTGRESQL", color: "#e60012" },
     ],
   },
   {
@@ -59,7 +59,7 @@ export const PROJECTS: ProjectItem[] = [
     demoUrl: "https://pillohotel.r1fikri.dev/",
     demoLabel: "LIVE DEMO [ENTER]",
     githubUrl: "https://github.com/asabrightzzz/pillo_hotel2",
-    image: "/pillohotel_project.webp",
+    image: "/project_pillo_hotel.webp",
     desc: "Enterprise hotel reservation and property management system engineered with Laravel. Delivers real-time room availability filtering, luxury suite catalogs, guest itinerary management, and multi-tier room facility configuration.",
     highlights: [
       "Multi-attribute room search with real-time inventory validation",
@@ -67,10 +67,10 @@ export const PROJECTS: ProjectItem[] = [
       "Responsive admin panel managing suite categories, facility tiers, and guest directories",
     ],
     techs: [
-      { name: "LARAVEL", color: "#ff2d20", bg: "rgba(255,45,32,0.15)" },
-      { name: "PHP", color: "#777bb4", bg: "rgba(119,123,180,0.15)" },
-      { name: "ALPINE.JS", color: "#77c1d8", bg: "rgba(119,193,216,0.15)" },
-      { name: "TAILWIND CSS", color: "#38bdf8", bg: "rgba(56,189,248,0.15)" },
+      { name: "LARAVEL", color: "#e60012" },
+      { name: "PHP", color: "#ffffff" },
+      { name: "ALPINE.JS", color: "#00e1ff" },
+      { name: "TAILWIND CSS", color: "#ffea00" },
     ],
   },
   {
@@ -83,7 +83,7 @@ export const PROJECTS: ProjectItem[] = [
     demoUrl: "https://mirae.r1fikri.dev/",
     demoLabel: "LIVE DEMO [ENTER]",
     githubUrl: "https://github.com/R1Blmmakan/Mirae-web",
-    image: "/miraeproject.webp",
+    image: "/project_mirae_web.webp",
     desc: "Cross-disciplinary educational tourism platform built for the United Arab Emirates. Features a 6-stage interactive destination route navigator, traditional Emirati gastronomy documentation, regional geography profiles, and national leadership biographies.",
     highlights: [
       "6-stage destination route navigator featuring premier UAE cultural landmarks",
@@ -91,9 +91,9 @@ export const PROJECTS: ProjectItem[] = [
       "Edge deployment optimized with Cloudflare Pages and custom Wrangler build rules",
     ],
     techs: [
-      { name: "JAVASCRIPT", color: "#f7df1e", bg: "rgba(247,223,30,0.15)" },
-      { name: "BOOTSTRAP", color: "#7952b3", bg: "rgba(121,82,179,0.15)" },
-      { name: "CSS GRID", color: "#2965f1", bg: "rgba(41,101,241,0.15)" },
+      { name: "JAVASCRIPT", color: "#ffea00" },
+      { name: "BOOTSTRAP", color: "#ffffff" },
+      { name: "CSS GRID", color: "#00e1ff" },
     ],
   },
   {
@@ -106,7 +106,7 @@ export const PROJECTS: ProjectItem[] = [
     demoUrl: "https://github.com/R1Blmmakan/Mirae/releases/",
     demoLabel: "DOWNLOAD APK [ENTER]",
     githubUrl: "https://github.com/R1Blmmakan/Mirae",
-    image: "/mirae_mobile.webp",
+    image: "/project_mirae_mobile.webp",
     isPortrait: true,
     desc: "Flutter mobile travel application for discovering the United Arab Emirates. Engineered with custom Bezier curved navigation physics, responsive category selectors, regional map routing, and optimized SVG asset pipeline.",
     highlights: [
@@ -115,8 +115,8 @@ export const PROJECTS: ProjectItem[] = [
       "Production Android release built with Flutter ScreenUtil and SVG asset pipeline",
     ],
     techs: [
-      { name: "FLUTTER", color: "#02569b", bg: "rgba(2,86,155,0.15)" },
-      { name: "DART", color: "#0175c2", bg: "rgba(1,117,194,0.15)" },
+      { name: "FLUTTER", color: "#00e1ff" },
+      { name: "DART", color: "#ffffff" },
     ],
   },
 ];

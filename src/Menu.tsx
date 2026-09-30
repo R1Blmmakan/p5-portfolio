@@ -65,6 +65,22 @@ interface MenuProps {
 export default function Menu({ onNavigate }: MenuProps) {
   const [active, setActive] = useState<number>(0);
   const [mounted, setMounted] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(max-width: 900px)").matches;
+  });
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 900px)");
+    const onChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  const videoSrc = isMobile ? "/mobilebg.mp4" : "/bg.mp4";
+  const posterSrc = isMobile ? "/mobilebg_poster.webp" : "/bg_poster.webp";
 
   const activate = useCallback((idx: number) => {
     setActive(idx);
@@ -106,9 +122,10 @@ export default function Menu({ onNavigate }: MenuProps) {
   return (
     <div className="p5-battle-container">
       <video
+        key={videoSrc}
         className="p5-battle-video"
-        poster="/bg_poster.webp"
-        src="/bg.mp4"
+        poster={posterSrc}
+        src={videoSrc}
         autoPlay
         loop
         muted
@@ -118,7 +135,11 @@ export default function Menu({ onNavigate }: MenuProps) {
       />
 
       <VideoOverlay
-        gradient="radial-gradient(ellipse at 75% 45%, transparent 35%, rgba(6, 8, 16, 0.85) 90%)"
+        gradient={
+          isMobile
+            ? "radial-gradient(ellipse at 50% 50%, rgba(6, 8, 16, 0.35) 0%, rgba(6, 8, 16, 0.78) 95%)"
+            : "radial-gradient(ellipse at 75% 45%, transparent 35%, rgba(6, 8, 16, 0.85) 90%)"
+        }
       />
 
       <div className={`p5-battle-overlay ${mounted ? "mounted" : ""}`}>

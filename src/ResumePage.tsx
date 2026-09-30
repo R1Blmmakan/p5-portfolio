@@ -9,7 +9,7 @@ interface ResumePageProps {
   src?: string;
 }
 
-export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePageProps) {
+export default function ResumePage({ onBack, src = "/stage_bg.mp4" }: ResumePageProps) {
   const [active, setActive] = useState<number>(0);
   const [mounted, setMounted] = useState<boolean>(false);
   const [selectedCert, setSelectedCert] = useState<DetailRow | null>(null);
@@ -83,7 +83,7 @@ export default function ResumePage({ onBack, src = "/newBg.mp4" }: ResumePagePro
     >
       <video
         className="resume-video-bg"
-        poster="/newBg_poster.webp"
+        poster="/stage_bg_poster.webp"
         src={src}
         autoPlay
         loop

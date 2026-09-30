@@ -145,22 +145,22 @@ export const RESUME_ITEMS: ResumeItem[] = [
       rows: [
         {
           index: "01",
-          title: "Juara 1: National Web Craft & UI/UX Championship",
-          subtitle: "Kejuaraan Tingkat Nasional SMK/Kejuruan",
-          organization: "Vocational Skills Council",
-          period: "2024",
-          badge: "1ST WINNER // GOLD",
+          title: "Juara 5: LKS SMK Tingkat Kabupaten (Desktop Programming / .NET)",
+          subtitle: "Lomba Kompetensi Siswa SMK Bidang IT Software Solutions",
+          organization: "Dinas Pendidikan / Musyawarah Guru Mata Pelajaran (MGMP) RPL",
+          period: "2026",
+          badge: "5TH PLACE // TOP 5",
           badgeType: "gold",
-          issuer: "Vocational Skills Council",
-          year: "2024",
-          credentialId: "VSC-NAT-2024-001",
-          description: "Meraih Juara 1 dalam kejuaraan nasional perancangan antarmuka web interaktif dan rapid prototyping berkecepatan tinggi.",
+          issuer: "Dinas Pendidikan & MGMP RPL",
+          year: "2026",
+          credentialId: "LKS-KAB-RPL-2026-05",
+          description: "Meraih Peringkat 5 tingkat Kabupaten dalam ajang Lomba Kompetensi Siswa (LKS) kategori desktop application engineering menggunakan .NET Windows Forms dan arsitektur SQL Server.",
           bullets: [
-            "Tantangan live coding 6 jam: perancangan antarmuka Figma, slicing responsif pixel-perfect, dan dynamic state management.",
-            "Skor tertinggi dalam kategori estetika visual, zero console errors, dan rendering performance 60 FPS."
+            "Tantangan live coding maraton: perancangan modul CRUD enterprise, arsitektur database relasional ternormalisasi, dan validasi transaksi.",
+            "Implementasi validasi data ketat dan performa aplikasi desktop tanpa memory leaks."
           ],
-          tags: ["UI/UX Design", "Responsive Slicing", "State Management", "National Honor"],
-          status: "1st Winner",
+          tags: [".NET", "C#", "Windows Forms", "SQL Server", "LKS SMK 2026"],
+          status: "5th Place",
           statusClass: "mastered"
         },
         {
@@ -236,7 +236,7 @@ export const RESUME_ITEMS: ResumeItem[] = [
     code: "04 // RECORD",
     title: "EXPERIENCES",
     subtitle: "PROJECTS, LEADERSHIP & INDUSTRY READINESS",
-    charImg: "/mainm.webp",
+    charImg: "/char_main.webp",
     details: {
       topIndex: "04",
       topTitle: "TRACK RECORD",

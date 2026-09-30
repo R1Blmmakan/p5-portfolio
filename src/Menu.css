@@ -43,13 +43,15 @@
 
 .p5-header-name {
   margin: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-style: italic;
   font-size: clamp(38px, 4.8vw, 64px);
   line-height: 0.9;
   letter-spacing: 2px;
   color: #ffffff;
-  text-shadow: 4px 4px 0px #000000, 7px 7px 0px #e60012;
+  text-shadow:
+    4px 4px 0px #000000,
+    7px 7px 0px #e60012;
 }
 
 .p5-manga-deck {
@@ -82,17 +84,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: flex 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.2s ease,
-              border-color 0.2s ease,
-              box-shadow 0.25s ease;
+  transition:
+    flex 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .p5-manga-slice:hover {
   border-color: #ffea00;
   transform: skewX(-10deg) translateY(-6px);
-  box-shadow: 8px 8px 0px #000000, 12px 12px 0px rgba(230, 0, 18, 0.4);
+  box-shadow:
+    8px 8px 0px #000000,
+    12px 12px 0px rgba(230, 0, 18, 0.4);
 }
 
 .p5-manga-slice.active {
@@ -100,21 +105,31 @@
   background: #e60012;
   border-color: #ffffff;
   transform: skewX(-10deg) translateY(-8px) scale(1.02);
-  box-shadow: 10px 10px 0px #000000, 16px 16px 0px rgba(0, 0, 0, 0.8);
+  box-shadow:
+    10px 10px 0px #000000,
+    16px 16px 0px rgba(0, 0, 0, 0.8);
   z-index: 10;
 }
 
 .p5-manga-halftone {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 1.2px,
+    transparent 1.2px
+  );
   background-size: 7px 7px;
   pointer-events: none;
   z-index: 1;
 }
 
 .p5-manga-slice.active .p5-manga-halftone {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.22) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.22) 1.5px,
+    transparent 1.5px
+  );
 }
 
 .p5-manga-speedline {
@@ -163,7 +178,7 @@
 }
 
 .p5-manga-num-badge {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 20px;
   letter-spacing: 1px;
   color: #ffea00;
@@ -173,7 +188,7 @@
 .p5-manga-vertical-title {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-style: italic;
   font-size: clamp(18px, 1.8vw, 24px);
   letter-spacing: 3px;
@@ -208,7 +223,7 @@
 .p5-manga-num-tag {
   background: #000000;
   color: #ffea00;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 15px;
   letter-spacing: 1.5px;
   padding: 2px 10px;
@@ -224,7 +239,7 @@
 
 .p5-manga-hero-title {
   margin: 0;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-style: italic;
   font-size: clamp(38px, 4.4vw, 62px);
   letter-spacing: 2px;
@@ -234,7 +249,7 @@
 }
 
 .p5-manga-hero-sub {
-  font-family: 'Space Grotesk', monospace;
+  font-family: "Space Grotesk", monospace;
   font-size: clamp(11.5px, 1.1vw, 13.5px);
   font-weight: 700;
   letter-spacing: 2px;
@@ -278,14 +293,14 @@
 .p5-key-badge {
   background: #e60012;
   color: #ffffff;
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 11.5px;
   letter-spacing: 1px;
   padding: 1px 6px;
 }
 
 .p5-key-label {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
   font-size: 11.5px;
   letter-spacing: 1.5px;
@@ -310,6 +325,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+    pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .p5-battle-overlay {
@@ -375,7 +395,9 @@
     transform: skewX(-8deg) translateX(6px);
     background: #e60012;
     border-color: #ffffff;
-    box-shadow: 5px 5px 0px #000000, 8px 8px 0px rgba(255, 234, 0, 0.4);
+    box-shadow:
+      5px 5px 0px #000000,
+      8px 8px 0px rgba(255, 234, 0, 0.4);
   }
 
   .p5-manga-collapsed-view {
@@ -470,5 +492,3 @@
     display: none !important;
   }
 }
-
-

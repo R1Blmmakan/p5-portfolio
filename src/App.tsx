@@ -19,13 +19,14 @@ function PersonaLoader() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#041026",
-        color: "#00e1ff",
-        fontFamily: "'Persona5', 'Space Grotesk', sans-serif",
-        fontSize: "1.6rem",
+        background: "#000000",
+        color: "#e60012",
+        fontFamily: "'Anton', 'Space Grotesk', sans-serif",
+        fontSize: "1.8rem",
         letterSpacing: "4px",
+        fontStyle: "italic",
         zIndex: 99999,
-        textShadow: "0 0 12px rgba(0, 225, 255, 0.6)",
+        textShadow: "3px 3px 0px #000000",
       }}
     >
       <span>LOADING...</span>
@@ -78,7 +79,7 @@ export default function App() {
             path="/resume"
             element={
               <PageTransition key="resume" variant="resume">
-                <ResumePage onBack={() => navigate("/")} src="/newBg.mp4" />
+                <ResumePage onBack={() => navigate("/")} src="/stage_bg.mp4" />
               </PageTransition>
             }
           />

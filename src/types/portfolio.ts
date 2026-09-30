@@ -1,7 +1,7 @@
 export interface TechAffinity {
   name: string;
   color: string;
-  bg: string;
+  bg?: string;
 }
 
 export interface ProjectItem {
@@ -140,12 +140,7 @@ export interface SocialItem {
   label: string;
   handle: string;
   href: string;
-  icon: string;
-  barIcon: string;
-  bars: number;
-  newBars: number[];
-  counts: string[];
-  links: string[];
+  icon?: string;
   stats: StatItem[];
   isEmail?: boolean;
   categoryTitle?: string;

@@ -5,7 +5,7 @@ import { SocialActionItem } from "./types/portfolio";
 import VideoOverlay from "./VideoOverlay";
 
 const jokerGlasses = "/joker_glasses.webp";
-const bgVideo = "/newBg.mp4";
+const bgVideo = "/stage_bg.mp4";
 
 function renderChannelIcon(id: string) {
   switch (id) {
@@ -136,7 +136,7 @@ export default function Socials({ onBack }: SocialsProps) {
     <div className={`p5-socials-stage ${mounted ? "mounted" : ""}`}>
       <video
         className="p5-socials-video"
-        poster="/newBg_poster.webp"
+        poster="/stage_bg_poster.webp"
         src={bgVideo}
         autoPlay
         loop

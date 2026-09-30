@@ -8,9 +8,9 @@ interface Block {
 }
 
 const defaultBlocks: Block[] = [
-  { color: "#040a1f", delay: 0 },
-  { color: "#c4001a", delay: 0.04 },
-  { color: "#00e1ff", delay: 0.08 },
+  { color: "#000000", delay: 0 },
+  { color: "#e60012", delay: 0.04 },
+  { color: "#ffea00", delay: 0.08 },
   { color: "#ffffff", delay: 0.12 },
 ];
 
@@ -53,9 +53,9 @@ interface Panel {
 }
 
 const aboutPanels: Panel[] = [
-  { color: "#040a1f", top: "-14vh", left: "-20vw", width: "140vw", delay: 0 },
-  { color: "#c4001a", top: "18vh", left: "-12vw", width: "140vw", delay: 0.04 },
-  { color: "#00e1ff", top: "48vh", left: "-16vw", width: "140vw", delay: 0.08 },
+  { color: "#000000", top: "-14vh", left: "-20vw", width: "140vw", delay: 0 },
+  { color: "#e60012", top: "18vh", left: "-12vw", width: "140vw", delay: 0.04 },
+  { color: "#ffea00", top: "48vh", left: "-16vw", width: "140vw", delay: 0.08 },
   { color: "#ffffff", top: "72vh", left: "-10vw", width: "140vw", delay: 0.12 },
 ];
 
@@ -76,7 +76,7 @@ function AboutTransition() {
             clipPath: "polygon(0 0, 100% 0, calc(100% - 130px) 100%, 0 100%)",
             transform: "rotate(-20deg)",
             transformOrigin: "left center",
-            boxShadow: panel.color === "#ffffff" ? "12px 0 0 #c4001a" : "none",
+            boxShadow: panel.color === "#ffffff" ? "12px 0 0 #e60012" : "none",
           }}
           initial={{ x: "-120vw", opacity: 1 }}
           animate={{
@@ -103,10 +103,10 @@ interface Card {
 }
 
 const resumeCards: Card[] = [
-  { top: "12vh", color: "#0d1547", delay: 0 },
-  { top: "29vh", color: "#00e1ff", delay: 0.04 },
+  { top: "12vh", color: "#000000", delay: 0 },
+  { top: "29vh", color: "#e60012", delay: 0.04 },
   { top: "46vh", color: "#ffffff", delay: 0.08 },
-  { top: "63vh", color: "#c4001a", delay: 0.12 },
+  { top: "63vh", color: "#ffea00", delay: 0.12 },
 ];
 
 function ResumeTransition() {
@@ -124,7 +124,7 @@ function ResumeTransition() {
             background: card.color,
             zIndex: 9999 - i,
             clipPath: "polygon(0 0, 97% 0, 100% 100%, 3% 100%)",
-            boxShadow: card.color === "#ffffff" ? "12px 0 0 #c4001a" : "0 8px 0 rgba(0,0,0,0.4)",
+            boxShadow: card.color === "#ffffff" ? "12px 0 0 #e60012" : "0 8px 0 rgba(0,0,0,0.8)",
           }}
           initial={{ x: "-120vw", opacity: 1 }}
           animate={{
@@ -152,9 +152,9 @@ interface Stripe {
 }
 
 const socialsStripes: Stripe[] = [
-  { color: "#040a1f", left: "68vw", width: "26vw", delay: 0 },
-  { color: "#c4001a", left: "78vw", width: "16vw", delay: 0.04 },
-  { color: "#00e1ff", left: "86vw", width: "10vw", delay: 0.08 },
+  { color: "#000000", left: "68vw", width: "26vw", delay: 0 },
+  { color: "#e60012", left: "78vw", width: "16vw", delay: 0.04 },
+  { color: "#ffea00", left: "86vw", width: "10vw", delay: 0.08 },
 ];
 
 function SocialsTransition() {

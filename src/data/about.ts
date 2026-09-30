@@ -76,25 +76,25 @@ export interface AboutData {
 export const ABOUT_DATA: AboutData = {
   topbarText: "FIKRI • SOFTWARE ENGINEER",
   identity: {
-    portraitImg: "/mainm.webp",
+    portraitImg: "/char_main.webp",
     portraitAlt: "Fikri Portrait",
     verifiedStatus: "VERIFIED CANDIDATE",
     fullName: "R. WAN FIKRI P",
     roleTitle: "FULL-STACK SOFTWARE ENGINEER",
     evidenceTags: [
-      { label: "[EXPERIENCE]", value: "5 YEARS CODING EXP" },
+      { label: "[EXPERIENCE]", value: "3+ YEARS DEV EXP" },
       { label: "[EDUCATION]", value: "SMK METLAND (PPLG)" },
-      { label: "[CERTIFICATION]", value: "LKS ", accent: "gold" },
+      { label: "[COMPETITION]", value: "LKS KABUPATEN 2026", accent: "gold" },
       {
         label: "[ACHIEVEMENT]",
-        value: "1ST NATIONAL WEB CRAFT",
+        value: "5TH PLACE LKS KAB.",
         accent: "red",
       },
     ],
     recruitmentStatus: {
       header: "STATUS & RECRUITMENT AVAILABILITY",
       label: "RECRUITMENT STATUS:",
-      highlight: "OPEN FOR On-The-Job Training as of 2027",
+      highlight: "OPEN FOR Apprenticeship / Internship (2026)",
     },
     locationCoords: "JONGGOL, ID • HYBRID / REMOTE",
     resumePdfUrl: "/Fikri_Resume_2026.pdf",
@@ -158,15 +158,15 @@ export const ABOUT_DATA: AboutData = {
     komaNum: "ACT 04",
     title: "CAREER OBJECTIVE & AVAILABILITY",
     narrative:
-      "Actively seeking an industrial apprenticeship or junior software engineer role for 2027. Ready to ship production-grade code, maintain clean multi-tier architectures, and integrate reliable full-stack services within fast-paced engineering teams.",
+      "Actively seeking an industrial apprenticeship or junior software engineer role for 2026. Ready to ship production-grade code, maintain clean multi-tier architectures, and integrate reliable full-stack services within fast-paced engineering teams.",
     specs: [
-      { label: "STATUS", value: "OPEN FOR 2027 OJT", highlight: "gold" },
+      { label: "STATUS", value: "OPEN FOR 2026 APPRENTICESHIP", highlight: "gold" },
       { label: "LOCATION", value: "JONGGOL, ID • HYBRID / REMOTE" },
       { label: "ROLE FOCUS", value: "FULL-STACK / FRONTEND ENGINEER" },
     ],
   },
   footerCoords: {
     text: "PORTFOLIO PROFILE // FIKRI • JONGGOL, ID",
-    status: "AVAILABLE 2026 / 2027",
+    status: "AVAILABLE FOR 2026 APPRENTICESHIP",
   },
 };
